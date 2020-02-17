@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<!-- Button trigger modal -->
+	<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Launch demo modal
+</button>-->
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+				</div>
+				<div class="modal-body">
+					...
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<header class="container-fluid header text-center">
+	<div class="container">
+		<div class="row  ">
+			<div class="col-lg-4 header__logo align-self-center">
+			<img src="img/logo.png" alt="" class="img-fluid">
+			</div>
+			<div class="col-lg-3 col-md-4 d-flex align-items-center   nopad   offset-lg-1  header__cont">
+				<div class="row col-12 nopad">
+					<div class="col-lg-4 col-md-3  col-6 phone   nopad">
+					
+					
+					
+					</div>
+					<div class="col-lg-8 col-md-9  col-6 phone-number   col-sm-12 d-flex align-items-center "><span class=" legend col-12 nopad">Горячая       линия <br> <a href="tel: +7 (800) 707-78-87 "> +7 (800) 707-78-87  </a></span></div>
+				</div>
+			</div>
+			<div class="col-lg-4  col-md-8">
+				<div class="row">
+					<a href="#" class="col   cart"><br><span class="legend">1 423 <i class="fas fa-ruble-sign"></i>
+  </span></a>
+					<a href="#" class="col log-in"><br><span class="legend d-flex align-items-end">Вход для диллеров
+  </span></a>
+				</div>
+			</div>
+		</div>
+		</div>
+		<nav class="navbar navbar-expand-lg   ">
+			<!--<a class="navbar-brand" href="#">Navbar</a>-->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+  </button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto d-flex justify-content-between ">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Холдинг Сераджем </a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Продукция
+        </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Новости</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Демонстрационные центры </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Сотрудничество</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Контакты </a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main>
+		<section class="slider">
+			<span class="h1">20 лет холдингу Сераджем</span>
+			<img src="img/SLIDER1.png" alt="" class="img-fluid">
+		</section>
+	<!--	<section class="link-line container">
+			<div class="row">
+				<div class="col-12 col-sm-4">
+					<a href="#">Трейд ин</a>
+				</div>
+				<div class="col-12 col-sm-4">
+					<a href="#">Рассрочка</a>
+				</div>
+				<div class="col-12 col-sm-4">
+					<a href="#">Бонусная система</a> 
+				</div>
+			</div>
+		</section>-->
+<!--		<section class="pursh container">
+			<div class="row">
+				<span class="text-center  col head-legend">Основные ценности</span>
+			</div>
+			<div class="row">
+				<div class="col-md-4 text-center adv">
+					<div class="col icon1"></div>
+					<div class="legend">Клиент </div>
+					<div class="text">
+						Наша деятельность ориентирована на Клиента Сераджем, и мы постоянно трудимся над инновациями, чтобы предоставить ему самые лучшие ценности и возможности продукции.
+					</div>
+				</div>
+				<div class="col-md-4 text-center adv">
+					<div class="col icon2"></div>
+					<div class="legend">Честность и прозрачность в работе </div>
+					<div class="text">
+						Мы честно и справедливо выполняем свою работу, за все несем ответственность, поэтому пользуемся заслуженным доверием людей
+					</div>
+				</div>
+				<div class="col-md-4 text-center adv">
+					<div class="col icon3"></div>
+					<div class="legend">Способные и талантливые кадры </div>
+					<div class="text">
+						Мы верим, что важнейшей частью компании являются способные и талантливые кадры, которые с уважением и пониманием относятся друг к другу, их многообразию, и на практике демонстрируют предназначение и ценности Сераджем, максимально проявляя свои способности.
+					</div>
+				</div>
+			</div>
+		</section>-->
+	<!--	<section class="item-section container">
+			<div class="row">
+				<div class="col d-flex align-items-center">- Потрясающая технология и уникальный маркетинг опробования, привлекшие внимание СМИ США, КНР, ФРГ, Венгрии, Чили, Испании и многих других стран!</div>
+				<div class="col"><img src="img/item.png" alt="" class="img-fluid"></div>
+				<div class="col d-flex align-items-center">Привлек внимание всего мира. Проверенный годами маркетинг опробования
+				</div>
+			</div>
+		</section>-->
+
+	<!--	<section class="blog-block container">
+			<div class="row">
+		 
+				<div class="col-md-12 col-lg-8 ">
+					<div class="row ">
+						<div class="  col-sm-9 col-6 blog-block_header">Новости Холдинга</div>
+						<div class="btn-in-block offset-1 text-center btn-reg col-1 "><i class="fas fa-th"></i></div>
+						<div class="btn-in-list  btn-reg text-center col-1"><i class="fas fa-list"></i></div>
+					</div>
+					<div class="row">
+						<div class="slider-posts">
+						<div class="">
+						<div class="align-row">
+							<div class="item ">
+							<img src="img/1.jpg" class="img-fluid" alt="">
+									<time class="time">
+									29.05.2018
+								</time>
+								<span class="text">
+									Признание Сераджем одной 
+из «300 компаний мирового 
+класса»
+
+								</span>
+									
+							</div>
+							<div class="item ">
+							<img src="img/1.jpg" class="img-fluid" alt="">
+									<time class="time">
+									29.05.2018
+								</time>
+								<span class="text">
+									Признание Сераджем одной 
+из «300 компаний мирового 
+класса»
+
+								</span>
+									
+							</div><div class="item ">
+							<img src="img/1.jpg" class="img-fluid" alt="">
+									<time class="time">
+									29.05.2018
+								</time>
+								<span class="text">
+									Признание Сераджем одной 
+из «300 компаний мирового 
+класса»
+
+								</span>
+									
+							</div>
+							
+							</div>
+							
+							</div>		<div class="">
+						<div class="align-row">
+							<div class="item ">
+							<img src="img/1.jpg" class="img-fluid" alt="">
+									<time class="time">
+									29.05.2018
+								</time>
+								<span class="text">
+									Признание Сераджем одной 
+из «300 компаний мирового 
+класса»
+
+								</span>
+									
+							</div>
+							<div class="item ">
+							<img src="img/1.jpg" class="img-fluid" alt="">
+									<time class="time">
+									29.05.2018
+								</time>
+								<span class="text">
+									Признание Сераджем одной 
+из «300 компаний мирового 
+класса»
+
+								</span>
+									
+							</div><div class="item ">
+							<img src="img/1.jpg" class="img-fluid" alt="">
+									<time class="time">
+									29.05.2018
+								</time>
+								<span class="text">
+									Признание Сераджем одной 
+из «300 компаний мирового 
+класса»
+
+								</span>
+									
+							</div>
+							
+							</div>
+							
+							</div>
+					
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 col-lg-3 offset-lg-1 ">
+					<div class="row">
+					<ul class="col-12 links-block">
+						<li><a href="#">Трейд ин</a></li>
+						<li><a href="#">Рассрочка</a></li>
+						<li><a href="#">Бонусная система</a></li>
+					</ul>
+						<div class="col-12  blog-block_header  ">
+							Новости Сераджем в России
+						</div>
+						<div class="item  col-12  small-news "> 
+						 
+						<div class="row">
+						<div class="col-5 nopad">
+							<img src="img/1.jpg" class="img-fluid" alt="">
+							</div>
+							<div class="col-7">
+								 
+									<span class="name">
+										<b>item-slider containerназвание</b>
+								</span><br> 
+								<span class="text ">
+Признание Сераджем одной 
+из «300 компаний мирового 
+
+								</span>
+								
+								 
+									</div>
+							</div>
+							 
+							</div>
+					</div>
+				</div>
+			</div>
+		</section>-->
+<!--			<hr class="line">-->
+	<!--			<section class="item-slider container">
+			<div class="row">
+				<div class="multiple-items">
+					<div class="item">
+						<span class="heading">Терапевтический аппарат V3</span>
+						<img src="img/item.png" alt="" class="img-fluid">
+						<div class="line"></div>
+						<div class="btn more">more</div>
+						<div class="btn in-cart">in cart</div>
+					</div>
+					<div class="item">
+						<span class="heading">Терапевтический аппарат V3</span>
+						<img src="img/item.png" alt="" class="img-fluid">
+						<div class="line"></div>
+						<div class="btn more">more</div>
+						<div class="btn in-cart">in cart</div>
+					</div>
+					<div class="item">
+						<span class="heading">Терапевтический аппарат V3</span>
+						<img src="img/item.png" alt="" class="img-fluid">
+						<div class="line"></div>
+						<div class="btn more">more</div>
+						<div class="btn in-cart">in cart</div>
+					</div>
+					<div class="item">
+						<span class="heading">Терапевтический аппарат V3</span>
+						<img src="img/item.png" alt="" class="img-fluid">
+						<div class="line"></div>
+						<div class="btn more">more</div>
+						<div class="btn in-cart">in cart</div>
+					</div>
+					<div class="item">
+						<span class="heading">Терапевтический аппарат V3</span>
+						<img src="img/item.png" alt="" class="img-fluid">
+						<div class="line"></div>
+						<div class="btn more">more</div>
+						<div class="btn in-cart">in cart</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		-->

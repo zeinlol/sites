@@ -1,0 +1,2 @@
+select `user_id`,COUNT(`user_id`) as bestid from `article`
+where `date` between date_sub(now(),INTERVAL 1 WEEK) and now() GROUP BY user_id ORDER by bestid DESC

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.2" client="site" method="upgrade">
+
+<!-- Author Block -->
+	<name>Vina Treeview for Menus</name>
+	<author>VinaGecko.com</author>
+	<creationDate>January 16, 2014</creationDate>
+	<copyright>Copyright (C) 2014 VinaGecko.com. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenseses/gpl-3.0.html GNU/GPL</license>
+	<authorEmail>admin@vinagecko.com</authorEmail>
+	<authorUrl>http://VinaGecko.com</authorUrl>
+	<version>1.0.1</version>
+	
+<!-- Description Block -->
+	<description>
+		<![CDATA[<div style="border: 1px solid red; border-radius: 7px; padding: 10px;">
+			<strong>VinaGecko.com</strong> - Premium <a href="http://vinagecko.com/joomla-modules.html" target="_blank">Joomla Modules</a>, <a href="http://vinagecko.com/joomla-plugins.html" target="_blank">Joomla Plugins</a>, <a href="http://vinagecko.com/joomla-templates.html" target="_blank">Joomla Templates</a>.
+		</div>]]>
+	</description>
+	
+<!-- Files upload Block -->	
+	<files>
+		<filename module="mod_vina_treeview_menus">mod_vina_treeview_menus.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<folder>assets</folder>
+		<folder>languages</folder>
+		<folder>tmpl</folder>
+	</files>
+	
+<!-- Languages Block -->
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_vina_treeview_menus.ini</language>
+	</languages>
+	
+<!-- Config Block -->
+	<config>
+		<fields name="params">
+			<!-- Basic Block -->
+			<fieldset name="basic" addfieldpath="/administrator/components/com_k2/elements/">
+				<field
+					name="menutype"
+					type="menu"
+					label="VINA_TREEVIEW_MENUS_MENUTYPE_LABEL"
+					description="VINA_TREEVIEW_MENUS_MENUTYPE_DESC" />
+				<field
+					name="base"
+					type="menuitem"
+					label="VINA_TREEVIEW_MENUS_ACTIVE_LABEL"
+					description="VINA_TREEVIEW_MENUS_ACTIVE_DESC">
+						<option value="">JCURRENT</option>
+				</field>
+				<field
+					name="startLevel"
+					type="list"
+					default="1"
+					label="VINA_TREEVIEW_MENUS_STARTLEVEL_LABEL"
+					description="VINA_TREEVIEW_MENUS_STARTLEVEL_DESC">
+						<option value="1">J1</option>
+						<option value="2">J2</option>
+						<option value="3">J3</option>
+						<option value="4">J4</option>
+						<option value="5">J5</option>
+						<option value="6">J6</option>
+						<option value="7">J7</option>
+						<option value="8">J8</option>
+						<option value="9">J9</option>
+						<option value="10">J10</option>
+				</field>
+				<field
+					name="endLevel"
+					type="list"
+					default="0"
+					label="VINA_TREEVIEW_MENUS_ENDLEVEL_LABEL"
+					description="VINA_TREEVIEW_MENUS_ENDLEVEL_DESC">
+						<option value="0">JALL</option>
+						<option value="1">J1</option>
+						<option value="2">J2</option>
+						<option value="3">J3</option>
+						<option value="4">J4</option>
+						<option value="5">J5</option>
+						<option value="6">J6</option>
+						<option value="7">J7</option>
+						<option value="8">J8</option>
+						<option value="9">J9</option>
+						<option value="10">J10</option>
+				</field>
+				<field
+					name="showAllChildren"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="VINA_TREEVIEW_MENUS_ALLCHILDREN_LABEL"
+					description="VINA_TREEVIEW_MENUS_ALLCHILDREN_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+				</field>
+				
+				<field 
+					name="moduleStyle" 
+					type="list" 
+					default="" 
+					label="VINA_TREEVIEW_MENUS_STYLE" 
+					description="VINA_TREEVIEW_MENUS_STYLE_DESC">
+						<option value="">Default</option>
+						<option value="filetree">File Tree</option>
+						<option value="treeview-red">Tree View Red</option>
+                </field>
+				<field 
+					name="showControl" 
+					type="radio" 
+					default="1" 
+					class="btn-group btn-group-yesno"
+					label="VINA_TREEVIEW_MENUS_SHOW_CONTROL" 
+					description="VINA_TREEVIEW_MENUS_SHOW_CONTROL_DESC">
+						<option value="0">JHIDE</option>
+						<option value="1">JSHOW</option>
+                </field>
+				<field 
+					name="animated" 
+					type="list" 
+					default="normal" 
+					label="VINA_TREEVIEW_MENUS_ANIMATED" 
+					description="VINA_TREEVIEW_MENUS_ANIMATED_DESC">
+						<option value="slow">Slow</option>
+						<option value="normal">Normal</option>
+						<option value="fast">Fast</option>
+                </field>
+				<field 
+					name="collapsed" 
+					type="radio" 
+					default="1" 
+					class="btn-group btn-group-yesno"
+					label="VINA_TREEVIEW_MENUS_COLLAPSED" 
+					description="VINA_TREEVIEW_MENUS_COLLAPSED_DESC">
+						<option value="0">No</option>
+						<option value="1">Yes</option>
+                </field>
+				<field 
+					name="unique" 
+					type="radio" 
+					default="0" 
+					class="btn-group btn-group-yesno"
+					label="VINA_TREEVIEW_MENUS_UNIQUE" 
+					description="VINA_TREEVIEW_MENUS_UNIQUE_DESC">
+						<option value="0">No</option>
+						<option value="1">Yes</option>
+                </field>
+				<field 
+					name="persist" 
+					type="radio" 
+					default="cookie" 
+					class="btn-group btn-group-yesno"
+					label="VINA_TREEVIEW_MENUS_PERSIST" 
+					description="VINA_TREEVIEW_MENUS_PERSIST_DESC">
+						<option value="location">Location</option>
+						<option value="cookie">Cookie</option>
+                </field>
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+			</fieldset>
+			
+		<!-- Advanced Block -->
+			<fieldset name="advanced">
+				<field
+					name="tag_id"
+					type="text"
+					label="VINA_TREEVIEW_MENUS_TAG_ID_LABEL"
+					description="VINA_TREEVIEW_MENUS_TAG_ID_DESC" />
+				<field
+					name="class_sfx"
+					type="text"
+					label="VINA_TREEVIEW_MENUS_CLASS_LABEL"
+					description="VINA_TREEVIEW_MENUS_CLASS_DESC" />
+				<field
+					name="window_open"
+					type="text"
+					label="VINA_TREEVIEW_MENUS_TARGET_LABEL"
+					description="VINA_TREEVIEW_MENUS_TARGET_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+						<option value="1">JGLOBAL_USE_GLOBAL</option>
+						<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

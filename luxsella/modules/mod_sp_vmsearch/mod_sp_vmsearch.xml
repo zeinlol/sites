@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" client="site" method="upgrade">
+    <name>SP VirtueMart Category Search</name>
+    <author>JoomShaper</author>
+    <creationDate>April 2013</creationDate>
+    <copyright>(C) 2013 JoomShaper. All rights reserved.</copyright>
+    <license>GNU/GPL</license>
+    <authorEmail>support@joomshaper.com</authorEmail>
+    <authorUrl>http://www.joomshaper.com</authorUrl>
+    <version>1.0.0</version>
+    <description>Displays a list of VirtueMart categories and / or sub-categories to search.</description>
+    <files>
+        <filename module="mod_sp_vmsearch">mod_sp_vmsearch.php</filename>
+        <filename>helper.php</filename>
+        <filename>index.html</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+        <folder>language</folder>
+        <folder>assets</folder>
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB.mod_sp_vmsearch.ini</language>
+    </languages>
+    <config>
+        <fields name="params"  addfieldpath="/administrator/components/com_virtuemart/elements">
+           
+           <fieldset name="basic">  				
+               <field name="category_id"  type="vmcategories"  value_field="category_name" 
+						label="MOD_VIRTUEMART_PRODUCT_CATEGORY_ID" 
+						description="MOD_VIRTUEMART_PRODUCT_CATEGORY_ID_DESC" />          
+				<field
+					name="max_search_suggest"
+					type="text"
+					label="Maximum Search Suggest" default="10"
+					description="Maximum search result display" />
+		   </fieldset>
+			
+			
+            <fieldset name="advanced">
+			
+			
+			
+			<field
+									name="loadjquery"
+									type="list"
+									default="1"
+									label="Load JQuery"
+									description="Load JQuery">
+									<option
+										value="1">JYES</option>
+										<option
+											value="0">JNO</option>
+										</field>
+										
+										
+				<field 
+									name="loadtypeahead"
+									type="list"
+									default="1"
+									label="Load Typeahead"
+									description="Load Bootstrap Typeahead">
+									<option
+										value="1">JYES</option>
+										<option
+											value="0">JNO</option>
+										</field>
+			
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+					
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+        </fields>
+    </config>
+</extension>

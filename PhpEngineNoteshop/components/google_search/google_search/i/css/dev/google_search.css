@@ -1,0 +1,166 @@
+
+    .google-search
+    {
+        position: relative;
+
+        background-color: #FCFCFC;
+        border: 1px solid #DDDDDD;
+        .m-border-radius(5px);
+        width: 500px;
+        margin: 0 auto;
+        padding: 15px 9px;
+
+        fieldset
+        {
+            border: none 0;
+            padding: 0;
+
+            legend
+            {
+                display: none;
+            }
+        }
+
+        #s
+        {
+            width: 376px;
+        }
+
+        #submitButton
+        {
+            width: 100px;
+            text-align: center;
+        }
+
+        .spacer-for-panels
+        {
+            clear: both;
+            margin-top: 16px;
+        }
+
+        #searchInContainer
+        {
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+
+            input, label
+            {
+                vertical-align: middle;
+            }
+
+            label
+            {
+                font-size: 14px;
+                color: #222;
+                margin-right: 10px;
+            }
+        }
+
+        .icons
+        {
+            list-style: none;
+            height: 19px;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            margin: 0;
+            padding: 0;
+
+            li
+            {
+                float: left;
+                height: 19px;
+                text-indent: -9999px;
+                cursor: pointer;
+                margin-right: 5px;
+                padding: 0;
+                background: transparent url("../../image/dev/google_search_icons.png") no-repeat;
+            }
+
+            li.web{ width:15px;}
+            li.web.active,
+            li.web:hover{ background-position:left bottom;}
+
+            li.images{ width:22px; background-position:-18px 0;}
+            li.images.active,
+            li.images:hover{ background-position:-18px bottom;}
+
+            li.news{ width:14px; background-position:-44px 0;}
+            li.news.active,
+            li.news:hover{ background-position:-44px bottom;}
+
+            li.videos{ width:17px; background-position:right 0;}
+            li.videos.active,
+            li.videos:hover{ background-position:right bottom;}
+        }
+    }
+
+    .googleNotFound
+    {
+        cursor: pointer;
+    }
+
+    .webResult
+    {
+        padding: 10px 0;
+
+        p
+        {
+            padding: 0;
+            margin: 2px 0;
+        }
+    }
+
+    .webResult > a
+    {
+        margin-left: 10px;
+    }
+
+    .imageResult
+    {
+        float: left;
+        height: 180px;
+        margin: 0 0 10px 20px;
+        text-align: center;
+        width: 170px;
+        overflow: hidden;
+
+        img
+        {
+            display: block;
+            border: none;
+            .m-border-radius(3px);
+        }
+
+        a.pic
+        {
+            background-color: #FCFCFC;
+            display: block;
+            margin: 0 auto 7px;
+            border: 1px solid #DDDDDD;
+            .m-border-radius(3px);
+
+            &:hover
+            {
+                border-color: #999;
+            }
+        }
+    }
+
+    #google-result-more
+    {
+        width: 100px;
+        text-align: center;
+        padding: 8px 15px;
+        margin: 0 auto;
+
+        background: #FCFCFC;
+        border: 1px solid #DDDDDD;
+        .m-border-radius(5px);
+
+        &:hover
+        {
+            background: #DDD;
+        }
+    }

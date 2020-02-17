@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
+	
+    <!-- Bootstrap -->
+   
+    
+    
+   <script type="text/javascript" src="https://api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU"></script>
+	<script src="js/circle.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet/less" type="text/css" href="css/styles.less" />
+    <script src="js/less.min.js"></script>
+    <script src="js/js.js"></script>
+
+    <!--font awesome-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+    <link rel="stylesheet" href="http://cdnicon.net/i/b80d8306c123a0bd02617b1d7b866d3c/css/fontello.css">
+    <link rel="stylesheet" href="http://cdnicon.net/i/b80d8306c123a0bd02617b1d7b866d3c/css/animation.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <header>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 header__text">
+                    <h1>Хотите такой же  <span class="span-1"><a href="#safe">биостойкий</a></span>,  <span class="span-2">экологичный</span>, <span class="span-3">шумоизолированный</span> дом?</h1>
+                    <br>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <a href="" class="btn btn-alert" data-toggle="modal" data-target="#myModal"><span>заказывайте дом<br class="visible-xs"> из арболита</span></a>
+
+    </header>
+    <nav class="navbar navbar-default affix" data-spy="affix" data-offset-top="500" id="menu">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#materials">Ma</a></li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-md-4 col-sm-12 safe" id="safe">
+                <h2>Биостойкий</h2>
+                <ul class="safe__list">
+                    <li>
+                        <h4>Арболит не подвержен:</h4></li>
+                    <li class="list__item-1">Горению
+                        <span class="fa-stack fa-lg">
+  <i class=" icon-fire "  style="color:orange;font-size:1em"></i>
+ 
+    <i class="fa fa-ban fa-stack-2x text-danger"></i>
+    </span>
+                    </li>
+
+                    <li class="list__item-3">Грибку
+                        <span class="fa-stack fa-lg">
+  <i class=" icon-empire"  style="font-size:1em" ></i>
+ 
+    <i class="fa fa-ban fa-stack-2x text-danger"></i>
+    </span>
+
+
+                    </li>
+                    <li class="list__item-4">Насекомым
+                        <span class="fa-stack fa-lg">
+  <i class="fa fa-bug fa-stack-1x"></i>
+  <i class="fa fa-ban fa-stack-2x text-danger"></i>
+</span>
+                    </li>
+
+                    <!---------------------------------modal 1************************-->
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg  button-modal" data-toggle="modal" data-target="#myModal">
+                        Подробнее
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Биостойкость</h4>
+                                </div>
+                                <div class="modal-body text-left">
+                                    Арболит, по сравнению с деревом не горит, не подвержен поражению грибком, не гниет.
+                                    <br> Арболит имеет V группу биостойкости. Это означает, что стене из арболита не страшна гниль, грызуны, древесные жуки.
+                                    <br> Арболит по классу огнестойкости относится к трудно-сгораемым материалам, которые не поддерживают горение, способные долго выдерживать высокую температуру. Испытание арболита на огнестойкость показывает, что даже после воздействия на арболит температуры 700-900 градусов на протяжении часы, нагревание внутренней поверхности не превысило 140 градусов, и даже после остывания несущая конструкция из арболита способна выдержать удвоенную нормативную нагрузку.
+                                    <br> Даже 30 см стены из арболит достаточно для выполнения требований по теплопроводности. Это соответствует 1,5 м толщине стены из кладочного кирпича.
+                                    <br>
+                                    <h3 class="text-center">Технические характеристики арболита</h3>
+                                    <table style="font-weight: 300;" border=1>
+                                        <tbody>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Показатель</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>Заполнитель, дробленка из отходов</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Средняя плотность, кг/м<sup>3</sup></p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>400-850</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Прочность при сжатии, МПа</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,5-1,0</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Прочность при изгибе, МПа</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,7-1,0</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Теплопроваодность арболита, Вт/(м*с)</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,08-0,17</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Морозостойкость, циклов</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>25-50</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Водопоглощение,%</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>40-85</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Усадка, %</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,4-0,5</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Биостойкость</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>V группа</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Огнестойкость, ч</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,75-1,50</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Звукопоглощение, 126-2000 Гц</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,17-0,80</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!---------------------------------end modal 1************************-->
+
+
+                </ul>
+            </div>
+            <div class="col-md-4 col-sm-12 eco" id="safe">
+                <h2>Экологичный</h2>
+                <ul class="eco">
+                    <li>
+                        <h4>Дом из раболита всегда будет:</h4></li>
+
+
+                    <li class="eco__item-1">Теплым
+                        <span class="fa-stack fa-lg">
+  <i class=" icon-thermometer text-danger"  ></i> </span>
+                    </li>
+                    <li class="eco__item-2">Крепким
+                        <span class="fa-stack fa-lg">
+  <i class="icon-fort-awesome "  ></i> </span>
+                    </li>
+                    <!---------------------------------modal 2************************-->
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg  button-modal" data-toggle="modal" data-target="#myModal">
+                        Подробнее
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Экологичность</h4>
+                                </div>
+                                <div class="modal-body">
+                                    Блоки из арболита совмещают в себе лучшие достоинства дерева и прочность бетона. <br>
+ 
+Насколько арболит прочный материал? И в чем выгода его использования в частном домостроении, кроме экологического фактора?<br>
+Арболит, еще называют «деревобетон» - дерево и бетон. Арболит используют для строительства несущих стен 2-3 этажных сооружений с ж/б плитами перекрытия см фото. Кроме того, он давно применяется для постройки жилых строений в населенных пунктах, которые находятся в сейсмоопасных зонах. Если случается землетрясение и начнётся колебание фундаментов, арболит всегда достойно встретит этот природный катаклизм. Выгоды: легкий, малотеплопроводный - стены дышат, прочный, не гниет, не горит.<br>
+ 
+Арболит имеет прекрасные строительные качества – он легко пилится, рубится, обрабатывается дереворежущими инструментами, отлично держит саморезы и гвозди. Арболитовые поверхности отлично сцепляются с отделочными штукатурками.<br>
+ 
+Дом из арболита теплый, долговечный, потому что его свойства близки к дому, простроенному из дерева. Арболит обладает идеальной паропроницаемостью (порядок 0.11мг/(м*ч*Па) (для сравнения ель и сосна поперек волокон, дает паропроницаемость всего 0.06 мг/(м*ч*Па)). А это означает в доме всегда будет не только тепло зимой и прохладно летом, но и влажность воздуха всегда будет очень комфортно низкой.<br>
+                                <h3 class="text-center">Технические характеристики арболита</h3>
+                                 <table style="font-weight: 300;" border=1>
+                                        <tbody>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Показатель</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>Заполнитель, дробленка из отходов</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Средняя плотность, кг/м<sup>3</sup></p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>400-850</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Прочность при сжатии, МПа</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,5-1,0</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Прочность при изгибе, МПа</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,7-1,0</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Теплопроваодность арболита, Вт/(м*с)</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,08-0,17</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Морозостойкость, циклов</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>25-50</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Водопоглощение,%</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>40-85</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Усадка, %</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,4-0,5</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Биостойкость</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>V группа</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Огнестойкость, ч</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,75-1,50</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Звукопоглощение, 126-2000 Гц</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,17-0,80</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!---------------------------------end modal 2************************-->
+
+                </ul>
+            </div>
+            <div class="col-md-4 col-sm-12" id="safe">
+                <h2 style="word-break: break-all;">Шумоизолированный</h2>
+                <ul class="mute">
+                    <li>
+                        <h4>Преимущества арболита в шумоизоляции:</h4></li>
+
+
+                    <li class="mute__item-1">Дешевизна
+                        <span class="fa-stack fa-lg">
+  <i class=" icon-dollar text-success"  ></i> </span>
+                    </li>
+                    <li class="mute__item-2">Внутренняя и внешняя изоляция звука <i class="fa  icon-home "></i>
+                        <i class="fa  icon-volume-off " style="margin-left:-15px;color: black"></i></li>
+                    <!---------------------------------modal 3************************-->
+                    <!-- Button trigger modal -->
+
+                    <button type="button" class="btn btn-primary btn-lg button-modal" data-toggle="modal" data-target="#myModal">
+                        Подробнее
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Шумоизоляция</h4>
+                                </div>
+                                <div class="modal-body">
+                                     <table style="font-weight: 300;" border=1>
+                                        <tbody>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Показатель</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>Заполнитель, дробленка из отходов</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Средняя плотность, кг/м<sup>3</sup></p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>400-850</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Прочность при сжатии, МПа</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,5-1,0</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Прочность при изгибе, МПа</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,7-1,0</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Теплопроваодность арболита, Вт/(м*с)</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,08-0,17</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Морозостойкость, циклов</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>25-50</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Водопоглощение,%</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>40-85</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Усадка, %</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,4-0,5</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Биостойкость</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>V группа</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Огнестойкость, ч</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,75-1,50</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="283">
+                                                    <p>Звукопоглощение, 126-2000 Гц</p>
+                                                </td>
+                                                <td width="284">
+                                                    <p>0,17-0,80</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!---------------------------------end modal 2************************-->
+
+                </ul>
+            </div>
+        </div>
+    </div>
+<div id="materials"><br><br>
+ </div>
+<div class="container" id="materials">
+    <div class="row">
+        <div class="col-xs-12">
+           <h2 class="text-center">Подробный перечень типов материалов</h2><br>
+            <table class="price text-center" border="0" cellspacing="0" cellpadding="0" style="margin:10px auto">
+<tbody>
+<tr>
+<th style="width: 130px;" rowspan="2">Изображение</th>
+<th style="width: 252px;" rowspan="2">Название блока</th>
+<th style="width: 101px;" rowspan="2">Размер блока<br />(ТхВхШ)</th>
+<th style="width: 43px;" rowspan="2">Вес,<br />кг</th>
+<th style="width: 133px;" colspan="3">Количество, шт</th>
+<th style="width: 85px;" colspan="4">Цена, грн.</th>
+</tr>
+<tr style="background-color: #edeef0">
+<th style="width: 43px;">м<sup>2</sup></th>
+<th style="width: 23px;">м<sup>3</sup></th>
+<th style="width: 67px;">На поддоне</th>
+<th style="width: 46px;">Цена, шт.</th>
+<th style="width: 39px;">м<sup>3</sup></th>
+</tr>
+<tr>
+<td id="/sites/default/files/imagecache/product/termolife_1.png" class="img" style="width: 130px;"><img src="http://arbolit.kiev.ua/sites/default/files/imagecache/ptice_img_small/termolife_2.png" alt="Минвата Термолайф 100 мм 135 плотность" height="30px" /></td>
+<td style="width: 252px;">Минвата Термолайф 100 мм 135 плотность</td>
+<td style="width: 101px;">100х600х1000</td>
+<td style="width: 43px;">&nbsp;</td>
+<td style="width: 43px;">2</td>
+<td style="width: 23px;">&nbsp;</td>
+<td style="width: 67px;">44</td>
+<td style="width: 46px;">82,5</td>
+<td style="width: 39px;">1650</td>
+</tr>
+<tr>
+<td id="/sites/default/files/imagecache/product/termolife.png" class="img" style="width: 130px;"><img src="http://arbolit.kiev.ua/sites/default/files/imagecache/ptice_img_small/termolife_0.png" alt="Минвата Термолайф 50 мм 135 плотность" height="30px" /></td>
+<td style="width: 252px;">Минвата Термолайф 50 мм 135 плотность</td>
+<td style="width: 101px;">50х600х1000</td>
+<td style="width: 43px;">&nbsp;</td>
+<td style="width: 43px;">2</td>
+<td style="width: 23px;">&nbsp;</td>
+<td style="width: 67px;">44</td>
+<td style="width: 46px;">82,5</td>
+<td style="width: 39px;">1650</td>
+</tr>
+<tr>
+<td id="/sites/default/files/imagecache/product/st-24.png" class="img" style="width: 130px;"><img src="http://arbolit.kiev.ua/sites/default/files/imagecache/ptice_img_small/st-24_0.png" alt="KLEYZER ST-24 - цементная стяжка для пола" height="30px" /></td>
+<td style="width: 252px;">KLEYZER ST-24 - цементная стяжка для пола</td>
+<td style="width: 101px;">&nbsp;</td>
+<td style="width: 43px;">25</td>
+<td style="width: 43px;">&nbsp;</td>
+<td style="width: 23px;">&nbsp;</td>
+<td style="width: 67px;">48</td>
+<td style="width: 46px;">54</td>
+<td style="width: 39px;">&nbsp;</td>
+</tr>
+<tr>
+<td id="/sites/default/files/imagecache/product/svc_0.png" class="img" style="width: 130px;"><img src="http://arbolit.kiev.ua/sites/default/files/imagecache/ptice_img_small/svc.png" alt="KLEYZER SVC - штукатурка для стен цементно-известковая" height="30px" /></td>
+<td style="width: 252px;">KLEYZER SVC - штукатурка для стен цементно-известковая</td>
+<td style="width: 101px;">&nbsp;</td>
+<td style="width: 43px;">25</td>
+<td style="width: 43px;">&nbsp;</td>
+<td style="width: 23px;">&nbsp;</td>
+<td style="width: 67px;">48</td>
+<td style="width: 46px;">57.40</td>
+<td style="width: 39px;">&nbsp;</td>
+</tr>
+<tr>
+<td id="/sites/default/files/imagecache/product/kv-20.png" class="img" style="width: 130px;"><img src="http://arbolit.kiev.ua/sites/default/files/imagecache/ptice_img_small/kv-20_0.png" alt="KLEYZER KV-20 - базовый клей для плитки" height="30px" /></td>
+<td style="width: 252px;">KLEYZER KV-20 - базовый клей для плитки</td>
+<td style="width: 101px;">&nbsp;</td>
+<td style="width: 43px;">25</td>
+<td style="width: 43px;">&nbsp;</td>
+<td style="width: 23px;">&nbsp;</td>
+<td style="width: 67px;">48</td>
+<td style="width: 46px;">64.50</td>
+<td style="width: 39px;">&nbsp;</td>
+</tr>
+<tr>
+<td id="/sites/default/files/imagecache/product/ks.png" class="img" style="width: 130px;"><img src="http://arbolit.kiev.ua/sites/default/files/imagecache/ptice_img_small/ks_0.png" alt="KLEYZER KS - кладочая смесь для блоков и керамики" height="30px" /></td>
+<td style="width: 252px;">KLEYZER KS - кладочая смесь для блоков и керамики</td>
+<td style="width: 101px;">&nbsp;</td>
+<td style="width: 43px;">25</td>
+<td style="width: 43px;">&nbsp;</td>
+<td style="width: 23px;">&nbsp;</td>
+<td style="width: 67px;">48</td>
+<td style="width: 46px;">59</td>
+<td style="width: 39px;">&nbsp;</td>
+</tr>
+<tr>
+<td id="/sites/default/files/imagecache/product/kp-75_0.png" class="img" style="width: 130px;"><img src="http://arbolit.kiev.ua/sites/default/files/imagecache/ptice_img_small/kp-75.png" alt="KLEYZER KP-75 - клей для приклеивания утеплителя (минвата, пенопласт)" height="30px" /></td>
+<td style="width: 252px;">KLEYZER KP-75 - клей для приклеивания утеплителя (минвата, пенопласт)</td>
+<td style="width: 101px;">&nbsp;</td>
+<td style="width: 43px;">25</td>
+<td style="width: 43px;">&nbsp;</td>
+<td style="width: 23px;">&nbsp;</td>
+<td style="width: 67px;">48</td>
+<td style="width: 46px;">78</td>
+<td style="width: 39px;">&nbsp;</td>
+</tr>
+<tr>
+<td id="/sites/default/files/imagecache/product/kts_0.jpg" class="img" style="width: 130px;"><img src="http://arbolit.kiev.ua/sites/default/files/imagecache/ptice_img_small/kts_1.jpg" alt="KLEYZER KTS - кладочая теплая смесь с перлитом для арболита" height="30px" /></td>
+<td style="width: 252px;">KLEYZER KTS - кладочая теплая смесь с перлитом для арболита</td>
+<td style="width: 101px;">1</td>
+<td style="width: 43px;">22.5</td>
+<td style="width: 43px;">&nbsp;</td>
+<td style="width: 23px;">&nbsp;</td>
+<td style="width: 67px;">48</td>
+<td style="width: 46px;">91</td>
+<td style="width: 39px;">&nbsp;</td>
+</tr>
+<tr>
+<td id="/sites/default/files/imagecache/product/block1_0.png" class="img" style="width: 130px;"><img src="http://arbolit.kiev.ua/sites/default/files/imagecache/ptice_img_small/block-f.png" alt="Блок арболит перегородочный" height="30px" /></td>
+<td style="width: 252px;">Блок арболит перегородочный</td>
+<td style="width: 101px;">120х300х500</td>
+<td style="width: 43px;">10,00</td>
+<td style="width: 43px;">6,66</td>
+<td style="width: 23px;">55</td>
+<td style="width: 67px;">78</td>
+<td style="width: 46px;">36,36</td>
+<td style="width: 39px;">2000</td>
+</tr>
+<tr>
+<td id="/sites/default/files/imagecache/product/block2.png" class="img" style="width: 130px;"><img src="http://arbolit.kiev.ua/sites/default/files/imagecache/ptice_img_small/block-f_0.png" alt="Блок арболит стеновой D550" height="30px" /></td>
+<td style="width: 252px;">Блок арболит стеновой D550</td>
+<td style="width: 101px;">200х300х400</td>
+<td style="width: 43px;">13,4</td>
+<td style="width: 43px;">16,67</td>
+<td style="width: 23px;">41</td>
+<td style="width: 67px;">60</td>
+<td style="width: 46px;">43,90</td>
+<td style="width: 39px;">1800</td>
+</tr>
+<tr>
+<td id="/" class="img" style="width: 130px;"><img src="http://arbolit.kiev.ua/sites/default/files/imagecache/ptice_img_small/block-f_1.png" alt="Блок арболит стеновой D550" height="30px" /></td>
+<td style="width: 252px;">Блок арболит стеновой D550</td>
+<td style="width: 101px;">200х300х500</td>
+<td style="width: 43px;">16,5</td>
+<td style="width: 43px;">10</td>
+<td style="width: 23px;">33</td>
+<td style="width: 67px;">48</td>
+<td style="width: 46px;">54,55</td>
+<td style="width: 39px;">1800</td>
+</tr>
+<tr>
+<td id="/sites/default/files/imagecache/product/schepa.png" class="img" style="width: 130px;"><img src="http://arbolit.kiev.ua/sites/default/files/imagecache/ptice_img_small/schepa_0.png" alt="Щепа от 100 кубов" height="30px" /></td>
+<td style="width: 252px;">Щепа от 100 кубов</td>
+<td style="width: 101px;">2-5х2-5х25-35</td>
+<td style="width: 43px;">650</td>
+<td style="width: 43px;">---</td>
+<td style="width: 23px;">1</td>
+<td style="width: 67px;">1000</td>
+<td style="width: 46px;">---</td>
+<td style="width: 39px;">250</td>
+</tr>
+</tbody>
+</table>
+<div class="clear">&nbsp;</div>
+<div class="about">&nbsp;</div>
+        </div>
+    </div>
+</div>
+<div class="container">
+       <div class="row">
+           <div class="col-xs-12 white">
+           <h2 class="text-center">Построим каркас дома</h2>
+           <p class="text-center">Напишите, что бы заказать постройку дома из лучшего материала</p>
+           
+           
+           </div>
+        </div>
+    </div>
+   <div class="container">
+       <div class="row">
+           <div class="col-xs-12">
+              <h2 class="text-center">Доставка</h2>
+              <p class="text-center">Доставка БЕСПЛАТНО в радиусе 50км от города Славутич</p>
+              <div id="map" style="width:100%; height:400px"></div>
+
+           </div>
+       </div>
+   </div>
+    <div class="container">
+       <div class="row  white">
+          
+           <div class="col-xs-6 feedback">
+           
+        <ul>
+            <li class="feedback__item"><a href="tel:+380958553342">+380958553342</a></li>
+            <li class="feedback__item">+380958553342</li>
+            <li class="feedback__item"><a href="mailto:e@mail">e@mail</a></li>
+            <li class="feedback__item"></li>
+        </ul>
+           </div>
+           <div class="col-xs-6 form-box">
+                        	<div class="form-top">
+                    			<h3>Contact us</h3>
+                        		<p>Fill in the form below to send us a message:</p>
+                            </div>
+                            <div class="form-bottom contact-form">
+			                    <form role="form" action="assets/contact.php" method="post">
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="contact-email">Email</label>
+			                        	<input type="text" name="email" placeholder="Email..." class="contact-email form-control" id="contact-email">
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="contact-subject">Subject</label>
+			                        	<input type="text" name="subject" placeholder="Subject..." class="contact-subject form-control" id="contact-subject">
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="contact-message">Message</label>
+			                        	<textarea name="message" placeholder="Message..." class="contact-message form-control" id="contact-message"></textarea>
+			                        </div>
+			                        <div class="form-group">
+			                        	<label for="contact-antispam">Antispam question: 7 + 5 = ?</label>
+			                        	<input type="text" name="antispam" placeholder="Your answer..." class="contact-antispam form-control" id="contact-antispam">
+			                        </div>
+			                        <button type="submit" class="btn">Send message</button>
+			                    </form>
+		                    </div>
+                        </div>
+           
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('a[href^="#"]').click(function () {
+                var el = $(this).attr('href');
+                $('body').animate({
+                    scrollTop: $(el).offset().top
+                }, 1000);
+                return false;
+            });
+        });
+    </script>
+
+
+ 
+    
+
+
+
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+  
+     <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>

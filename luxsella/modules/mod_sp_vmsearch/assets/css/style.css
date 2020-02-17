@@ -1,0 +1,108 @@
+.sp-vmsearch{
+    position: relative;
+}
+.sp-vmsearch form{
+    margin: 0;
+}
+
+
+.sp-vmsearch-categorybox{
+	position: relative;
+}
+
+.sp-vmsearch-categories{
+    position: absolute !important;
+    left: 0px;
+    opacity:0;
+	padding:0;
+	margin:0;
+}
+
+.category-name-wrapper{
+    position: relative;
+    padding: 0 10px;
+    margin-right: 10px;
+}
+
+.category-name{
+    float: left;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sp-vmsearch-categorybox{
+    float: left;
+    width: 130px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid #bbb;
+    border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    background: #2251f0;
+    color:#fff;
+}
+
+.search-input-wrapper{
+    display: block;
+    margin-left: 100px;
+    margin-right: 100px;
+    overflow: hidden;
+}
+.search-button-wrapper{
+    float: right;
+    width: 100px;
+    text-align: center;
+}
+
+.search-button-wrapper button{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 52px;
+    min-height: 52px;
+    line-height: 52px;
+    background: #2251f0;
+    color:#fff;
+    box-sizing: border-box;
+   -webkit-border-radius:0 4px 4px 0;
+    -moz-border-radius:0 4px 4px 0;
+    border-radius:0 4px 4px 0;
+    border:none;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+
+}
+
+.search-input-wrapper input{
+    width: 100%;
+    min-height: 52px;
+    display: inline-block;
+    height: 20px;
+    padding: 4px 6px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555;
+    vertical-align: middle;
+    border: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.sp-vmsearch-categorybox .cat-button,
+.sp-vmsearch-categorybox .sp-vmsearch-categories {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.sp-vmsearch-categorybox .sp-vmsearch-categories{
+    z-index: 1;
+}

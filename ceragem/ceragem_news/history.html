@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+	<!-- Button trigger modal -->
+	<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Launch demo modal
+</button>-->
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+				</div>
+				<div class="modal-body">
+					...
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<header class="container-fluid header text-center">
+		<div class="container">
+			<div class="row  ">
+				<div class="col-lg-4 header__logo align-self-center">
+					<img src="img/logo.png" alt="" class="img-fluid">
+				</div>
+				<div class="col-lg-3 col-md-4 d-flex align-items-center   nopad   offset-lg-1  header__cont">
+					<div class="row col-12 nopad">
+						<div class="col-lg-4 col-md-3  col-6 phone   nopad">
+						</div>
+						<div class="col-lg-8 col-md-9  col-6 phone-number   col-sm-12 d-flex align-items-center "><span class=" legend col-12 nopad">Горячая       линия <br> <a href="tel: +7 (800) 707-78-87 "> +7 (800) 707-78-87  </a></span></div>
+					</div>
+				</div>
+				<div class="col-lg-4  col-md-8">
+					<div class="row">
+						<a href="#" class="col   cart"><br><span class="legend">1 423 <i class="fas fa-ruble-sign"></i>
+  </span></a>
+						<a href="#" class="col log-in"><br><span class="legend d-flex align-items-end">Вход для диллеров
+  </span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg   ">
+			<!--<a class="navbar-brand" href="#">Navbar</a>-->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<i class="fas fa-bars"></i>
+  </button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto d-flex justify-content-between ">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Холдинг Сераджем </a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Продукция
+        </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Новости</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Демонстрационные центры </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Сотрудничество</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Контакты </a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main>
+		<section class="slider">
+			<span class="h1">20 лет холдингу Сераджем</span>
+			<img src="img/SLIDER1.png" alt="" class="img-fluid">
+		</section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-12">
+				
+					
+					<div class="row">
+						<div class="col-2">
+							<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+								<a class="nav-link active" id="2018" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">2018</a>
+								<a class="nav-link" id="2017" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">2017</a>
+								<a class="nav-link" id="2016" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">2016</a>
+								<a class="nav-link" id="2015" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">2015</a>
+								<a class="nav-link" id="2014" data-toggle="pill" href="#v-1" role="tab" aria-controls="v-pills-settings" aria-selected="false">2014</a>
+								<a class="nav-link" id="2013" data-toggle="pill" href="#v-2" role="tab" aria-controls="v-pills-settings" aria-selected="false">2013</a>
+								<a class="nav-link" id="2012" data-toggle="pill" href="#v-3" role="tab" aria-controls="v-pills-settings" aria-selected="false">2012</a>
+								<a class="nav-link" id="2011" data-toggle="pill" href="#v-4" role="tab" aria-controls="v-pills-settings" aria-selected="false">2011</a>
+								<a class="nav-link" id="2010" data-toggle="pill" href="#v-5" role="tab" aria-controls="v-pills-settings" aria-selected="false">2010</a>
+								<a class="nav-link" id="2009" data-toggle="pill" href="#v-6" role="tab" aria-controls="v-pills-settings" aria-selected="false">2009</a>
+								<a class="nav-link" id="2008" data-toggle="pill" href="#v-7" role="tab" aria-controls="v-pills-settings" aria-selected="false">2008</a>
+								<a class="nav-link" id="2007" data-toggle="pill" href="#v-8" role="tab" aria-controls="v-pills-settings" aria-selected="false">2007</a>
+								<a class="nav-link" id="2006" data-toggle="pill" href="#v-9" role="tab" aria-controls="v-pills-settings" aria-selected="false">2006</a>
+								<a class="nav-link" id="2005" data-toggle="pill" href="#v-10" role="tab" aria-controls="v-pills-settings" aria-selected="false">2005</a>
+								<a class="nav-link" id="2004" data-toggle="pill" href="#v-11" role="tab" aria-controls="v-pills-settings" aria-selected="false">2004</a>
+								<a class="nav-link" id="2003" data-toggle="pill" href="#v-12" role="tab" aria-controls="v-pills-settings" aria-selected="false">2003</a>
+								<a class="nav-link" id="2002" data-toggle="pill" href="#v-13" role="tab" aria-controls="v-pills-settings" aria-selected="false">2002</a>
+								<a class="nav-link" id="2001" data-toggle="pill" href="#v-14" role="tab" aria-controls="v-pills-settings" aria-selected="false">2001</a>
+								<a class="nav-link" id="2000" data-toggle="pill" href="#v-15" role="tab" aria-controls="v-pills-settings" aria-selected="false">2000</a>
+								<a class="nav-link" id="1999" data-toggle="pill" href="#v-16" role="tab" aria-controls="v-pills-settings" aria-selected="false">1999</a>
+								<a class="nav-link" id="1998" data-toggle="pill" href="#v-17" role="tab" aria-controls="v-pills-settings" aria-selected="false">1998</a>
+							</div>
+						</div>
+						<div class="col-10">
+							<div class="tab-content" id="v-pills-tabContent">
+								<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="2018">
+									<div class="col-md-6 col-12">	<span class="h3">Хронология развития</span>
+										<p><strong>Январь</strong></p>
+										<ul>
+											<li>участие президента холдинга «Сераджем» Ли Хван Сонга в экономической миссии президента Р. Корея Мун Дже Ина во время официального визита в КНР.</li>
+										</ul>
+									</div>
+									<div class="col-md-6 col-12">
+									</div>
+								</div>
+								<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="2017">
+									<div class="col-md-6 col-12">	<span class="h3">Хронология развития</span>
+										<p><strong>Январь</strong></p>
+										<p>- 5 лет подряд получение холдингом Сераджем гран-при в номинации «Маркетинг и менеджмент общих ценностей-2017» (CSV).</p>
+										<p>- представительство Сераджем в Китае признано&nbsp; образцовой компанией, практикующей социальную ответственность.</p>
+										<p>21 – 25.01 – семинар директоров холдинга: итоги 2016 г. и план работы на 2017 г.</p>
+										<p>24 января –&nbsp; «Сераджем Клуб Баланс-5» удостоен награды «Выбор потребителей-2017» как лучший бренд по здоровью и сбалансированному питанию.</p>
+										<p><strong>Февраль</strong></p>
+										<p>2.02 - первая в 2017 году бизнес-сессия холдинга Сераджем.</p>
+										<p>9 февраля&nbsp;– признание «Сераджем Naviel» лучшим брендом для женщин и награждение премией «Выбор потребителей-2017».</p>
+										<p>14.02 - запуск разработанной брендом «Сераджем Клуб Баланс-5» программы правильного питания сотрудников компании Сераджем «Консультант по здоровому питанию».</p>
+										<p>16 февраля – открытие филиала исследовательского института&nbsp; в г. Тяньцзинь КНР.</p>
+										<p>22 февраля&nbsp;– награда Merit холдингу Сераджем от Ассоциации производителей медицинского оборудования Республики Корея.</p>
+										<p><strong>Март&nbsp;</strong></p>
+										<p>2 марта&nbsp;- открытие исследовательского института CSV (менеджмент общих ценностей).</p>
+										<p>2-4 марта – семинар по развитию «Стратегия будущего Сераджем-2017» в г. Асан Р.Корея.</p>
+										<p>6-20 марта - подписание брендом «Сераджем Клуб Баланс-5» договора о регулярной поддержке международного Детского фонда «Зеленый зонтик» и проведение 2-недельного Фестиваля диеты для 415 чел., продемонстрировавшего эффекты похудения в средне5м на&nbsp; 4.1 кг. (13.6 кг. – максимальный результат).</p>
+										<p>30 марта - подписание договора между брендом по профессиональному поддержанию здоровья женщин «Сераджем Naviel» и Детским фондом «Зеленый зонтик» о регулярной спонсорской &nbsp;помощи..</p>
+										<p>20 по 31 марта&nbsp; - проведение брендом «Сераджем Naviel» 3-го фестиваля красоты в 85 галереях Республики Корея.</p>
+										<p>31 марта&nbsp;– подписание договора Сераджем с Центром поддержки иностранных работников в Чхонане.</p>
+										<p><strong>Апрель</strong></p>
+										<p>4 апреля - старт Благотворительного корпуса Сераджем «Дарим надежду».</p>
+										<p>13 апреля&nbsp;- благотворительная акция в детском учреждении социального обеспечения «Шинавон» в г. Чунчон Р. Корея.</p>
+										<p>20 апреля&nbsp;– провозглашение «Видения IP0-2021», посвященное выходу Сераджем на фондовую биржу.</p>
+										<p>- кампания благотворительного корпуса «Дарим надежду»: «Донорство с любовью».</p>
+										<p><strong>Май</strong></p>
+										<p>18 мая - бизнес-семинар бренда по профессиональному поддержанию красоты, здоровья &nbsp;и сбалансированного питания «Сераджем-Клуб Баланс-5» в Чхоннане.</p>
+										<p>28 мая - бизнес-семинар Сераджем для иностранных рабочих Центра поддержки трудовых ресурсов г. Чхонан.</p>
+										<p>26 мая - благотворительная акция в Центре социальной поддержки Иксонвон.</p>
+										<p><strong>Июнь</strong></p>
+										<p>12 июня - старт программы «Здоровое похудение для сотрудников Сераджем».</p>
+										<p>12 - 26 июня - акция&nbsp; «Сераджем Клуб Баланс–5» в поддержку детского фонда «Зеленый зонтик».</p>
+										<p>20 июня - открытие «Дома Мечты Сераджем» для работающих женщин-мигрантов.</p>
+										<p>23 июня - благотворительная акция корпуса Сераджем «Дарим надежду» в Центре социального обеспечения Чукчонвон в г. Чхонан.</p>
+										<p>28 июня - награждение Сераджем премией Форбс в номинации «Социальная ответственность».</p>
+										<p><strong>Июль</strong></p>
+										<p>6 - 8 июля&nbsp; - семинар «Сераджем Клуб баланс–5»: &nbsp;обсуждение «50 суперфанов: как их сделать?», практика работы демонстрационного центра, тренинг «Спартанский лидер».</p>
+										<p>10 - 14 июля -&nbsp; форум европейского региона Сераджем «Стратегия бизнеса во 2-м полугодии 2017 г.».</p>
+										<p>19 июля - 7-ая по счету начальная «Школа Надежды» в дар детям. Провинция Хэбэй от Сераджем-Китай.</p>
+										<p><strong>Сентябрь</strong></p>
+										<p>9 сентября – спонсорская помощь «Сераджем Клуб Баланс – 5» (Красота, здоровье и похудение) в проведении конкурса красоты K-QUEEN.</p>
+										<p>7 сентября&nbsp;- запуск проекта «Школа мечты–2» (спонсорство) в г. Мадурай Индии.</p>
+										<p>15 сентября - благотворительная акция волонтерского корпуса Сераджем «Дарим надежду»&nbsp; в Центре социального обеспечения Шинавон г. Чхонана.</p>
+										<p>24 сентября - спонсорская помощь Сераджем в организации свадебной церемонии и путешествия для иностранных рабочих (3 пары).</p>
+										<p><strong>Октябрь</strong></p>
+										<p>16-17 октября – организация 1-й международной встречи по обмену опытом между Кореей, Китаем и Индией.</p>
+										<p>27 октября – празднование 19-летия холдинга.</p>
+										<p>31 октября - награда «Бренд международного масштаба 2017» в индустрии медицинского оборудования.</p>
+										<p><strong>Ноябрь</strong></p>
+										<p>5 ноября - &nbsp;открытие тренировочного центра «Клуб баланс–5».</p>
+										<p>7-10 ноября - &nbsp;участие президента холдинга «Сераджем» Ли Хван Сонга в экономической миссии президента Р. Корея Мун Джэ Ина во время&nbsp; официального &nbsp;визита в Индонезию.</p>
+										<p><strong>Декабрь</strong></p>
+										<p>7-я благотворительная акция Сераджем по раздаче кимчи.</p>
+										<p>22 декабря &nbsp;- назначение ген. директора корейского представительства Сераджем Ли Гю Чоля ген. директором международного косметического бренда «Сераджем: здоровье и красота» и&nbsp;вступление Ли Дже Кына в должность генерального директора Сераджем-Корея.</p>
+										<p>27 декабря - признание Сераджем лучшей компанией с корпоративной социальной ответственностью: гран-при в номинации «Удовлетворение потребностей клиентов».</p>
+										<p>2002 – 2018&nbsp; - 16 лет подряд аппарат Сераджем Мастер V3 признан «продуктом мирового класса» в сфере персональных термотерапевтических аппаратов.</p>
+									</div>
+									<div class="col-md-6 col-12">
+									</div>
+								</div>
+								<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="2016">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-md-6 col-12">	<span class="h3">Хронология развития</span>
+												<p><strong>Май</strong> - Назначение Ли Гю Чоль генеральным директором Сераджем.</p>
+												<p><strong>Март</strong> – дочерняя компания Сераджем «Здоровье и красота» признана одной из 300 самых мощных компаний по интернет- коммерции в стране.</p>
+												<p><strong>Март</strong> – Совещание Сераджем по маркетинговой стратегии первого полугодия.</p>
+												<p><strong>Март</strong> – Вручение Сераджем государственной награды по маркетингу ‘За менеджмент по созданию совместных ценностей (CSV)’.</p>
+												<p><strong>Март</strong> – Избрание президента холдинга Сераджем Ли Хван Сонга в состав экономической миссии Президента Р. Корея Пак Кын Хе во время визита в Мексику.</p>
+												<p><strong>Февраль</strong> – Вручение Сераджем награды южнокорейской Ассоциации производителей медицинских аппаратов за заслуги в промышленности.</p>
+												<p><strong>Январь</strong> – Конференция холдинга Сераджем по международным продажам в 2016 г.</p>
+											</div>
+											<div class="col-md-6 col-12">
+												<div class="mpc-timeline-item__description mpc-typography--mpc_preset_88"> <span class="h3">Награды</span>
+												
+												
+												
+												
+													<div><strong> Март</strong>&nbsp;– Вручение Сераджем государственной награды по маркетингу ‘Менеджмент общественных&nbsp;ценностей (CSV)’.</div>
+													<div><strong>Март</strong>&nbsp;– Признание дочерней компании «Сераджем-Health&nbsp;&amp;&nbsp;Beauty» одной из&nbsp;300 самых мощных&nbsp;компаний по&nbsp;электронной&nbsp;коммерции в стране.</div>
+													<div><strong>Февраль</strong>&nbsp;– Награждение Сераджем Промышленной Ассоциацией производителей медицинских&nbsp;изделий «За заслуги в промышленности».</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="2015">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-md-6 col-12">	<span class="h3">Хронология развития</span>
+												<p><strong>Декабрь</strong> - Назначение Ким Санг Сика исполнительным вице-президентом холдинга Сераджем.</p>
+												<p><strong>Декабрь</strong> – Признание Сераджем самой образцовой компанией по социальной ответственности (CSR) в Р. Корея.</p>
+												<p><strong>Декабрь</strong> – В 52-й День Торговли награждение компании «За заслуги в промышленности».</p>
+												<p><strong>Ноябрь</strong> – Награда министра промышленной торговли и ресурсов Р. Корея «За заслуги профессиональной международной компании в развитии промышленности».</p>
+												<p><strong>Октябрь</strong> – Сераджем признана компанией № 1 по удовлетворению потребительского спроса.</p>
+												<p><strong>Октябрь</strong> - Сераджем признана в КНР «Самой лучшей компанией по социальной ответственности (оценка CSR)».</p>
+												<p><strong>Июль</strong> - Глобал-совещание Сераджем по маркетинговой стратегии второго полугодия 2015 г.</p>
+												<p><strong>Апрель</strong> - Избрание президента холдинга Сераджем Ли Хван Сонга в состав экономической миссии Президента Р. Корея Пак Кын Хе во время визита в Центральную и Южную Америку.</p>
+												<p><strong>Февраль</strong> – Международная конференция руководителей Сераджем-2015.</p>
+											</div>
+											<div class="col-md-6 col-12">
+												<div class="mpc-timeline-item__description mpc-typography--mpc_preset_88"><span class="h3">Награды</span>
+													<div><strong>Декабрь</strong>&nbsp;– В честь Дня торговли Награждение Сераджем за заслуги в области промышленности</div>
+													<div><strong>Декабрь</strong>&nbsp;-&nbsp;Управление по контролю за сервисом потребителям КНР (CSR) – южнокорейский&nbsp;филиал) признало Сераджем&nbsp;«Наиболее&nbsp;образцовой компанией».</div>
+													<div><strong>Ноябрь</strong>&nbsp;– Награждение Сераджем «За заслуги в воспитании международной профессиональной компании».</div>
+													<div><strong>Октябрь</strong>&nbsp;– Признание компании Сераджем «№ 1 по степени удовлетворенности потребителей&nbsp;(оценка&nbsp;YKSI)».</div>
+													<div><strong>Октябрь</strong>&nbsp;-&nbsp;Управление по контролю за сервисом потребителям КНР (CSR) признало Сераджем&nbsp;образцовой компанией.</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="v-1" role="tabpanel" aria-labelledby="2014">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-md-6 col-12">	<span class="h3">Хронология развития</span>
+												<p><strong>Декабрь</strong> – Благотворительная акция Сераджем ‘Раздача любимых продуктов питания - кимчи’ (4-й раз).</p>
+												<p><strong>Декабрь</strong> – Прорыв дочерней компании «Сераджем-ClubBalance 5»: открытие 100-го клуб-салона.</p>
+												<p><strong>Декабрь</strong> – В День торговли награда министра промышленной торговли и ресурсов Р. Корея «За заслуги в развитии промышленности».</p>
+												<p><strong>Ноябрь</strong> – Награда за аппарат Сераджем Мастер V3: ‘1-ая премия за бренд, пользующийся доверием человечества -2014’.</p>
+												<p><strong>Октябрь</strong> – Приглашение Сераджем на международный форум лучших бизнесменов в Пакистане. Октябрь – Назначение Хванг У Дина заместителем президента холдинга Сераджем.</p>
+												<p><strong>Октябрь</strong> – Старт НИИ вертебрологии Сераджем.</p>
+												<p><strong>Октябрь</strong> – Вручение Сераджем-Китай правительственной награды КНР ‘Южнокорейская компания, пользующаяся любовью клиентов’.</p>
+												<p><strong>Сентябрь</strong> - Получение сертификата FDA США на аппарат Сераджем МастерV3.</p>
+												<p><strong>Август</strong> – Выпуск книги о позвоночнике совместно с ALLNATSTORY.</p>
+												<p><strong>Июнь</strong> - Избрание президента холдинга Сераджем Ли Хван Сонга в состав экономической миссии Президента Р. Корея Пак Кын Хе во время визита в Среднюю Азию.</p>
+												<p><strong>Май</strong> - Приглашение Сераджем на международный форум лучших бизнесменов во Вьетнаме.</p>
+												<p><strong>Май</strong> – Министерство промышленной торговли и ресурсов признало Сераджем ‘кандидатом в международные профессиональные компании’.</p>
+												<p><strong>Апрель</strong> - Приглашение Сераджем на международный форум лучших бизнесменов в Индии.</p>
+												<p><strong>Март</strong> - Избрание президента холдинга Сераджем Ли Хван Сонга в состав экономической миссии Президента Р. Корея Пак Кын Хе во время визита в ФРГ.</p>
+												<p><strong>Февраль</strong> - Назначение Ли Ванг Гу исполнительным вице-президентом холдинга Сераджем. Февраль - Глобал-совещание Сераджем по международной маркетинговой стратегии-2015.</p>
+												<p><strong>Январь</strong> - Избрание президента холдинга Сераджем Ли Хван Сонга в состав экономической миссии Президента Р. Корея Пак Кын Хе во время визита в Индию.</p>
+											</div>
+											<div class="col-md-6 col-12">
+												<div class="mpc-timeline-item__description mpc-typography--mpc_preset_88"><span class="h3">Награды</span>
+													<div><strong>Декабрь</strong>&nbsp;- В честь Дня торговли награждение Сераджем министром промышленной торговли и&nbsp;ресурсов Р. Корея «За заслуги в развитии промышленности».</div>
+													<div><strong>Ноябрь</strong>&nbsp;– Вручение государственной награды 2014 года за аппарат Сераджем Мастер&nbsp;V3 - как&nbsp;«мирового бренда, пользующегося доверием человечества».</div>
+													<div><strong>Октябрь</strong>&nbsp;– награждение Сераджем-Китай государственной наградой ‘Южнокорейская компания,&nbsp;пользующаяся любовью клиентов’.</div>
+													<div><strong>Сентябрь</strong>&nbsp;– Получение сертификата&nbsp;FDA&nbsp;США за персональный тепловой аппарат Сераджем&nbsp;Мастер&nbsp;V3.</div>
+													<div><strong>Май</strong>&nbsp;– Министерством промышленной торговли и ресурсов признало Сераджем ‘кандидатом в&nbsp;глобальные международные профессиональные компании’.</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="v-2" role="tabpanel" aria-labelledby="2013">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-md-6 col-12">	<span class="h3">Хронология развития</span>
+												<p><strong>Декабрь</strong> – Получение представительством Сераджем-Китай сертификата CFDA на прибор по измерению гликозилированного гемоглобина (уровень сахара и гемоглобина) дочерней компании Сераджем-Medisiseu.</p>
+												<p><strong>Декабрь</strong> – Вручение награды Президента Р. Корея исполнительному вице-президенту СераджемЛи Ванг Гу.</p>
+												<p><strong>Ноябрь</strong> - Благотворительная акция Сераджем ‘Раздача любимых продуктов питания - кимчи’ (3-йраз).</p>
+												<p><strong>Октябрь</strong> – Вручение Сераджем награды «Выбор потребителей-2013».</p>
+												<p><strong>Сентябрь</strong> - Избрание президента холдинга Сераджем Ли Хван Сонга в состав экономической миссии Президента Р. Корея Пак Кын Хе во время визита во Вьетнам. (2 раза подряд).</p>
+												<p><strong>Август</strong> – Получение сертификата KFDA на прибор по лечению акне дочерней компании Сераджем-Medisiseu</p>
+												<p><strong>Июль</strong> – Приглашение Сераджем на международный форум лучших бизнесменов в России.</p>
+												<p><strong>Июнь</strong> – Избрание президента холдинга Сераджем Ли Хван Сонга в состав экономической миссии Президента Р. Корея Пак Кын Хе во время визита в КНР.</p>
+												<p><strong>Май</strong> – Выход дочерней компании Сераджем-Medisiseu на индийский рынок (подписание договора с индийской компанией GreenCrossPramal на объем экспорта в $ 5 млн.)</p>
+												<p><strong>Март</strong> - Приглашение Сераджем на международный форум лучших бизнесменов в КНР.</p>
+												<p><strong>Март</strong> – Возобновление работы обновленного сайта дочерней компании Lohas.</p>
+												<p><strong>Февраль</strong> – Реструктуризация и возобновление сайта холдинга Сераджем (корейского офиса).</p>
+												<p><strong>Февраль</strong> – Получение сертификата FDA США на глюкометр дочерней компании Сераджем- Medisiseu Сераджем.</p>
+												<p><strong>Февраль</strong> – Награждение дочерней компании Сераджем- Lohasза «Экономический маркетинг в Р. Корея».</p>
+												<p><strong>Январь</strong> – Впервые в Р. Корея получение сертификата KFDA на портативный прибор по измерению гемоглобина дочерней компании Сераджем-Medisiseu.</p>
+											</div>
+											<div class="col-md-6 col-12">
+												<div class="mpc-timeline-item__description mpc-typography--mpc_preset_88"><span class="h3">Награды</span>
+													<div><strong> Декабрь</strong>&nbsp;– Получение сертификата&nbsp;CFDA&nbsp;в КНР на прибор по измерению гликозилированного&nbsp;гемоглобина (уровень сахара и гемоглобина) дочерней компании Сераджем-Medisiseu</div>
+													<div><strong>Октябрь</strong>&nbsp;– Награждение Сераджем-Lohasпризом «Выбор потребителей- 2013».</div>
+													<div><strong>Август</strong>&nbsp;– Получение дочерней компанией Сераджем-Medisiseuсертификата Управления по&nbsp;контролю за пищевыми продуктами и лекарственными препаратами на медицинский прибор Осимпульи прибор по лечению акне.</div>
+													<div><strong>Июнь</strong>&nbsp;– Признание дочерней компании Сераджем&nbsp;Lohas&nbsp;брендом, пользующимся высокой&nbsp;степенью удовлетворенности клиентов (K-CSBI) - 1 место в номинации ‘медицинский&nbsp;аппарат’.</div>
+													<div><strong>Февраль</strong>&nbsp;– Дочерняя компания Сераджем-Lohas&nbsp;получила от южнокорейской экономической&nbsp;газеты премию за маркетинг.</div>
+													<div><strong>Февраль</strong>&nbsp;– Получение сертификата&nbsp;FDA&nbsp;США на глюкометр дочерней компании Сераджем-&nbsp;Medisiseu.</div>
+													<div><strong>Январь</strong>&nbsp;– Получение дочерней компанией Сераджем-Medisiseu&nbsp;сертификата Управления по&nbsp;контролю за пищевыми продуктами и лекарственными препаратами на&nbsp;『прибор по измерению гемоглобина</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="v-3" role="tabpanel" aria-labelledby="2012">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-md-6 col-12">	<span class="h3">Хронология развития</span>
+												<p><strong>Декабрь</strong> – Выход бизнеса пищевых добавок Сераджем на зарубежные рынки, выпуск сухих добавокбренда «Balance 5 (Five balance)».</p>
+												<p><strong>Декабрь</strong> – Признание Сераджем-Китай ‘лучшей компанией по социальной ответственности’.</p>
+												<p><strong>Ноябрь</strong> - Благотворительная акция Сераджем ‘Раздача любимых продуктов питания - кимчи’ Октябрь – Открытие демонстрационного центра Cellupedicв США (ортопедические матрасы).</p>
+												<p><strong>Октябрь</strong> – 2-й набор новых сотрудников Сераджем.</p>
+												<p><strong>Октябрь</strong> - Приглашение Сераджем на международный форум лучших бизнесменов в России.</p>
+												<p><strong>Сентябрь</strong> - Получение сертификата FDA США на прибор по измерению гликозилированного гемоглобина (уровень сахара и гемоглобина) дочерней компании Сераджем-Medisiseu.</p>
+												<p><strong>Август</strong> - Возобновление выпуска основной продукции дочерней компании Сераджем-Lohas (Ю-Ридм, прибор по уходу за лицом).</p>
+												<p><strong>Июль</strong> – Выпуск Сераджем- Reflax(тепловой аппарат складного дизайна).</p>
+												<p><strong>Июль</strong> – Выход Сераджем-Medisiseu на рынок КНР (заключение договора с фармацевтической компанией Ангук на экспорт продукции объемом в $ 700 млн.)</p>
+												<p><strong>Июль</strong> – Выпуск дочерней компанией Сераджем-Medisiseu глюкометров для животных (для использования в Р. Корея, получено разрешение Управления по сельскому, лесному хозяйству и рыболовству).</p>
+												<p><strong>Июнь</strong> – Проведение континентальных совещаний по стратегии Сераджем (Америка, Европа, Азия).</p>
+												<p><strong>Июнь</strong> – Организация спортивного фестиваля-2012.</p>
+											</div>
+											<div class="col-md-6 col-12">
+												<p><strong>Декабрь</strong> – Признание представительства Сераджем-Китай<br> Самой превосходной компанией, несущей социальную ответственность и награждение.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="v-4" role="tabpanel" aria-labelledby="2011">	<span class="h3">Хронология развития</span>
+									<p>- Провозглашение новой корпоративной символики CERAGEM<br> - Получение известной торговой марки в КНР<br> - Выпуск аппарата Сераджем Мастер V3<br> - Выпуск аппарата Сераджем-компакт P590</p>
+								</div>
+								<div class="tab-pane fade" id="v-5" role="tabpanel" aria-labelledby="2010">	<span class="h3">Хронология развития</span>
+									<p>- Открытие дочерних компаний Сераджем.<br> - Благотворительная деятельность по поддержке ветеранов корейской войны: вручение тепловых аппаратов.</p>
+								</div>
+								<div class="tab-pane fade" id="v-6" role="tabpanel" aria-labelledby="2009">	<span class="h3">Хронология развития</span>
+									<p>- Международное признание тестовой лаборатории UL WTDP &amp; CB - TMP технического НИИ Сераджем.</p>
+								</div>
+								<div class="tab-pane fade" id="v-7" role="tabpanel" aria-labelledby="2008">	<span class="h3">Хронология развития</span>
+									<p>– К этому времени выход на рынки 55 стран мира, в том числе России, США, Китая, европейских и других стран.<br> - Открытие 2800 демонстрационных центров. Аппарат стал главным брендом мирового рынка среди термотерапевтических массажеров.<br> - Открытие представительства Сераджем в Венесуэле.<br> - Применение системы CMS зарубежными представительствами в Малайзии, на Филиппинах, в Тайланде.<br> - Получение сертификата «Лучшая южнокорейская компания по качеству сервиса» (2 раза подряд).<br> - Открытие маркета Сераджем «Бытовые товары для здоровья».<br> - Участие в международном бизнес-стратегическом форуме (КНР).<br> - Открытие представительства Сераджем во Вьетнаме.<br> - Получение сертификата СВ на Сераджем-компакт-P390.<br> - Международный семинар предпринимателей Сераджем Европейского континента и стран СНГ (Венгрия).<br> - Участие в праздновании 45-й годовщины Дня внешней торговли: награда компании за достижение 70 млн. $ внешнеторгового оборота.<br> - Награждение орденом «Золотая башня» за высокие заслуги в промышленности.</p>
+								</div>
+								<div class="tab-pane fade" id="v-8" role="tabpanel" aria-labelledby="2007">	<span class="h3">Хронология развития</span>
+									<p>– 3-й Всемирный форум предпринимателей Сераджем на Филиппинах.<br> - Организация 2-ого CAMP - передовой программы менеджмента Сераджем.<br> - Организация стратегического континентального семинара.<br> - Выход на рынки более 50 стран мира.<br> - Открытие более 2.100 демонстрационных центров. Компания занимает первое место на мировом рынке по объему термотерапевтических массажеров.</p>
+								</div>
+								<div class="tab-pane fade" id="v-9" role="tabpanel" aria-labelledby="2006">	<span class="h3">Хронология развития</span>
+									<p>- Основание концерна Сераджем и определение будущих стратегий.<br> - Организация 1-ого CAMP (Передовой программы менеджмента Сераджем)<br> - Основано 3-е предприятие обрабатывающей промышленности в КНР.<br> - Получена лицензия CE / MDD (Сертификат соответствия нормам ЕС)<br> - Разработка модели CERAGEM-RL1.<br> - Разработка модели CERAGEM-RH1. Вступление в бизнес «Домашняя покупка» (Homeshopping) в Корее.</p>
+								</div>
+								<div class="tab-pane fade" id="v-10" role="tabpanel" aria-labelledby="2005">	<span class="h3">Хронология развития</span>
+									<p>- 1-й Всемирный семинар предпринимателей Сераджем.<br> - 2-й Всемирный семинар предпринимателей Сераджем.<br> - Выпуск портативного термомассажера CGM-P390.<br> - Достижение суммы экспорта 50.000.000 долл. США.<br> - Открытие представительства Сераджем в Марокко.</p>
+								</div>
+								<div class="tab-pane fade" id="v-11" role="tabpanel" aria-labelledby="2004">	<span class="h3">Хронология развития</span>
+									<p>- Основание второго предприятия обрабатывающей промышленности в Китае.<br> - Получение лицензии FDA 510 (k) второго класса (Food and Druq Аdministration) - государственного органа США по контролю за лекарственными средствами, медтехникой и медицинскими исследованиями).<br> - Достижение суммы экспорта 20.000.000 $ США.</p>
+								</div>
+								<div class="tab-pane fade" id="v-12" role="tabpanel" aria-labelledby="2003">	<span class="h3">Хронология развития</span>
+									<p>- Расширение и переезд производственного предприятия (г. Чонан Р. Корея).<br> - Получен сертификат ISO 9001:2000 (документ, подтверждающий соответствие требованиям международного стандарта ISO 13485:2003].<br> - Получен сертификат ISO 13485-2003 (международный стандарт соответствия требованиям, предъявляемым к системам менеджмента, качества предприятий, производящих медицинские изделия).<br> - Получена лицензия в Канаде.<br> - Получена лицензия SASO в Саудовской Аравии.<br> - Получена лицензия NOM в Мексике.<br> - Получен знак качества TUVGS в Германии (соответствие требованиям безопасности).</p>
+								</div>
+								<div class="tab-pane fade" id="v-13" role="tabpanel" aria-labelledby="2002">	<span class="h3">Хронология развития</span>
+									<p>- Завод по переработке нефрита в Китае (г. Суам).<br> - Министерство торговли Р. Корея признало продукцию Сераджем «мировой продукцией 1 класса».<br> - Получен сертификат СЕ о соответствии стандартам качества и безопасности в Европе [Необходимое условие для ввоза товаров в страны Евросоюза].<br> - Получен сертификат PSE (Японский стандарт по электронно-технической безопасности).<br> - Достижение суммы экспорта 10.000.000 $ США</p>
+								</div>
+								<div class="tab-pane fade" id="v-14" role="tabpanel" aria-labelledby="2001">	<span class="h3">Хронология развития</span>
+									<p>– Признание Сераджем официальным спонсором олимпийского Комитета Р. Корея до 2004 г.<br> - Выпуск аппарата Сераджем Мастер CGM-3500.<br> - Основание представительства Сераджем в Китае (г. Яньцзи).<br> - Получение патента на изобретение в США.<br> - Получение знака GD (Хороший дизайн).<br> - Получение знака UL Независимой некоммерческой организации по безопасности продукции и ее сертификации.<br> - Получен сертификат ISO 90011994 Международной организации по стандартизации (качество продукции).<br> - Получен австралийский знак C-Tick и сертификат.<br> - Достижение суммы экспорта 5.000.000 $ США</p>
+								</div>
+								<div class="tab-pane fade" id="v-15" role="tabpanel" aria-labelledby="2000">	<span class="h3">Хронология развития</span>
+									<p>- Признание Сераджем самой перспективной компанией среди предприятий малого бизнеса с высокими технологиями.<br> - Получен сертификат ISO 9002 Международной организации по стандартизации (качество продукции).<br> - Достижение суммы экспорта 1.000.000 $ США.</p>
+								</div>
+								<div class="tab-pane fade" id="v-16" role="tabpanel" aria-labelledby="1999">	<span class="h3">Хронология развития</span>
+									<p>- Выход компании Сераджем на международный рынок и открытие представительства в США.<br> - Признание Сераджем официальным спонсором 109-го общего собрания Международного олимпийского комитета.<br> - Достижение суммы экспорта 1.000.000 $ США<br> - Научно-исследовательский Институт по электро- и электронной продукции Р. Корея компанию Сераджем самым надежным и гарантированным по качеству продукции.<br> - Получен сертификат FCC (Федеральная комиссия связи США)<br> - Регистрация в FDA (Управление по контролю за продуктами и лекарствами США).</p>
+								</div>
+								<div class="tab-pane fade" id="v-17" role="tabpanel" aria-labelledby="1998">	<span class="h3">Хронология развития</span>
+									<p>- Основание компании Сераджем.<br> - Разработка автоматического термомассажера<br> - Основание предприятия (г. Инчон)</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--	<div class="col-md-6 col-12">
+			 	<span class="h3">Награды</span>
+			 	<ul class="list">
+			 	<img src="img/xy.png"  width="200px" class="img-fluid" alt=""> 
+			 		<li>Декабрь – Получение сертификата CFDA в КНР на прибор по измерению гликозилированного гемоглобина (уровень сахара и гемоглобина) дочерней компании Сераджем-Medisiseu</li>
+			 		<li>Октябрь – Награждение Сераджем-Lohasпризом «Выбор потребителей- 2013».</li>
+			 		<li>Август – Получение дочерней компанией Сераджем-Medisiseuсертификата Управления по контролю за пищевыми продуктами и лекарственными препаратами на медицинский прибор Осимпульи прибор по лечению акне.</li>
+			 		<li>Февраль – Дочерняя компания Сераджем-Lohas получила от южнокорейской экономической газеты премию за маркетинг.</li>
+			 		<li>Февраль – Получение сертификата FDA США на глюкометр дочерней компании Сераджем- Medisiseu.</li>
+			 		<li>Февраль – Получение сертификата FDA США на глюкометр дочерней компании Сераджем- Medisiseu.</li>
+			 	</ul>
+					</div>-->
+			</div>
+		</div>
+		<style>
+			.tab-content {
+				text-align: center;
+			}
+
+			/*	#v-pills-tab{
+			position: sticky;
+			top: 2em;
+		}		*/
+
+			.nav-pills .nav-link {
+				color: #000;
+				background-color: transparent;
+				transition: all .3s;
+				border-left: 6px solid transparent;
+				border-radius: 0;
+			}
+
+			.nav-pills .nav-link.active,
+			.nav-pills .show>.nav-link {
+				transition: all .3s;
+				color: #000;
+				background-color: transparent;
+				border-left: 6px solid #000;
+				border-radius: 0;
+			}
+		</style>
+		<footer class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="col-12  col-lg-4">
+					<div class="span legends">Вход для диллеров</div>
+					<input type="text" placeholder="login" class="form-control"><br>
+					<input type="text" placeholder="pass" class="form-control">
+				</div>
+				<div class=" col-lg-4 text-center"><br>
+					<img src="img/qr.png" alt=""><br><br><br>
+				</div>
+				<div class=" col-lg-4">
+					<div class="span legends">Пожалуйста введите ответ цифрами </div>
+					<input type="text" placeholder="девятнадцать-3=" class="form-control"><br>
+					<input type="submit" value="войти" class="form-control footer__submit">
+				</div>
+			</div>
+			<div class="row">
+				<div class=" col-lg-4"><br> <a href="#" class="pas-recovery">Забыли свой пароль ?</a></div>
+				<div class=" col-lg-4 text-center">
+					<b>Телефон горячей линии: <br><br>
++7 (800) 707-78-87<br>
++7 (495) 781-17-78</b>
+				</div>
+				<div class=" col-lg-4 text-center"><br> <a href="mailto:ceragemru@ceragem.com ">ceragemru@ceragem.com </a> </div>
+			</div>
+			<div class="row">
+				<div class="col-8 offset-2"><br><i style="color: #ff6633" class="fas fa-map-marker-alt"></i> Представительство компании Сераджем в России г Москва, Проектируемый проезд № 4062, 6с16
+					<hr class="line">
+				</div>
+			</div>
+			<ul class="row social">
+				<li class="col"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+				<li class="col"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+				<li class="col"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+				<li class="col"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+				<li class="col"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+				<li class="col"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+			</ul>
+		</footer>
+	</main>
+	<script src="js/libs.min.js"></script>
+	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="js/common.js"></script>
+</body>
+
+</html>

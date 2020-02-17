@@ -1,0 +1,682 @@
+body {
+  color: #646464;
+}
+a {
+  color: #646464;
+}
+a:hover {
+  color: #ff8787;
+}
+.sp-megamenu-parent >li.active >a,
+.sp-megamenu-parent >li.active:hover>a,
+.sp-megamenu-parent >li:hover>a {
+  color: #ff8787;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item >a:hover {
+  color: #ff8787;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item.active>a {
+  color: #ff8787;
+}
+.sp-megamenu-parent .sp-dropdown .sp-dropdown-inner {
+  border-bottom-color: #ff8787;
+}
+#offcanvas-toggler >i:hover {
+  color: #ff8787 !important;
+}
+.offcanvas-inner div.vina-treeview-menus .active > a {
+  color: #ff8787;
+}
+.offcanvas-inner div.vina-treeview-menus .treeview .hover {
+  color: #ff8787;
+}
+#fancybox-content .continue_link:hover,
+#fancybox-content .showcart:hover {
+  background-color: #ff8787;
+}
+#ProOPC button:hover {
+  background-color: #ff8787;
+}
+.sp-totop:hover {
+  background-color: #ff8787 !important;
+}
+.sp-totop:hover i,
+.sp-totop:hover small {
+  color: #fff;
+}
+.vina-testimonials .item .author:before {
+  border-color: #ff8787;
+  color: #ff8787;
+}
+.vina-shipping .vina_wrapper a:hover {
+  background: #ff8787;
+}
+.sp-module .breadcrumb > li + li::before {
+  color: #646464;
+}
+.sp-module .breadcrumb > li a:hover {
+  color: #ff8787;
+}
+.sp-module .breadcrumb > li.active {
+  color: #ff8787;
+}
+.vina-vmtreeview .sp-module-title h3 {
+  background-color: #ff8787;
+}
+.vina-vmtreeview .vina-treeview-virtuemart ul > li > a {
+  border-bottom: 1px solid #ff5454;
+}
+.vina-vmtreeview .vina-treeview-virtuemart ul.level0 > li a {
+  background-color: #ff6e6e;
+}
+.vina-vmtreeview .vina-treeview-virtuemart ul.level0 > li a:hover {
+  background-color: #ff5454;
+}
+.cf_form .cf_slider_gutter_l {
+  background: url(../../images/presets/preset1/slider_rptr.png) center left no-repeat;
+}
+.cf_form .cf_slider_gutter_r {
+  background: url(../../images/presets/preset1/bg_price_filter.png) center right no-repeat;
+}
+.cf_form .cf_slider_gutter_m {
+  background: url(../../images/presets/preset1/bg_price_filter.png) center repeat-x;
+}
+.cf_form .slider_bkg_img {
+  background: url(../../images/presets/preset1/bkg_slider.png) center repeat-x;
+}
+.cf_form .cf_filtering_knob_from,
+.cf_form .cf_filtering_knob_to {
+  background: url(../../images/presets/preset1/slider_knob_to.png) center left no-repeat;
+}
+.cf_flt_wrapper .cf_wrapper_input_text .form-horizontal button.cf_search_button:hover {
+  background: #ff8787;
+}
+#sp-left .sp-module .sp-module-title,
+#sp-right .sp-module .sp-module-title {
+  background: #ff8787;
+}
+#sp-left .sp-module ul li a:hover,
+#sp-right .sp-module ul li a:hover {
+  color: #ff8787;
+}
+#sp-left .sp-module .tagspopular ul li a:hover,
+#sp-right .sp-module .tagspopular ul li a:hover {
+  color: #fff;
+  background: #ff8787;
+}
+#sp-left .sp-module div.vina-ticker-content .vina-item a:hover,
+#sp-right .sp-module div.vina-ticker-content .vina-item a:hover {
+  color: #ff8787;
+}
+.sp-module ul >li >a:hover {
+  color: #ff8787;
+}
+.sp-module .latestnews >div >a {
+  color: #646464;
+}
+.sp-module .latestnews >div >a:hover {
+  color: #ff8787;
+}
+.sp-module .tagscloud .tag-name:hover {
+  background: #ff8787;
+}
+article .tags a:hover {
+  color: #fff;
+  border-color: #ff8787;
+  background: #ff8787;
+}
+.vina-vmtabproduct .tabs_container li.active,
+.vina-vmtabproduct .tabs_container li:hover {
+  border-color: #ff8787;
+  color: #ff8787;
+}
+.menu li.active a {
+  color: #ff8787;
+}
+.mini-cart .mini-cart-title {
+  background: #ff8787;
+}
+.mini-cart .mini-cart-content {
+  border: 5px solid #ff8787;
+}
+.mini-cart .mini-cart-content .show_cart a:hover {
+  background-color: #ff8787;
+}
+.vina-carousel-virtuemart.counter-style .product .product-inner .btn-wishlist .addtofav_aws_icon_active {
+  display: inline-block;
+  background-color: #ff8787;
+}
+.sp-module .vina-carousel-virtuemart.owl-theme .owl-controls .owl-pagination .owl-page span {
+  background: #ff8787;
+}
+.sp-module .vina-carousel-virtuemart.owl-theme .owl-controls .owl-pagination .owl-page.active span:before {
+  border-color: #ff8787;
+}
+.vina-carousel-virtuemart .product-name a:hover {
+  color: #ff8787 !important;
+}
+.vina-vertical-vmproduct .product-name a {
+  color: #646464;
+}
+.vina-vertical-vmproduct .price-box .product-price .price-crossed span {
+  background: #646464;
+}
+.vina-vertical-vmproduct .price-box .product-price > div {
+  color: #ff8787;
+}
+.vina-vertical-vmproduct .price-box > .PricesalesPrice span {
+  color: #ff8787;
+}
+.ma-block-static-2 .content-block .text-block a:hover {
+  color: #ff8787;
+  border-color: #ff8787;
+}
+#sp-block-bottom-wrapper {
+  background: #ff8787;
+}
+.carousel-content-style1 .image-block .date-time {
+  background: #ff8787;
+}
+.bootstrap-select.open>.dropdown-toggle.btn-default {
+  color: #fff;
+}
+.bootstrap-select button:hover,
+.bootstrap-select .btn:hover,
+.bootstrap-select .btn-default:hover {
+  color: #ff8787;
+}
+.btn-primary,
+.sppb-btn-primary {
+  border-color: #ff6868;
+  background-color: #ff8787;
+}
+.btn-primary:hover,
+.sppb-btn-primary:hover {
+  border-color: #ff3b3b;
+  background-color: #ff5454;
+}
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+.cart-view .continue_link:hover,
+.proopc-continue-link a:hover,
+.vina-button:hover {
+  color: #fff !important;
+  background: #ff8787;
+}
+.orderlistcontainer a:hover {
+  color: #ff8787;
+}
+.quantity-box .quantity-minus:hover,
+.quantity-box .quantity-plus:hover {
+  background-color: #ff8787 !important;
+}
+.product .product-inner h2.product-title a:hover,
+.product .product-inner h3.product-title a:hover {
+  color: #ff8787;
+}
+.product .product-inner .actions .vm-details-button:hover {
+  background: #ff8787;
+}
+.btn-wishlist .addtofav_aws_icon_active i {
+  color: #ff8787 !important;
+}
+.btn-wishlist .addtofav_aws_icon:hover i,
+.btn-wishlist .addtofav_aws_icon_active:hover i {
+  color: #ff8787 !important;
+}
+.vina-vmproduct .actions span.addtocart-button:hover:before {
+  color: #ff8787;
+}
+.vina-vmproduct .actions span.addtocart-button:hover input {
+  color: #ff8787 !important;
+}
+.vina-vmproduct a:hover {
+  color: #ff8787 !important;
+}
+.vina-collection h2 strong {
+  color: #ff8787;
+}
+.vina-collection a.button {
+  background: #ff8787;
+}
+.vina-collection a.button:hover {
+  background: #ff5454;
+}
+.vina-collection2 a.button {
+  background: #ff8787;
+}
+.vina-collection2 a.button:hover {
+  background: #ff5454;
+}
+.vina-collection2 h2 strong {
+  color: #ff8787;
+}
+.productdetails-view span.addtocart-button {
+  background-color: #ff8787;
+}
+.productdetails-view span.addtocart-button:before {
+  background: #ff5454;
+}
+.productdetails-view .addtocart-bar .quantity-box .quantity-controls:hover {
+  border-color: #ff8787;
+  color: ;
+}
+.productdetails-view .icons.add-to-box-2 > div .addtofav_aws_icon:hover,
+.productdetails-view .icons.add-to-box-2 > a .addtofav_aws_icon:hover {
+  color: #ff8787 !important;
+}
+.productdetails-view .icons.add-to-box-2 > div .addtofav_aws_icon_active,
+.productdetails-view .icons.add-to-box-2 > a .addtofav_aws_icon_active {
+  color: #ff8787 !important;
+}
+.productdetails-view .icons.add-to-box-2 #vmcompare:hover {
+  color: #ff8787;
+}
+.productdetails-view .icons.add-to-box-2 #vmcompare:hover a {
+  color: #ff8787;
+}
+.productdetails-view .vina-des-wrapper .product-rating a:hover {
+  color: #ff8787;
+}
+.product-nav .product-neighbours a:hover {
+  color: #ff8787;
+  border-color: #ff8787;
+}
+.vm-product-details-container .add_review a:hover {
+  color: #ff8787;
+}
+.vm-product-details-container .in-stock {
+  color: #ff8787;
+}
+.vm-product-details-container .addtocart-bar .addtocart-button input {
+  background: #ff8787;
+}
+.vm-product-details-container .addtocart-bar .addtocart-button:hover {
+  background: #ff5454;
+}
+.vm-product-details-container .btn-wishlist .addtofav_aws_icon:hover {
+  color: #ff8787;
+}
+.vm-product-details-container .btn-wishlist .addtofav_aws_icon:hover span {
+  color: #ff8787;
+}
+.vm-product-details-container .btn-wishlist .addtofav_aws_icon:hover i {
+  background-color: #ff8787;
+}
+.vm-product-details-container .btn-wishlist .addtofav_aws_icon_active span {
+  color: #ff8787;
+}
+.vm-product-details-container div#vmcompare a:hover,
+.vm-product-details-container .icons a:hover {
+  color: #ff8787;
+}
+.vm-product-details-container div#vmcompare a:hover:before,
+.vm-product-details-container .icons a:hover:before {
+  background-color: #ff8787;
+}
+.vm-product-details-container .ask-a-question {
+  color: #ff8787;
+}
+a.terms-of-service {
+  color: #ff8787;
+}
+#checkoutForm .tb-total .continue_link:hover {
+  background: #ff8787;
+}
+#checkoutForm a.details {
+  color: #ff8787;
+}
+#sp-top-bar a:hover {
+  color: #ff8787;
+}
+#sp-top-bar .sp-module.mod_menu_top .sp-module-title h3:hover {
+  color: #ff8787;
+}
+.body-innerwrapper {
+  background: #ffffff;
+}
+.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li.active > a,
+.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li > a:hover {
+  background: #ff8787;
+}
+.search .btn-toolbar button {
+  background: #ff8787;
+}
+.quote-text-dark {
+  border-left: 5px solid #ff8787;
+}
+.quote-text-dark:after {
+  color: #ff8787;
+}
+.pager li>a:hover,
+.pager li>a:focus,
+.pager li>span:hover,
+.pager li>span:focus {
+  background: #ff8787;
+}
+.post-format i {
+  background: #ff8787;
+}
+.post-format i:after {
+  border-left: 6px solid #ff8787;
+}
+.voting-symbol span.star.active:before {
+  color: #ff8787;
+}
+.sp-rating span.star:hover:before,
+.sp-rating span.star:hover ~ span.star:before {
+  color: #ff5454;
+}
+.entry-link,
+.entry-quote {
+  background: #2d5290;
+}
+blockquote {
+  border-color: #ff8787;
+}
+#comments-report-form #comments-form-send a,
+#comments-form #comments-form-send a {
+  background: #ff8787;
+}
+#comments-report-form #comments-form-send a:hover,
+#comments-form #comments-form-send a:hover {
+  background: #444;
+  border-color: #444;
+}
+.carousel-left:hover,
+.carousel-right:hover {
+  background: #ff8787;
+}
+.blog article.item .readmore a:hover,
+.blog article.item .jcomments-links a:hover {
+  background: #ff8787;
+}
+#sp-left .sp-module.mod_category li a:hover:before,
+#sp-left4 .sp-module.mod_category li a:hover:before,
+#sp-right .sp-module.mod_category li a:hover:before {
+  color: #ff8787;
+}
+.entry-header h2 a:hover {
+  color: #ff8787;
+}
+#sp-bottom ul li a:hover {
+  color: #ff8787;
+}
+.sp-copyright a:hover {
+  color: #ff8787 !important;
+}
+#sp-footer a:hover {
+  color: #ff8787;
+}
+.sp-comingsoon body {
+  background-color: #ff8787;
+}
+.pagination > li.active > a,
+.pagination > li.active >span,
+.pagination > li:hover > a,
+.pagination > li:hover >span,
+.pagination > li:focus > a,
+.pagination > li:focus >span {
+  border-color: #ff8787 !important;
+  color: #ff8787 !important;
+}
+.cf_wrapp_all .cf_flt_wrapper .cf_wrapper_input_text .form-horizontal button.cf_search_button {
+  background: #ff8787;
+}
+.cf_wrapp_all .cf_flt_wrapper ul.cf_filters_list li > .cf_option.cf_sel_opt {
+  color: #ff8787;
+}
+.qlform .form-horizontal .controls input.submit {
+  background: #ff8787;
+}
+.vina-pogo-slider.pogoSlider .pogoSlider-dir-btn:hover {
+  background-position: 100% 100% !important;
+}
+.vina-pogo-slider.pogoSlider .pogoSlider-dir-btn.pogoSlider-dir-btn--prev {
+  background: url(../../images/presets/preset1/btn_prev.png) center left no-repeat;
+}
+.vina-pogo-slider.pogoSlider .pogoSlider-dir-btn.pogoSlider-dir-btn--next {
+  background: url(../../images/presets/preset1/btn_next.png) center left no-repeat;
+}
+.vina-pogo-slider.style2 a.readmore,
+.vina-pogo-slider.style3 a.readmore {
+  color: #ff8787 !important;
+}
+.vina-pogo-slider.style2 a.readmore:hover,
+.vina-pogo-slider.style3 a.readmore:hover {
+  background: #ff8787 !important;
+  color: white !important;
+}
+.vina-pogo-slider.style2 a.readmore:hover i,
+.vina-pogo-slider.style3 a.readmore:hover i {
+  color: white !important;
+}
+.color-preset {
+  color: #ff8787 !important;
+}
+#sp-left .sp-module.sidebar-banner a:hover:before,
+#sp-left4 .sp-module.sidebar-banner a:hover:before,
+#sp-right .sp-module.sidebar-banner a:hover:before {
+  border-color: #ff8787;
+}
+.orderby-displaynumber .view-mode a.active,
+.orderby-displaynumber .view-mode a:hover {
+  color: #ff8787;
+}
+.orderby-displaynumber .view-mode a.active span,
+.orderby-displaynumber .view-mode a:hover span {
+  color: #ff8787;
+}
+.listing-view.list .listview .actions span.addtocart-button input {
+  background-color: #ff8787;
+}
+.listing-view.list .listview .actions span.addtocart-button input:hover {
+  background-color: #ff6e6e;
+}
+.listing-view.list .listview .add-to-links > * > * .addtofav_aws_icon_active,
+.listing-view.list .listview .add-to-links > * > *:hover {
+  background-color: #ff8787;
+}
+.progress-percent {
+  background: #ff8787;
+}
+.additional-images-inner #slider-next:hover,
+.additional-images-inner #slider-prev:hover {
+  color: #ff8787;
+}
+.sp-module .owl-theme .owl-controls .owl-buttons div.owl-prev,
+.related_slider .lSAction .lSPrev {
+  border-right-color: #ff8787;
+}
+.sp-module .owl-theme .owl-controls .owl-buttons div.owl-prev:hover:before,
+.related_slider .lSAction .lSPrev:hover:before {
+  color: #ff8787;
+}
+.sp-module .owl-theme .owl-controls .owl-buttons div:hover:before,
+.sp-module .vina-manufacturers-virtuemart .vina-next:hover:before,
+.sp-module .vina-manufacturers-virtuemart .vina-prev:hover:before,
+.related_slider .lSAction .lSNext:hover:before {
+  color: #ff8787;
+}
+.sp-vmsearch .search-button-wrapper button:hover i {
+  color: #ff8787;
+}
+div.acymailing_module_form .acymailing_form tr .acysubbuttons input:hover {
+  color: #ff8787;
+}
+.sp-module.style-icon .sp-module-title h3 i:after,
+.sp-module.style-icon .sp-module-title h3 i:before {
+  background: #ff8787;
+}
+.sp-module.title-preset .sp-module-title h3 {
+  background: #ff8787 !important;
+  border-bottom: 4px solid #ff6e6e;
+}
+#sp-left .sp-module .sp-module-title h3,
+#sp-left4 .sp-module .sp-module-title h3,
+#sp-right .sp-module .sp-module-title h3 {
+  background: #646464 !important;
+  border-bottom: 4px solid #575757;
+}
+.vina-carousel-content .item:hover .post-thumb:before {
+  background: #ff8787;
+}
+.vina-carousel-content .item .post-meta .entry-date .day {
+  color: #ff8787;
+}
+.vina-carousel-content .post-thumb .post-title a:hover {
+  color: #ff8787 !important;
+}
+.vina-carousel-content .post-thumb .readmore:hover {
+  color: #ff8787 !important;
+}
+.vina-carousel-content .post-thumb .readmore:hover i {
+  color: #ff8787 !important;
+}
+.vina-carousel-content .item-col .post-date {
+  background: #ff8787;
+}
+.vina-carousel-content .item-col .post-info {
+  border-left-color: #ff8787;
+}
+.vina-carousel-content .item-col.style4 .post-info .readmore:hover {
+  background: #646464;
+  border-color: #646464;
+}
+.additional-images .lSAction a:hover {
+  background: #ff8787 !important;
+}
+.home2 .mini-cart .mini-cart-title i {
+  background-color: #ff8787;
+}
+.home3 .vina-vmtabproduct .tabs_container li.active,
+.home3 .vina-vmtabproduct .tabs_container li:hover {
+  background: #ff8787;
+}
+.home4 .top-contact .widget i,
+.home4 .top-contact .widget strong {
+  color: #ff8787;
+}
+.home4 .mini-cart .cart-quantity {
+  color: #ff8787;
+}
+.home4 .mini-cart .mini-cart-title {
+  color: #646464;
+}
+.home4 .mini-cart .mini-cart-title i {
+  color: #646464;
+}
+.home4 .vina-vmtabproduct .tabs_container li.active {
+  background: #646464;
+  border-color: #646464;
+}
+.home4 .vina-vmtabproduct .tabs_container li.active:after {
+  border-top-color: #ff8787;
+}
+.home4 .vina-vmtabproduct .tabs_container li:hover {
+  border-color: #ff8787;
+}
+.vina-contact-us .vina-contact-form input.submit {
+  background: #ff8787;
+}
+.about-us-info .readmore:hover {
+  background: #ff8787;
+  border-color: #ff8787;
+  color: #fff;
+}
+.vina-about-tab .sppb-nav-tabs li.active a {
+  color: #ff8787;
+}
+.vina-about-tab .sppb-nav-tabs li.active:hover a {
+  color: #fff;
+  background: #ff8787;
+  border: none;
+}
+.vina-about-tab .sppb-nav-tabs li.active:hover a:after {
+  display: none;
+}
+.vina-about-tab .sppb-nav-tabs li:hover a {
+  color: #fff;
+  background: #ff8787;
+}
+.vina-progress-bar .sppb-progress-bar {
+  background-color: #ff8787;
+}
+.vina-accordion .sppb-panel-heading.active:before {
+  border-color: #ff8787;
+}
+.vina-accordion .sppb-panel-heading.active .sppb-panel-title {
+  color: #ff8787;
+}
+.vina-accordion .sppb-panel-heading.active .sppb-panel-title:before,
+.vina-accordion .sppb-panel-heading.active .sppb-panel-title:after {
+  background: #ff8787;
+}
+.vina-accordion .sppb-panel-heading.active:hover:before {
+  border-color: #fff;
+}
+.vina-accordion .sppb-panel-heading.active:hover .sppb-panel-title:before,
+.vina-accordion .sppb-panel-heading.active:hover .sppb-panel-title:after {
+  background: #fff;
+}
+.vina-accordion .sppb-panel-heading:hover .sppb-panel-title {
+  color: #fff;
+  background: #ff8787;
+}
+.vina-feature-box .sppb-icon span {
+  border: 2px solid #ff8787;
+}
+.vina-feature-box .sppb-icon span i {
+  color: #ff8787;
+}
+.vina-feature-box.vina-feature-box2:hover .sppb-icon span {
+  background: #ff8787;
+  border-color: #ff8787;
+}
+.vina-feature-box.vina-feature-box2:hover .sppb-icon span i {
+  color: #fff;
+}
+.vina-feature-box.vina-feature-box2.white_text .sppb-icon span {
+  background: transparent;
+  border-color: #fff;
+}
+.vina-feature-box.vina-feature-box2.white_text .sppb-icon span i {
+  color: #fff;
+}
+.vina-feature-box.vina-feature-box2.white_text:hover .sppb-icon span {
+  background: #ff8787;
+}
+.vina-feature-box.vina-feature-box2.color_bg .sppb-icon span {
+  background: #ff8787;
+}
+.vina-feature-box.vina-feature-box4 .sppb-icon span i {
+  color: #ff8787;
+}
+.vina-feature-box.vina-feature-box4.bg_orange .sppb-icon span i {
+  color: #fff;
+}
+.vina-feature-box.vina-feature-box4.color_bg .sppb-icon span {
+  background: #ff8787;
+  border-color: #ff8787;
+}
+.vina-feature-box.vina-feature-box4.color_bg .sppb-icon span i {
+  color: #fff;
+}
+.vina-feature-box.vina-feature-box5 .list-social-1:before {
+  background: #ff8787;
+}
+.vina-feature-box.vina-feature-box5 .sppb-feature-box-title:hover {
+  color: #ff8787 !important;
+}
+.vina-feature-box.vina-feature-box5 .sppb-feature-box-title:hover .italic {
+  color: #ff8787;
+}
+.list-social-2 a:hover {
+  background: #ff8787;
+}
+body.rtl .quote-text-dark {
+  border-left: 0;
+  border-right: 5px solid #ff8787;
+}

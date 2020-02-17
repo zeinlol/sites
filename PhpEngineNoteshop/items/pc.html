@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Note shop</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pc.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/offcanvas.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+  </head>
+<body>
+<nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar" style="dispay: block !important;"></span>
+            <span class="icon-bar" style="dispay: block !important;"></span>
+            <span class="icon-bar" style="dispay: block !important;"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">Note Shop</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="../index.html">Продукция</a></li>
+            <li><a href="../product/index.html">Про магазин</a></li>
+            <li><a href="#contact">Поддержка</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+     <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Продукция</button>
+          </p>
+          <div class="jumbotron">
+            <h1>Персональный Компьютер</h1>
+            <h3>Выберите, зачем именно вам нужен компьютер:</h3>
+            <div id="rotator" class="row" style="text-align: center;">
+                <script src="../js/pc.js"></script>
+                <div id="block-1" class="hover col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <h3>Бюджетный (мультимедийный центр)</h3>
+                    <p>Для выхода в интернет, работа в пакете офис, просмотр мультимедиа. </p>
+                    <p><a class="btn btn-lg btn-success" href="pc/cheap.html" role="button">Выбрать</a></p>
+                </div>
+                <div id="block-2" class="hover col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <h3>Игровой, среднего ценового сегметна)</h3>
+                <p>Сборки для игры на средне-высоких настройках в последних играх. Самый оптимальный вариант.</p>
+                <p><a class="btn btn-lg btn-success" href="pc/middle.html" role="button">Выбрать</a></p>
+                </div>
+                <div id="block-3" class="hover col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <h3>Игровой, топ сборка</h3>
+                <p>сборки для игры на ультра-настройках, даже в 4К разрешении.Стоят подобные сборки недёшево.</p>
+                <p><a class="btn btn-lg btn-success" href="pc/rich.html" role="button">Выбрать</a></p>
+                </div>
+               
+            </div>
+            </div> 
+        </div>
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+         <style>
+        html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+body {
+  padding-top: 70px;
+}
+footer {
+  padding: 30px 0;
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+w 
+    }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+}    
+        </style>
+          <div class="list-group">
+            <a href="pc.html" class="list-group-item active">Стационарные пк</a>
+            <a href="console.html" class="list-group-item">Консоли</a>
+            <a href="soon.html" class="list-group-item">Ноутбуки</a>
+            <a href="soon.html" class="list-group-item">Телефоны</a>
+            <a href="soon.html" class="list-group-item">Електронные книги</a>
+            <a href="soon.html" class="list-group-item">Комплектующие</a>
+            <a href="soon.html" class="list-group-item">Чехлы</a>
+            <a href="soon.html" class="list-group-item">Сумки</a>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+</body>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <title>Note shop</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/note.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/offcanvas.js"></script>
+  </head>
+<body>
+<div id="page-preloader"><span class="spinner"></span></div>
+    <style>
+    #page-preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.8);
+    z-index: 100500;
+}
+
+#page-preloader .spinner {
+    width: 50vh;
+    height: 50vh;
+    position: absolute;
+   margin: 15% 35%;
+   
+    background: url('img/preloader.svg') no-repeat 200% 200%;
+ 
+}
+    </style>
+    <script>
+    $(window).on('load', function () {
+    var $preloader = $('#page-preloader'),
+        $spinner   = $preloader.find('.spinner');
+    $spinner.fadeOut();
+    $preloader.delay(600).fadeOut('slow');
+});
+    </script>  
+<nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Note Shop</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Продукция</a></li>
+            <li><a href="product/index.html">Про магазин</a></li>
+            <li><a href="#contact">Поддержка</a></li>
+            <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Категория <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="items/pc.html" class="list-group-item">Стационарные пк</a></li>
+            <li><a href="items/console.html" class="list-group-item">Консоли</a></li>
+            <li><a href="items/soon.html" class="list-group-item">Ноутбуки</a></li>
+            <li><a href="items/soon.html" class="list-group-item">Телефоны</a></li>
+            <li><a href="items/soon.html" class="list-group-item">Електронные книги</a></li>
+            <li><a href="items/soon.html" class="list-group-item">Комплектующие</a></li>
+            <li><a href="items/soon.html" class="list-group-item">Чехлы</a></li>
+            <li><a href="items/soon.html" class="list-group-item">Телефоны</a></li>
+          </ul>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+        <div class="flex-container">
+          <div class="flex-item">
+              <h2>ПК</h2>
+              <img src="img/pc.jpg">
+              <p>Игры, фото, видео, или даже аудио монтаж, хранилище данных, разработка ПО, мультимедийный центр, кастомизация - делают <b>персональный компьютер</b> незаменимым в нашей жизни.
+              </p>
+              <p><a class="btn btn-default" href="items/pc.html" role="button">Подробнее »</a></p>
+            </div>
+            <div class="flex-item">
+              <h2>Консоли</h2>
+              <img src="img/ps.png">
+              <p>Большой онлайн, комфорт во время игры, доступные цены как и на консоль, так и на игры, компактность, мобильность - вещи, которые делают консоли лучшими игровыми платформами на данный момент.</p>
+              <p><a class="btn btn-default" href="items/console.html" role="button">Подробнее »</a></p>
+            </div>
+            <div class="flex-item">
+              <h2>Ноутбуки</h2>
+              <img src="img/note.png">
+              <p>все функции, которые есть на персональном компьютере, только теперь они всегда с вами, где бы вы небыли. Незаменимая вещь.
+              </p>
+              <p><a class="btn btn-default" href="items/soon.html" role="button">Подробнее »</a></p><br><br>
+            </div>
+            <div class="flex-item">
+              <h2>Смартфоны</h2>
+              <img src="img/phone.png">
+              <p>Смартфоны должны быть у каждого. Обьеденяют в себе все аспекты нашей жизни. Фото, сьёмка видео, выход в интернет, игры - малая часть того, что могут смартфоны, И это всё у вас в кармане.</p>
+              <p><a class="btn btn-default" href="items/soon.html" role="button">Подробнее »</a></p><br>
+            </div>
+            <div class="flex-item">
+              <h2>Игры</h2>
+              <img src="img/game.jpg">
+              <p>Любителям читать книги. Бумажные варианты громоздкие и тяжелые. Электронные книги позволяют Вам читать везде, в любое время, любую книгу на любом языке.</p>
+              <p><a class="btn btn-default" href="items/soon.html" role="button">Подробнее »</a></p><br><br>
+            </div>
+            <div class="flex-item">
+              <h2>Комплектующие</h2>
+              <img src="img/parts.jpg">
+              <p>Хотите заменить любую часть в Вашем компьютере, или собрать его с нуля,
+              мы даем Вам такую возможность. Выбирайте что хотите! </p>
+              <p><a class="btn btn-default" href="items/soon.html" role="button">Подробнее »</a></p><br><br><br>
+            </div> 
+      </div>
+            <style>.flex-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    }
+.flex-item {
+    max-width: 300px;
+    }
+/*@media screen and (max-width: 1200px) {
+    .flex-item {
+    max-width: 300px;
+    }
+}*/              
+.flex-item:nth-child(1) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+
+.flex-item:nth-child(2) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+
+.flex-item:nth-child(3) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+
+.flex-item:nth-child(4) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+
+.flex-item:nth-child(5) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+
+.flex-item:nth-child(6) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+</style>
+      <hr>
+      <footer>
+        <p>© 2016 Note shop, Inc.</p>
+      </footer>
+    </div>
+</body>

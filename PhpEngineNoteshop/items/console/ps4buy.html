@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css">
+    <title>Note shop</title>
+ <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/note.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/remodal.css">
+    <link rel="stylesheet" href="css/remodal-default-theme.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/offcanvas.js"></script>
+    <script src="js/remodal.min.js"></script>
+    <script src="js/script.js"></script>
+  </head>
+<body>
+<nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar" style="dispay: block !important;"></span>
+            <span class="icon-bar" style="dispay: block !important;"></span>
+            <span class="icon-bar" style="dispay: block !important;"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html">Note Shop</a>
+          <a class="navbar-brand" href="../../index.html">Продукция</a>
+          <a class="navbar-brand" href="../console.html">Консоли</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="../../index.html">Продукция</a></li>
+            <li><a href="../../product/index.html">Про магазин</a></li>
+            <li><a href="#contact">Поддержка</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+     <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Продукция</button>
+          </p>
+          <div class="jumbotron">
+           <link rel="stylesheet" href="../../css/main.css">
+            <h1>PlayStation 4</h1>
+            <div id="rotator">
+            <div id="block-1" class="active">
+                <img src="../../img/ps.png" style="width: 90% !important; float: right">
+            </div>
+            <div id="block-2" class="non-active-top">
+                <img src="../../img/ps.png" style="width: 90% !important; float: right">
+            </div>
+            <div id="block-3" class="non-active-bottom">
+                <img src="../../img/ps.png" style="width: 90% !important; float: ight">
+            </div>
+            </div>
+            <p>Цена: 9000 грн</p>
+            <h3>Цвет</h3>
+            <label><input class="" type="radio" name="color"> Белый</label> 
+            <label><input type="radio" name="color"> Чёрный</label><br>
+            <h3> Обьем памяти</h3>
+              <label><input type="radio" name="gb"> 500gb</label>
+              <label><input type="radio" name="gb"> 1000gb</label><br>
+              <!--------------------------------------------->
+<!-- Modal -->
+<div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+ <div class="remodalBorder">
+  <p><img src="img/sendico.png"></p>
+  <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+      <form id="form">
+        <input type="hidden" value="ps4" hidden="true" name="itemname">
+        <h2 id="modal1Title">Оставьте ваши контактные данные и наш консультант свяжется <br>с вами</h2>
+        <input type="text" class="putName" name="name" placeholder="Ваше ваше имя" required style="width: 100% !important;">
+        <input name="phone" type="tel" class="putPhone" placeholder="Введите номер телефона" required style="width: 100% !important;">
+        <input type="submit" name="submit" class="btn" value="ОТПРАВИТЬ">
+        <input type="hidden" name="formData" value="Заявка с сайта">
+    </form>
+</div>
+</div>
+        <!--------------------------------------------->
+        <div class="home">
+  <p><a class="mainButton" href="#modal">Оставить заявку</a></p>
+</div>
+            </div> 
+        </div>
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a href="../pc.html" class="list-group-item">Стационарные пк</a>
+            <a href="../console.html" class="list-group-item active">Консоли</a>
+            <a href="../soon.html" class="list-group-item">Ноутбуки</a>
+            <a href="../soon.html" class="list-group-item">Телефоны</a>
+            <a href="../soon.html" class="list-group-item">Електронные книги</a>
+            <a href="../soon.html" class="list-group-item">Комплектующие</a>
+            <a href="../soon.html" class="list-group-item">Чехлы</a>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <footer>
+        <p>© 2016 Note shop, Inc.</p>
+      </footer>
+    </div>
+</body>

@@ -1,0 +1,625 @@
+/**
+ * @package Helix V3 Framework
+ * @author JoomShaper http://www.joomshaper.com
+ * @copyright Copyright (c) 2010 - 2015 JoomShaper
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 or later
+ */
+
+/*=========================================
+ *======= 	 Megamenu	   ============
+ *=======================================*/
+.sp-megamenu-parent {
+	list-style: none;
+	padding: 0;
+	margin: 8px 0 0;
+	z-index: 9;
+	display: block;
+	float: right;
+	li {
+		a {
+			&:focus {
+				outline: 0;
+				.box-shadow(none);
+			}
+		}
+	}
+	>li {
+		display: inline-block;
+		position: relative;		
+		&.menu-justify {
+			position: static;
+		}
+		
+		>a {
+			color: #ffffff;
+			padding: 0 24px 0 27px;
+			font-family: 'Montserrat', sans-serif;
+			font-size: 14px;
+			line-height: 50px;
+			min-height: 50px;
+			display: inline-block;
+			text-transform: uppercase;
+			.transition(all 0.4s ease);		
+		}
+
+		&.sp-has-child>a:after{
+			font-family: "FontAwesome";
+			content: "\f0d7";
+			margin-left: 10px;
+		}
+
+		&.active >a,
+		&.active:hover>a,
+		&:hover>a {
+
+		}
+	}
+
+	.sp-module {
+		padding: 10px 0;
+		.menu-block,
+		.menu-block1 {
+			img {
+				width: 100%;
+			}
+		}
+		.menu-block {
+			padding-top: 20px;
+		}		
+	}
+
+	.sp-mega-group {
+		list-style: none;
+		padding: 0;
+		margin: 0;		
+		>li.sp-has-child {
+			&.last {
+				border-right: 0;
+			}
+		}
+		.sp-mega-group-child {
+			list-style: none;			
+			padding: 0;
+			margin: 0;
+			> li {
+				> a {
+					text-transform: capitalize;
+					font-weight: normal;
+					font-size: 13px;
+					color: #999;
+					display: block;
+					padding: 5px 0;
+				}
+			}
+		}
+	}
+
+	.sp-dropdown {
+		margin: 0;
+		position: absolute;
+		z-index: 10;
+		display: none;
+
+		.sp-dropdown-inner {
+			background: #ffffff;
+			.box-shadow(none);
+			padding: 0;
+			border-bottom: 3px solid;
+		}
+
+		.sp-dropdown-items {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			.sp-has-child>a:after{
+				font-family: "FontAwesome";
+				content: " \f105";
+				float: right;
+			}
+		}
+
+		&.sp-menu-center {
+			margin-left: 45px;
+		}
+		
+		&.sp-dropdown-main {
+			top: 100%;
+			&.sp-menu-right {
+				left: 0;
+			}
+
+			&.sp-menu-left {
+				right: 0;
+			}
+		}
+
+		&.sp-dropdown-sub {
+			top: 0;
+			left: 100%;
+			.sp-dropdown-inner {
+				box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+			}
+		}
+
+		//List Item
+		li.sp-menu-item { //child sub
+			display: block;
+			padding: 0;
+			position: relative;
+			border-top: 1px solid #f2f2f2;
+			&:first-child {
+				border-top: 0;
+			}
+			>a {
+				display: block;
+				color: #2f2f2f;
+				cursor: pointer;
+				font-size: 12px;
+				padding: 11px 25px;
+				&.sp-group-title {
+					font-weight: bold;
+					text-transform: uppercase;			
+					word-wrap: break-word;
+					border-bottom: 1px solid #f2f2f2;
+					margin: 0 0 10px;
+				}
+
+				&:hover {
+					color: #fff;
+				}
+			}			
+		}
+	}
+
+	.sp-dropdown-mega {
+		>.row {
+			margin-top: 30px;
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+		.sp-dropdown-inner {
+			padding: 10px;
+			li {
+				&.sp-menu-item {
+					border-top: 0;
+				}
+			}
+		}
+	}
+
+	//Has Child
+	.sp-has-child {
+		&:hover {
+			>.sp-dropdown {
+				display: block;
+			}
+		}
+	}
+
+	//Perspective Animation
+	&.menu-perspective {
+		.sp-has-child {
+			>.sp-dropdown { 
+				overflow: hidden;
+				display: block;
+				max-height: 0px;
+				max-width: 0px;
+				opacity: 0;
+				-webkit-transform: perspective( 600px ) rotateX( -90deg );
+				-moz-transform: perspective( 600px ) rotateX( -90deg );
+				-ms-transform: perspective( 600px ) rotateX( -90deg );
+				-o-transform: perspective( 600px ) rotateX( -90deg );
+				transform: perspective( 600px ) rotateX( -90deg );
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.6s ease, max-height 0.6s step-end, max-width 0.6s step-end, padding 0.6s step-end;
+				-o-transition: -o-transform 0.5s ease, opacity 0.6s ease, max-height 0.6s step-end, max-width 0.6s step-end, padding 0.6s step-end;
+				transition: transform 0.5s ease, opacity 0.6s ease, max-height 0.6s step-end, max-width 0.6s step-end, padding 0.6s step-end;
+				-webkit-transform-origin: 0% 0%;
+				-moz-transform-origin: 0% 0%;
+				-ms-transform-origin: 0% 0%;
+				-o-transform-origin: 0% 0%;
+				transform-origin: 0% 0%;
+			}
+		}
+		.sp-has-child:hover {
+			>.sp-dropdown {
+				overflow: visible;
+				max-height: 3000px;
+				max-width: 3000px;
+				opacity: 1;
+				-webkit-transform: perspective( 600px ) rotateX( 0deg );
+				-moz-transform: perspective( 600px ) rotateX( 0deg );
+				-ms-transform: perspective( 600px ) rotateX( 0deg );
+				-o-transform: perspective( 600px ) rotateX( 0deg );
+				transform: perspective( 600px ) rotateX( 0deg );
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.2s ease, max-height 0s step-end, max-width 0s step-end, padding 0s step-end;
+				-o-transition: -o-transform 0.5s ease, opacity 0.2s ease, max-height 0s step-end, max-width 0s step-end, padding 0s step-end;
+				transition: transform 0.5s ease, opacity 0.2s ease, max-height 0s step-end, max-width 0s step-end, padding 0s step-end;
+			}
+		}
+		
+	}
+	
+	//Fade Animation
+	&.menu-fade {
+		.sp-has-child:hover {
+			>.sp-dropdown {
+				-webkit-animation: spMenuFadeIn 400ms;
+				animation: spMenuFadeIn 400ms;
+			}
+		}
+	}
+
+	//Zoom Animation
+	&.menu-zoom {
+		.sp-has-child:hover {
+			>.sp-dropdown {
+				-webkit-animation: spMenuZoom 400ms;
+				animation: spMenuZoom 400ms;
+			}
+		}
+	}
+
+	//Fade in up Animation
+	&.menu-fade-up {
+		.sp-has-child:hover {
+			>.sp-dropdown {
+				-webkit-animation: spMenuFadeInUp 400ms;
+				animation: spMenuFadeInUp 400ms;
+			}
+		}
+	}
+	
+	//Fade in down Animation
+	&.menu-fade-down {
+		.sp-has-child:hover {
+			>.sp-dropdown {
+				-webkit-animation: spMenuFadeInDown 400ms;
+				animation: spMenuFadeInDown 400ms;				
+			}
+		}
+	}
+}
+
+
+/*=========================================
+ *======= 	Off Canvas   ============
+ *=======================================*/
+
+.pull-left {
+	#offcanvas-toggler {
+		float: left;
+	}
+}
+
+.home1,.home4 {
+	#offcanvas-toggler {
+		> i {
+			color: #fff;
+		}
+	}
+}
+ 
+#offcanvas-toggler {
+	float: right;
+	line-height: 70px;	
+	padding: 0 15px;
+	>i {
+		display: inline-block;
+		//padding: 0 15px;
+		font-size: 18px;
+		background: transparent;
+		margin: 0;
+		border-radius: 3px;
+		cursor: pointer;
+		.transition(~'color 400ms, background-color 400ms');
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+
+
+.close-offcanvas {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	z-index: 1;
+	color: #000;
+	border: 2px solid #eee;
+	border-radius: 100%;
+	width: 22px;
+	height: 22px;
+	line-height: 18px;
+	text-align: center;
+	font-size: 12px;
+
+	&:hover {
+		background: #000;
+		color:#fff;
+	}
+}
+
+div.vina-treeview-menus .treeview li.lastCollapsable,
+div.vina-treeview-menus .treeview li.lastExpandable {
+	background-image: none!important;
+}
+.offcanvas-menu {
+	width:  280px;
+	height: 100%;
+	background: #fff;
+	color: #999;
+	position: fixed;
+	top: 0;
+	opacity: 0;
+	z-index: 9999;
+	overflow: hidden;
+	.sp-module {
+		.sp-module-title {
+			background: none;		
+			color: #333;
+			font-size: 24px;
+			line-height: inherit;
+			height: auto;
+			font-weight: bold;
+			margin: 0;
+			padding: 0;
+			h3 {
+				display: block;
+				width: 100%;
+				color: #333;
+				font-size: 16px;
+				font-weight: bold;
+				line-height: inherit;
+				margin: 0;
+				padding: 0 30px;
+				text-transform: uppercase;
+			}
+		}
+	}	
+	
+	.offcanvas-inner {
+		padding: 20px;
+		.sp-module {
+			margin-top: 20px;
+			.sp-module-title {
+				margin-bottom: 20px;
+				margin-top: 30px;
+				h3 {					
+					font-size: 16px;				
+					margin-top: 0;
+					margin-bottom: 0;
+					padding: 0;
+				}
+			}
+			.sp-module-content {
+				> ul {
+					margin:0 -20px;
+				}
+			}		
+			ul {
+				> li{
+					border: none ;
+					a {
+						padding: 8px 10px 8px 0;
+						display: inline-block;
+						width: 100%;						
+						border-bottom: 1px dotted #e8e8e8;
+						.transition(300ms);						
+						/*&:hover {
+							background: #f5f5f5;
+						}*/
+					}
+
+					>a:before  {
+						display: none;
+					}
+				}
+			}
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+		div {		
+			&.vina-treeview-menus {			
+				.treeview {
+					ul {
+						margin-top: 0;
+					}
+					li {
+						padding: 0;
+						position: relative;
+						background-image: none;
+						background: none;
+					}
+					.hitarea {
+						background: url("../images/general/minus_dark.png") no-repeat scroll center center transparent;
+						margin-left: 0;
+						position: absolute;
+						width: 25px;
+						height: 37px;
+						right: 0;
+						top: 0;
+						&.expandable-hitarea {  
+							background: url("../images/general/plus_dark.png") no-repeat scroll center center transparent;
+						}
+					}
+					.sub-menu {
+						li {
+							padding-left: 10px;
+						}
+					}
+				}
+			}
+		}		
+		.search {
+			margin-top: 25px;
+			input {
+				width: 100%;
+				border-radius: 0;
+				border: 1px solid #eee; 
+				box-shadow: none;
+				-webkit-box-shadow: none;
+			}
+		}
+	}
+}
+
+.ltr {
+
+	.offcanvas-menu {
+		-webkit-transition: opacity 400ms cubic-bezier(0.7,0,0.3,1), right 400ms cubic-bezier(0.7,0,0.3,1);
+		transition: opacity 400ms cubic-bezier(0.7,0,0.3,1), right 400ms cubic-bezier(0.7,0,0.3,1);
+	}
+
+	.body-innerwrapper:after {
+		right: 0;
+	}
+
+	.offcanvas-menu {
+		right: -280px;
+	}
+
+	&.offcanvas {
+		.offcanvas-menu {
+			right: 0;
+		}
+	}
+}
+
+.body-innerwrapper:after {
+	position: absolute;
+	top: 0;
+	width: 0;
+	height: 0;
+	background: rgba(0, 0, 0, 0.8);
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+	z-index: 999;
+}
+
+.offcanvas {
+	width: 100%;
+	height: 100%;
+	position: relative;
+
+	.body-innerwrapper:after {
+		width: 100%;
+		height: 100%;
+		opacity: 1;
+		-webkit-transition: opacity 0.5s;
+		transition: opacity 0.5s;
+	}
+
+	.offcanvas-menu {
+		opacity: 1;
+	}
+}
+
+.menu .nav-child.small {
+	font-size: inherit;
+}
+
+.menu.nav>li>a:hover, .nav>li>a:focus {
+	background: none;
+}
+
+
+/*=========================================
+ *======= 	Menu Animation   ============
+ *=======================================*/
+@-webkit-keyframes spMenuFadeIn {
+  0% {
+  	opacity: 0;
+  }
+
+  100% {
+  	opacity: 1;
+  }
+}
+
+@keyframes spMenuFadeIn {
+  0% {
+  	opacity: 0;
+  }
+
+  100% {
+  	opacity: 1;
+  }
+}
+
+@-webkit-keyframes spMenuZoom {
+  0% {
+  	opacity: 0;
+  	-webkit-transform: scale(.8);
+  }
+
+  100% {
+  	opacity: 1;
+  	-webkit-transform: scale(1);
+  }
+}
+
+@keyframes spMenuZoom {
+  0% {
+  	opacity: 0;
+  	transform: scale(.8);
+  	-webkit-transform: scale(.8);
+  }
+
+  100% {
+  	opacity: 1;
+  	transform: scale(1);
+  	-webkit-transform: scale(1);
+  }
+}
+
+@-webkit-keyframes spMenuFadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 30px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+  }
+}
+
+@keyframes spMenuFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes spMenuFadeInDown {
+	0% {
+		opacity: 0;
+		transform: translateY(-30px);
+	}		
+	100% {
+		 opacity: 1;
+		transform: translateY(0);
+	}		
+}
+
+@-webkit-keyframes spMenuFadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-30px);
+	}	
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}	
+}

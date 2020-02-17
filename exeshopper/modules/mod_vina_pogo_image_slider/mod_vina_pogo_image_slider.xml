@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.2" client="site" method="upgrade">
+	
+<!-- Author Block -->
+	<name>Vina Pogo Image Slider</name>
+	<author>VinaGecko.com</author>
+	<creationDate>July 20, 2015</creationDate>
+	<copyright>Copyright (C) 2015 VinaGecko.com. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenseses/gpl-3.0.html GNU/GPL</license>
+	<authorEmail>support@vinagecko.com</authorEmail>
+	<authorUrl>http://VinaGecko.com</authorUrl>
+	<version>1.0</version>
+	
+	<description>
+		<![CDATA[<div style="border: 1px solid red; border-radius: 7px; padding: 10px;">
+		<strong>Vina Pogo Image Slider</strong> is a premium responsive image slider for Joomla 3 with many features: <strong>12 Transitions Effect for Image, 17 Transitions Effect for Image Caption and Unlimited Image</strong> (You can load image from the list with caption for each image or load from a folder). This module does not use jQuery animations. Only CSS3, because performance matters.<br>
+		<strong>VinaGecko.com</strong> - Premium <a href="http://vinagecko.com/joomla-modules" target="_blank">Joomla Modules</a>, <a href="http://vinagecko.com/joomla-plugins" target="_blank">Joomla Plugins</a>, <a href="http://vinagecko.com/joomla-templates" target="_blank">Joomla Templates</a>.
+		</div>]]>
+	</description>
+
+<!-- Files upload Block -->	
+	<files>
+		<filename module="mod_vina_pogo_image_slider">mod_vina_pogo_image_slider.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<folder>samples</folder>
+		<folder>libs</folder>
+		<folder>assets</folder>
+		<folder>languages</folder>
+		<folder>tmpl</folder>
+	</files>
+
+<!-- Languages Block -->
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_vina_pogo_image_slider.ini</language>
+	</languages>
+	
+<!-- Config Block -->
+	<config>
+		<fields name="params" addfieldpath="/modules/mod_vina_pogo_image_slider/libs/elements">
+			<fieldset name="basic">
+				<field
+					name="moduleWidth"
+					type="text"
+					default=""
+					hint="1000px"
+					label="MOD_VINA_POGO_ISLIDER_MWIDTH"
+					description="MOD_VINA_POGO_ISLIDER_MWIDTH_DESC" />
+				<field
+					name="moduleHeight"
+					type="text"
+					default=""
+					hint="500px"
+					label="MOD_VINA_POGO_ISLIDER_MHEIGHT"
+					description="MOD_VINA_POGO_ISLIDER_MHEIGHT_DESC" />
+				<field 
+                    name="resizeImage" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"
+                    label="MOD_VINA_POGO_ISLIDER_RESIZE" 
+                    description="MOD_VINA_POGO_ISLIDER_RESIZE_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field
+					name="imageWidth"
+					type="text"
+					default="940"
+					hint="940"
+					showon="resizeImage:1"
+					label="MOD_VINA_POGO_ISLIDER_IWIDTH"
+					description="MOD_VINA_POGO_ISLIDER_IWIDTH_DESC" />
+				<field
+					name="imageHeight"
+					type="text"
+					default="420"
+					hint="420"
+					showon="resizeImage:1"
+					label="MOD_VINA_POGO_ISLIDER_IHEIGHT"
+					description="MOD_VINA_POGO_ISLIDER_IHEIGHT_DESC" />
+				<field 
+                    name="captionBlock" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"
+                    label="MOD_VINA_POGO_ISLIDER_CAPTION" 
+                    description="MOD_VINA_POGO_ISLIDER_CAPTION_DESC">
+                        <option value="0">JHIDE</option>
+                        <option value="1">JSHOW</option>
+                </field>
+				<field
+					name="captionStyle"
+					type="textarea" 
+					rows="3"
+					hint="background-color: rgba(0,0,0,0.3); color: #FFFFFF;"
+					showon="captionBlock:1"
+					label="MOD_VINA_POGO_ISLIDER_CAPTION_STYLE"
+					description="MOD_VINA_POGO_ISLIDER_CAPTION_STYLE_DESC" />
+					
+					
+				<field type="spacer" name="@global" hr="true" />
+				<field 
+                    name="autoplay" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"
+                    label="MOD_VINA_POGO_ISLIDER_AUTOPLAY" 
+                    description="MOD_VINA_POGO_ISLIDER_AUTOPLAY_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field
+					name="autoplayTimeout"
+					type="text"
+					default="4000"
+					hint="4000"
+					showon="autoplay:1"
+					label="MOD_VINA_POGO_ISLIDER_ATIMEOUT"
+					description="MOD_VINA_POGO_ISLIDER_ATIMEOUT_DESC" />
+				<field 
+                    name="displayProgess" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"
+					showon="autoplay:1"
+                    label="MOD_VINA_POGO_ISLIDER_PROGESS" 
+                    description="MOD_VINA_POGO_ISLIDER_PROGESS_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field
+					name="slideTransition"
+					type="list"
+					default="fade"
+					label="MOD_VINA_ANIMATIONS_ISLIDER_TRANSITION"
+					description="MOD_VINA_ANIMATIONS_ISLIDER_TRANSITION_DESC">
+						<option value="slide">slide</option>
+						<option value="blocksReveal">blocksReveal</option>
+						<option value="verticalSplitReveal">verticalSplitReveal</option>
+						<option value="zipReveal">zipReveal</option>
+						<option value="shrinkReveal">shrinkReveal</option>
+						<option value="expandReveal">expandReveal</option>
+						<option value="fold">fold</option>
+						<option value="verticalSlide">verticalSlide</option>
+						<option value="fade">fade</option>
+						<option value="Slide Reveal Left">Slide Reveal Left</option>
+						<option value="Slide Over Left">Slide Over Left</option>
+						<option value="Bars Reveal Down">Bars Reveal Down</option>						
+				</field>
+				<field
+					name="slideTransitionDuration"
+					type="text"
+					default="1000"
+					hint="1000"					
+					label="MOD_VINA_POGO_ISLIDER_TDURATION"
+					description="MOD_VINA_POGO_ISLIDER_TDURATION_DESC" />
+				<field
+					name="elementTransitionIn"
+					type="list"
+					default="slideUp"
+					label="MOD_VINA_ANIMATIONS_ISLIDER_ETRANSITIONI"
+					description="MOD_VINA_ANIMATIONS_ISLIDER_ETRANSITIONI_DESC">
+						<option value="slideDown">slideDown</option>
+						<option value="slideUp">slideUp</option>
+						<option value="slideRight">slideRight</option>
+						<option value="slideLeft">slideLeft</option>
+						<option value="expand">expand</option>
+						<option value="contract">contract</option>
+						<option value="spin">spin</option>
+						<option value="sideFall">sideFall</option>
+						<option value="horizontal3DFlip">horizontal3DFlip</option>
+						<option value="vertical3DFlip">vertical3DFlip</option>
+						<option value="3DPivot">3DPivot</option>
+						<option value="rollLeft">rollLeft</option>
+						<option value="rollRight">rollRight</option>
+						<option value="glideLeft">glideLeft</option>
+						<option value="glideRight">glideRight</option>
+						<option value="flipX">flipX</option>
+						<option value="flipY">flipY</option>
+				</field>
+				<field
+					name="elementTransitionOut"
+					type="list"
+					default="slideDown"
+					label="MOD_VINA_ANIMATIONS_ISLIDER_ETRANSITIONO"
+					description="MOD_VINA_ANIMATIONS_ISLIDER_ETRANSITIONO_DESC">
+						<option value="slideDown">slideDown</option>
+						<option value="slideUp">slideUp</option>
+						<option value="slideRight">slideRight</option>
+						<option value="slideLeft">slideLeft</option>
+						<option value="expand">expand</option>
+						<option value="contract">contract</option>
+						<option value="spin">spin</option>
+						<option value="sideFall">sideFall</option>
+						<option value="horizontal3DFlip">horizontal3DFlip</option>
+						<option value="vertical3DFlip">vertical3DFlip</option>
+						<option value="3DPivot">3DPivot</option>
+						<option value="rollLeft">rollLeft</option>
+						<option value="rollRight">rollRight</option>
+						<option value="glideLeft">glideLeft</option>
+						<option value="glideRight">glideRight</option>
+						<option value="flipX">flipX</option>
+						<option value="flipY">flipY</option>
+				</field>
+				<field
+					name="elementTransitionStart"
+					type="text"
+					default="500"
+					hint="500"					
+					label="MOD_VINA_POGO_ISLIDER_EDURATIONS"
+					description="MOD_VINA_POGO_ISLIDER_EDURATIONS_DESC" />
+				<field
+					name="elementTransitionDuration"
+					type="text"
+					default="1000"
+					hint="1000"					
+					label="MOD_VINA_POGO_ISLIDER_EDURATION"
+					description="MOD_VINA_POGO_ISLIDER_EDURATION_DESC" />
+				<field 
+                    name="generateButtons" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"					
+                    label="MOD_VINA_POGO_ISLIDER_BUTTONS" 
+                    description="MOD_VINA_POGO_ISLIDER_BUTTONS_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field
+					name="buttonPosition"
+					type="list"
+					default="CenterHorizontal"
+					label="MOD_VINA_ANIMATIONS_ISLIDER_BPOSITION"
+					description="MOD_VINA_ANIMATIONS_ISLIDER_BPOSITION_DESC">
+						<option value="TopLeft">TopLeft</option>
+						<option value="TopRight">TopRight</option>
+						<option value="BottomLeft">BottomLeft</option>
+						<option value="BottomRight">BottomRight</option>
+						<option value="CenterHorizontal">CenterHorizontal</option>
+						<option value="CenterVertical">CenterVertical</option>
+				</field>
+				<field 
+                    name="generateNav" 
+                    type="radio" 
+                    default="0" 
+					class="btn-group btn-group-yesno"					
+                    label="MOD_VINA_POGO_ISLIDER_NAV" 
+                    description="MOD_VINA_POGO_ISLIDER_NAV_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+				<field
+					name="navPosition"
+					type="list"
+					default="Bottom"
+					label="MOD_VINA_ANIMATIONS_ISLIDER_NPOSITION"
+					description="MOD_VINA_ANIMATIONS_ISLIDER_NPOSITION_DESC">
+						<option value="Top">Top</option>
+						<option value="Bottom">Bottom</option>
+						<option value="Left">Left</option>
+						<option value="Right">Right</option>
+				</field>
+				<field 
+                    name="pauseOnHover" 
+                    type="radio" 
+                    default="1" 
+					class="btn-group btn-group-yesno"					
+                    label="MOD_VINA_POGO_ISLIDER_PHOVER" 
+                    description="MOD_VINA_POGO_ISLIDER_PHOVER_DESC">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                </field>
+			</fieldset>
+			
+			<fieldset name="slider">
+				<field name="slides" type="data" label="Slides" description="" filter="raw" />
+			</fieldset>
+			
+			<fieldset name="advanced">				
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+						<option value="1">JGLOBAL_USE_GLOBAL</option>
+						<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+						<option value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,197 @@
+.box-shadow (@string) {
+    -webkit-box-shadow: @string;
+    -moz-box-shadow: @string;
+    box-shadow: @string;
+}
+
+* {}
+body{
+   background-color:  #edeef0
+}
+header {
+    .header__text {
+        span {
+            background: rgba(255, 255, 255, 0);
+            background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 1) 53%, rgba(255, 255, 255, 1) 59%, rgba(255, 255, 255, 1) 61%, rgba(255, 255, 255, 1) 100%);
+            background: -webkit-gradient(left top, left bottom, color-stop(34%, rgba(255, 255, 255, 0)), color-stop(53%, rgba(255, 255, 255, 1)), color-stop(59%, rgba(255, 255, 255, 1)), color-stop(61%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(255, 255, 255, 1)));
+            background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 1) 53%, rgba(255, 255, 255, 1) 59%, rgba(255, 255, 255, 1) 61%, rgba(255, 255, 255, 1) 100%);
+            background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 1) 53%, rgba(255, 255, 255, 1) 59%, rgba(255, 255, 255, 1) 61%, rgba(255, 255, 255, 1) 100%);
+            background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 1) 53%, rgba(255, 255, 255, 1) 59%, rgba(255, 255, 255, 1) 61%, rgba(255, 255, 255, 1) 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 1) 53%, rgba(255, 255, 255, 1) 59%, rgba(255, 255, 255, 1) 61%, rgba(255, 255, 255, 1) 100%);
+            
+            &:hover {
+                background: rgba(255, 255, 255, 0);
+                background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 27%, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 0.95) 52%, rgba(252, 254, 251, 1) 53%, rgba(111, 212, 53, 1) 100%);
+                background: -webkit-gradient(left top, left bottom, color-stop(27%, rgba(255, 255, 255, 0)), color-stop(34%, rgba(255, 255, 255, 0)), color-stop(52%, rgba(255, 255, 255, 0.95)), color-stop(53%, rgba(252, 254, 251, 1)), color-stop(100%, rgba(111, 212, 53, 1)));
+                background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 27%, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 0.95) 52%, rgba(252, 254, 251, 1) 53%, rgba(111, 212, 53, 1) 100%);
+                background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 27%, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 0.95) 52%, rgba(252, 254, 251, 1) 53%, rgba(111, 212, 53, 1) 100%);
+                background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 27%, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 0.95) 52%, rgba(252, 254, 251, 1) 53%, rgba(111, 212, 53, 1) 100%);
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 27%, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 0.95) 52%, rgba(252, 254, 251, 1) 53%, rgba(111, 212, 53, 1) 100%);
+                
+            }
+            text-transform: capitalize;
+            text-decoration: underline;
+            a {
+                transition: all 0.5s;
+                &:hover {
+                    font-size: 1.2;
+                }
+                color: rgba(0, 0, 0, 0.7)
+            }
+        }
+        .span {
+            &-1 {
+                
+                &:hover {
+                    font-size: 1.2;
+                }
+            }
+            &-2 {
+                text-decoration: underline;
+            }
+            &-3 {
+                @media (max-width:500px){
+                    word-break: break-all;}
+            }
+        }
+        h1 {
+            line-height: 1.2;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 30px;
+             @media (max-width:500px)
+             {
+                    font-size: 30px;
+            
+            }
+        }
+}
+    a.btn-alert {
+        min-width: min-content;
+        position: absolute;
+        left: 10%;
+        right: 10%;
+        bottom: 10px;
+        &:hover {}
+        span {
+            text-transform: uppercase;
+            display: block;
+            padding: 15px;
+            margin: 3px;
+            border: 3px solid red;
+        }
+        color: black;
+        padding: 5px;
+        border: solid 3px lightgray;
+        background: rgba(255, 255, 255, 0.3);
+        font-size: 1.5em;
+        border-radius: 0px;
+        transition: margin 0.3s;
+        &:hover {
+            color: rgba(0, 0, 0, 0.8);
+            .box-shadow(-6px 8px 5px 0px rgba(50, 50, 50, 0.75));
+        }
+    }
+    position: relative;
+    text-align: center;
+    height: 92.5vh;
+    background-image: url(../img/header-bg.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+@media (max-width: 468px) {
+    a.btn-alert {
+        left: 5% !important;
+    }
+}
+
+.nav {
+    
+    min-height: 7.5vh !important;
+}
+
+.affix {
+    z-index: 9999999999;
+    transition: top 1s;
+    top: 0;
+    width: 100%;
+}
+
+.affix + .container-fluid {
+    transition: top 1s;
+    padding-top: 70px;
+}
+.navbar-header{
+    position: relative;
+    z-index: 9999999999;
+    height: min-content;
+}
+#safe {
+  border: 10px solid #edeef0;
+    .button-modal{
+        width: 100%;
+        margin: 20px auto;
+    }
+    background-color: #fff;
+   
+    
+ 
+    
+    
+
+ 
+    
+    ul{list-style: none;
+        li{
+            font-size: 25px;
+            min-height: 50px;
+        }
+    }
+   
+}
+i[class *= "icon-"]{
+    font-size: 1.5em;
+}
+td{
+    padding: 5px;
+}
+
+.modal-content{
+    margin-top: 80px;
+}
+
+
+tr{
+    &:nth-child(2){
+        border-bottom: 2px solid transparent;}
+    &:first-child{
+        border-bottom: 2px solid transparent;}
+    border-bottom: 2px solid transparent;
+
+    &:nth-child(even){ background-color: #fff;
+        &:hover{border-bottom: 2px solid;}
+    }
+    &:nth-child(odd){ background-color: #edeef0;
+        &:hover{border-bottom: 2px solid;}
+    }
+}
+#materials{
+   
+        overflow: auto;
+    
+}
+.white{
+    background-color: #fff
+}
+.price {
+    width: 760px;
+}
+
+#form{
+    input{
+        margin: 5px;
+        height: 50px;
+    }
+}
+

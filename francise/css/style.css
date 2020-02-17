@@ -1,0 +1,257 @@
+body {
+    background-color: #02031d;
+    background-image: url(../img/background.png);
+
+}
+
+p {
+    color: white;
+}
+
+input {
+    width: 100%;
+    height: 20%;
+    border-radius: 0.5em;
+    border-width: 2px;
+    background-color: rgba(1, 1, 1, 0);
+    border-color: #4a69a9;
+    margin-bottom: 2.1em;
+    font-size: 2.5em;
+    color: white;
+    box-shadow: 0px;
+    outline-width: 0px;
+}
+
+img {
+    width: 100%;
+}
+
+.navbar {
+    background-color: rgba(3, 10, 26, 0.8) !important;
+}
+
+.telefons {
+    text-align: right;
+    font-size: 50px;
+    margin-bottom: 0.1em;
+}
+
+.adress {
+    text-align: right;
+    font-size: 18px;
+    color: #9a9aa5;
+
+}
+
+.container-fluid {
+    padding: 2% 8%;
+}
+
+.scroll_img {
+    width: 30%;
+}
+
+.calculator {
+    font-size: 4em;
+    color: white;
+    border-radius: 2em;
+    background-color: #3e4551;
+    width: 100%;
+    height: 15%;
+    margin-bottom: 10%;
+    padding-top: 1%;
+}
+
+/*Слайдер*/
+
+.slider {
+    display: block;
+    vertical-align: middle;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.slider.slider-horizontal {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    height: 12px;
+}
+
+.slider.slider-horizontal .slider-track {
+    height: 6px;
+    width: 100%;
+    margin-top: -3px;
+    top: 50%;
+    left: 0;
+}
+
+.slider.slider-horizontal .slider-selection {
+    height: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+.slider.slider-horizontal .slider-handle {
+    margin-left: -16.5px;
+    margin-top: -14px;
+}
+
+.slider.slider-horizontal .slider-handle.triangle {
+    border-width: 0 6px 6px 6px;
+    width: 0;
+    height: 0;
+    border-bottom-color: #0480be;
+    margin-top: 0;
+}
+
+.slider.slider-vertical {
+    height: 210px;
+    width: 12px;
+}
+
+.slider.slider-vertical .slider-track {
+    width: 6px;
+    height: 100%;
+    margin-left: -3px;
+    left: 50%;
+    top: 0;
+}
+
+.slider.slider-vertical .slider-selection {
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.slider.slider-vertical .slider-handle {
+    margin-left: -3px;
+    margin-top: -6px;
+}
+
+.slider.slider-vertical .slider-handle.triangle {
+    border-width: 6px 0 6px 6px;
+    width: 1px;
+    height: 1px;
+    border-left-color: #0480be;
+    margin-left: 0;
+}
+
+.slider input {
+    display: none;
+}
+
+.slider .tooltip-inner {
+    white-space: nowrap;
+    display: none;
+}
+
+.slider-track {
+    position: absolute;
+    cursor: pointer;
+    background-image: none;
+    background-color: #b6c5db;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    border-radius: 20px;
+}
+
+.slider-selection {
+    position: absolute;
+    background-image: none;
+    background-color: #093b87;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.slider-handle {
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    background-image: none;
+    background-color: #b6c5db;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05);
+    opacity: 1;
+    border: 5px solid #093b87;
+}
+
+.slider-handle.round {
+    border-radius: 20px;
+}
+
+.slider-handle.triangle {
+    background: transparent none;
+}
+
+/*Ползунок*/
+
+.thumb {
+    position: relative;
+    top: -5px;
+    width: 10px;
+    height: 25px;
+    border-radius: 3px;
+    background: blue;
+    cursor: pointer;
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap_box {
+    background-image: url(../img/wrap.png);
+    background-size: 100%;
+    width: 155px;
+    height: 155px;
+    margin: 40px 20px;
+}
+
+.active_box {
+    width: 160px;
+    height: 160px;
+    background-image: url(../img/wrap_active.png);
+    background-size: 100%;
+}
+
+.active_info {
+    width: 17%;
+    background-image: url(../img/wrap_active.png);
+    background-size: 100%;
+    padding: 3%;
+    float: left;
+}
+
+#1, #2, #3, #4, #5, #6, #7 {
+    display: none;
+}
+
+#wrap {
+    width: 10%;
+}
+
+.wrap_img {
+    width: 70%;
+    margin: 17%;
+}
+
+.font {
+    font-size: 50px;
+    line-height: 1,5;
+}
+
+.text_info {
+    float: left;
+    font-size: 18px;
+    margin-top: 8%;
+    line-height: 1;
+}

@@ -1,0 +1,136 @@
+<?php
+/**
+ * @package SP Page Builder
+ * @author JoomShaper http://www.joomshaper.com
+ * @copyright Copyright (c) 2010 - 2015 JoomShaper
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 or later
+*/
+//no direct accees
+defined ('_JEXEC') or die ('resticted aceess');
+
+SpAddonsConfig::addonConfig(
+	array( 
+		'type'=>'content', 
+		'addon_name'=>'sp_modal',
+		'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL'),
+		'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_DESC'),
+		'attr'=>array(
+			'modal_selector'=>array(
+				'type'=>'select',
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_SELECTOR'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_SELECTOR_DESC'),
+				'values'=>array(
+					'button'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_SELECTOR_BUTTON'),
+					'image'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_SELECTOR_IMAGE'),
+					),
+				'std'=>'button',
+				),
+			'button_text'=>array(
+				'type'=>'text', 
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_TEXT'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_TEXT_DESC'),
+				'std'=>'Button',
+				),
+			'button_size'=>array(
+				'type'=>'select', 
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_SIZE'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_SIZE_DESC'),
+				'values'=>array(
+					''=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_SIZE_DEFAULT'),
+					'lg'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_SIZE_LARGE'),
+					'sm'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_SIZE_SMALL'),
+					'xs'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_SIZE_EXTRA_SAMLL'),
+					),
+				),
+			'button_type'=>array(
+				'type'=>'select', 
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_TYPE'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_TYPE_DESC'),
+				'values'=>array(
+					'default'=>JText::_('COM_SPPAGEBUILDER_GLOBAL_DEFAULT'),
+					'primary'=>JText::_('COM_SPPAGEBUILDER_GLOBAL_PRIMARY'),
+					'success'=>JText::_('COM_SPPAGEBUILDER_GLOBAL_SUCCESS'),
+					'info'=>JText::_('COM_SPPAGEBUILDER_GLOBAL_INFO'),
+					'warning'=>JText::_('COM_SPPAGEBUILDER_GLOBAL_WARNING'),
+					'danger'=>JText::_('COM_SPPAGEBUILDER_GLOBAL_DANGER'),
+					'link'=>JText::_('COM_SPPAGEBUILDER_GLOBAL_LINK'),
+					),
+				'std'=>'default',
+				),
+			'button_icon'=>array(
+				'type'=>'icon', 
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_ICON'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_ICON_DESC'),
+				),
+			'button_block'=>array(
+				'type'=>'select', 
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_BLOCK'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_BUTTON_BLOCK_DESC'),
+				'values'=>array(
+					''=>JText::_('JNO'),
+					'sppb-btn-block'=>JText::_('JYES'),
+					)
+				),
+			'selector_image'=>array(
+				'type'=>'media', 
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_SELECTOR_IMAGE'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_IMAGE_SELECT_DESC'),
+				),
+			'alignment'=>array(
+				'type'=>'select',
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_GLOBAL_CONTENT_ALIGNMENT'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_GLOBAL_CONTENT_ALIGNMENT_DESC'),
+				'values'=>array(
+					'sppb-text-left'=>JText::_('COM_SPPAGEBUILDER_ADDON_GLOBAL_LEFT'),
+					'sppb-text-center'=>JText::_('COM_SPPAGEBUILDER_ADDON_GLOBAL_CENTER'),
+					'sppb-text-right'=>JText::_('COM_SPPAGEBUILDER_ADDON_GLOBAL_RIGHT'),
+					),
+				'std'=>'sppb-text-left',
+				),
+			//Admin Only
+			'separator'=>array(
+				'type'=>'separator', 
+				'title'=>JText::_('COM_SPPAGEBUILDER_MODAL_CONTENT'),
+				),
+			'modal_window_title'=>array(
+				'type'=>'text', 
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_WINDOW_TITLE'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_WINDOW_TITLE_DESC'),
+				'std'=>'Modal'
+				),
+			'modal_content_text'=>array(
+				'type'=>'editor', 
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_TEXT'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_TEXT_DESC'),
+				'std'=>'Kevin chicken fatback sirloin ball tip, flank meatloaf t-bone. Meatloaf shankle swine pancetta biltong capicola ham hock meatball. Shoulder bacon andouille ground round pancetta pastrami. Sirloin beef ribs tenderloin rump corned beef filet mignon capicola kielbasa drumstick chuck turducken beef t-bone ribeye. Pork loin ground round t-bone chuck beef ribs swine pastrami cow. Venison tenderloin drumstick, filet mignon salami jowl sausage shank hamburger meatball ribeye kevin tri-tip. Swine kielbasa tenderloin fatback pork shankle andouille, flank frankfurter jerky chicken tri-tip jowl leberkas.&lt;br&gt;&lt;br&gt;Pancetta chicken pork belly beef cow kielbasa fatback sirloin biltong andouille bacon. Sirloin beef tenderloin porchetta, jerky tri-tip andouille sausage landjaeger shank bresaola short ribs tongue meatloaf fatback. Kielbasa pancetta shoulder tri-tip pastrami filet mignon ham corned beef prosciutto doner beef ribs. Doner sausage ham hock, shoulder sirloin pancetta boudin filet mignon chuck. Meatball ham hock beef, filet mignon tri-tip andouille venison ground round chuck turducken drumstick.',
+				),
+			'modal_content_image'=>array(
+				'type'=>'media', 
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_IMAGE'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_IMAGE_DESC'),
+				),
+			'modal_content_video_url'=>array(
+				'type'=>'text', 
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_VIDEO'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_VIDEO_URL_DESC'),
+				),
+			'modal_window_size'=>array(
+				'type'=>'select',
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_WINDOW_SIZE'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_WINDOW_SIZE_DESC'),
+				'values'=>array(
+					''=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_WINDOW_SIZE_STANDARD'),
+					'sppb-modal-lg'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_WINDOW_SIZE_LARGE'),
+					'sppb-modal-sm'=>JText::_('COM_SPPAGEBUILDER_ADDON_MODAL_WINDOW_SIZE_SMALL'),
+					),
+				'std'=>'',
+				),
+			'class'=>array(
+				'type'=>'text', 
+				'title'=>JText::_('COM_SPPAGEBUILDER_ADDON_CLASS'),
+				'desc'=>JText::_('COM_SPPAGEBUILDER_ADDON_CLASS_DESC'),
+				'std'=> ''
+				),
+			)
+		)
+	);

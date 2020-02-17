@@ -1,0 +1,1912 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name>Admin Quick Edit PRO</name>
+	<code>admin_quick_edit</code>
+	<version>5.4.0</version>
+	<author><![CDATA[<a href="http://www.opencart.com/index.php?route=extension/extension&filter_username=bull5-i" target="_blank">bull5-i</a>]]></author>
+	<link><![CDATA[http://www.opencart.com/index.php?route=extension/extension/info&extension_id=3805&filter_username=bull5-i]]></link>
+
+	<file path="admin/controller/design/layout.php">
+		<operation info="Hack: filter out AQE from modules list" error="log">
+			<search><![CDATA[foreach ($extensions as $code)]]></search>
+			<add position="after"><![CDATA[
+			if ($code == 'admin_quick_edit') continue;
+			]]></add>
+		</operation>
+		<operation info="Strip HTML tags from heading title" error="skip">
+			<ignoreif><![CDATA[[trim(strip_tags($this->language->get('heading_title')))]]></ignoreif>
+			<search><![CDATA[$this->language->get('heading_title')]]></search>
+			<add position="replace"><![CDATA[trim(strip_tags($this->language->get('heading_title')))]]></add>
+		</operation>
+	</file>
+
+	<file path="admin/controller/extension/module.php">
+		<operation info="Add extension status constant">
+			<search><![CDATA[function index]]></search>
+			<add position="after"><![CDATA[      if ($this->config->get('aqe_installed')) { define("AQE_STATUS", $this->config->get('aqe_status')); }]]></add>
+		</operation>
+	</file>
+
+	<file path="admin/controller/module/admin_quick_edit.php">
+		<operation info="Indicate that the OCMOD script is working">
+			<search><![CDATA[<?php]]></search>
+			<add position="after"><![CDATA[define('MOD_ACTIVE',                true);]]></add>
+		</operation>
+	</file>
+
+	<file path="admin/model/extension/event.php" error="skip">
+		<operation info="Add method for retrieving event by code for OC 2.0.1.0+">
+			<ignoreif><![CDATA[public function getEvent($code)]]></ignoreif>
+			<search><![CDATA[ModelExtensionEvent extends Model]]></search>
+			<add position="after"><![CDATA[
+	public function getEvent($code) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "event WHERE `code` = '" . $this->db->escape($code) . "'");
+
+		return $query->row;
+	}
+			]]></add>
+		</operation>
+	</file>
+
+<!-- MARKETING -> COUPONS -->
+	<file path="admin/controller/marketing/coupon.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_coupons_status')) {
+			return $this->load->controller('marketing/aqe/coupon');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_coupons_status')) {
+			return $this->load->controller('marketing/aqe/coupon/delete');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_coupons_status')) {
+			return $this->load->controller('marketing/aqe/coupon/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			ControllerMarketingCoupon extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_coupons_status')) {
+			return $this->load->controller('marketing/aqe/coupon/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('marketing/coupon', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function refresh_data() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_returns_status')) {
+			return $this->load->controller('marketing/aqe/coupon/refresh_data');
+		} else {
+			$this->response->redirect($this->url->link('marketing/coupon', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_coupons_status')) {
+			return $this->load->controller('marketing/aqe/coupon/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('marketing/coupon', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_marketing_coupons_status')) {
+			foreach ($this->config->get('aqe_marketing_coupons') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- MARKETING -> AFFILIATES -->
+	<file path="admin/controller/marketing/affiliate.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_affiliates_status')) {
+			return $this->load->controller('marketing/aqe/affiliate');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_affiliates_status')) {
+			return $this->load->controller('marketing/aqe/affiliate/delete');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_affiliates_status')) {
+			return $this->load->controller('marketing/aqe/affiliate/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			public function autocomplete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_affiliates_status')) {
+			return $this->load->controller('marketing/aqe/affiliate/autocomplete');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			ControllerMarketingAffiliate extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_affiliates_status')) {
+			return $this->load->controller('marketing/aqe/affiliate/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('marketing/affiliate', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function load_zone() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_affiliates_status')) {
+			return $this->load->controller('marketing/aqe/affiliate/load_zone');
+		} else {
+			$this->response->redirect($this->url->link('marketing/affiliate', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_affiliates_status')) {
+			return $this->load->controller('marketing/aqe/affiliate/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('marketing/affiliate', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_marketing_affiliates_status')) {
+			foreach ($this->config->get('aqe_marketing_affiliates') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- MARKETING -> CAMPAIGNS -->
+	<file path="admin/controller/marketing/marketing.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_campaigns_status')) {
+			return $this->load->controller('marketing/aqe/marketing');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_campaigns_status')) {
+			return $this->load->controller('marketing/aqe/marketing/delete');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_campaigns_status')) {
+			return $this->load->controller('marketing/aqe/marketing/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			ControllerMarketingMarketing extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_marketing_campaigns_status')) {
+			return $this->load->controller('marketing/aqe/marketing/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('marketing/marketing', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_marketing_campaigns_status')) {
+			foreach ($this->config->get('aqe_marketing_campaigns') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- SALES -> GIFT VOUCHER THEMES -->
+	<file path="admin/controller/sale/voucher_theme.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_voucher_themes_status')) {
+			return $this->load->controller('sale/aqe/voucher_theme');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_voucher_themes_status')) {
+			return $this->load->controller('sale/aqe/voucher_theme/delete');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_voucher_themes_status')) {
+			return $this->load->controller('sale/aqe/voucher_theme/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			ControllerSaleVoucherTheme extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_voucher_themes_status')) {
+			return $this->load->controller('sale/aqe/voucher_theme/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('sale/voucher_theme', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_voucher_themes_status')) {
+			return $this->load->controller('sale/aqe/voucher_theme/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('sale/voucher_theme', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_sales_voucher_themes_status')) {
+			foreach ($this->config->get('aqe_sales_voucher_themes') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- SALES -> GIFT VOUCHERS -->
+	<file path="admin/controller/sale/voucher.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_vouchers_status')) {
+			return $this->load->controller('sale/aqe/voucher');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_vouchers_status')) {
+			return $this->load->controller('sale/aqe/voucher/delete');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function send() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_vouchers_status')) {
+			return $this->load->controller('sale/aqe/voucher/send');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_vouchers_status')) {
+			return $this->load->controller('sale/aqe/voucher/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			ControllerSaleVoucher extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_vouchers_status')) {
+			return $this->load->controller('sale/aqe/voucher/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('sale/voucher', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_sales_vouchers_status')) {
+			foreach ($this->config->get('aqe_sales_vouchers') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- SALES -> RETURNS -->
+	<file path="admin/controller/sale/return.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_returns_status')) {
+			return $this->load->controller('sale/aqe/return');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_returns_status')) {
+			return $this->load->controller('sale/aqe/return/delete');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_returns_status')) {
+			return $this->load->controller('sale/aqe/return/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			ControllerSaleReturn extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function autocomplete() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_returns_status')) {
+			return $this->load->controller('sale/aqe/return/autocomplete');
+		} else {
+			$this->response->redirect($this->url->link('sale/return', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_returns_status')) {
+			return $this->load->controller('sale/aqe/return/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('sale/return', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function refresh_data() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_returns_status')) {
+			return $this->load->controller('sale/aqe/return/refresh_data');
+		} else {
+			$this->response->redirect($this->url->link('sale/return', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_returns_status')) {
+			return $this->load->controller('sale/aqe/return/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('sale/return', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_sales_returns_status')) {
+			foreach ($this->config->get('aqe_sales_returns') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- SALES -> ORDERS -->
+	<file path="admin/controller/sale/order.php">
+		<operation error="log">
+			<search><![CDATA[
+			function getList() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_sales_orders_status')) {
+			$this->load->helper('aqe');
+			$this->load->language('sale/aqe/general');
+			$this->document->addScript('view/javascript/aqe/catalog.min.js');
+			$this->document->addStyle('view/stylesheet/aqe/css/catalog.min.css');
+
+			$actions = array();
+			$columns = $this->config->get('aqe_sales_orders');
+			$columns = array_filter($columns, 'column_display');
+			foreach ($columns as $column => $attr) {
+				$columns[$column]['name'] = $this->language->get('column_' . $column);
+			}
+
+			$related_columns = array_merge(array_map(function($v) { return isset($v['rel']) ? $v['rel'] : ''; }, $columns), array_map(function($v) { return isset($v['rel']) ? $v['rel'] : ''; }, $actions));
+
+			$data['related'] = $related_columns;
+			$data['column_info'] = $columns;
+
+			$data['update_url'] = html_entity_decode($this->url->link('sale/order/quick_update', 'token=' . $this->session->data['token'], true));
+
+			$this->load->model('localisation/order_status');
+			$order_statuses = $this->model_localisation_order_status->getOrderStatuses();
+			$status_select = array();
+			foreach ($order_statuses as $status) {
+				$status_select[$status['order_status_id']] = $status['name'];
+			}
+			$data['status_select'] = addslashes(json_encode($status_select));
+
+			$data['text_saving'] = $this->language->get('text_saving');
+			$data['text_loading'] = $this->language->get('text_loading');
+			$data['text_batch_edit'] = $this->language->get('text_batch_edit');
+			$data['text_notify_customer'] = $this->language->get('text_notify_customer');
+
+			$data['notify_customer'] = $this->config->get('aqe_sales_orders_notify_customer');
+
+			$data['error_update'] = $this->language->get('error_update');
+			$data['error_ajax_request'] = $this->language->get('error_ajax_request');
+
+			$data['aqe_enabled'] = true;
+			$data['aqe_tooltip'] = ($this->config->get('aqe_quick_edit_on') == 'dblclick') ? $this->language->get('text_double_click_edit') : $this->language->get('text_click_edit');
+			$data['aqe_quick_edit_on'] = $this->config->get('aqe_quick_edit_on');
+			$data['batch_edit'] = (int)$this->config->get('aqe_batch_edit');
+		} else {
+			$data['aqe_enabled'] = false;
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			ControllerSaleOrder extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function quick_update() {
+		$this->load->language('sale/order');
+		$this->load->language('sale/aqe/order');
+		$this->load->language('sale/aqe/general');
+		$this->load->model('sale/order');
+
+		$alert = array("error" => array(), "success" => array());
+		$response = array();
+
+		if ($this->request->server['REQUEST_METHOD'] == 'POST' && $this->validateUpdateData($this->request->post)) {
+			list($column, $id) = explode("-", $this->request->post['id']);
+			$id = (array)$id;
+			$value = $this->request->post['new'];
+
+			if (isset($this->request->post['ids'])) {
+				$id = array_unique(array_merge((array)$id, (array)$this->request->post['ids']));
+			}
+
+			$results = array('done' => array(), 'failed' => array());
+
+			if (isset($this->request->post['notify'])) {
+				$notify = $this->request->post['notify'];
+			} else {
+				$notify = $this->config->get('aqe_sales_orders_notify_customer');
+			}
+
+			$post_data = array(
+				'order_status_id' => $value,
+				'notify' => $notify,
+				'override' => "0",
+				'append' => "0",
+				'comment' => ""
+			);
+
+			$store_url = HTTPS_CATALOG;
+
+			// API login
+			$this->load->model('user/api');
+
+			$api_info = $this->model_user_api->getApi($this->config->get('config_api_id'));
+
+			if ($api_info) {
+				$api_key = $api_info['key'];
+			} else {
+				$api_key = '';
+			}
+
+			$curl = curl_init();
+
+			// Set SSL if required
+			if (substr($store_url, 0, 5) == 'https') {
+				curl_setopt($curl, CURLOPT_PORT, 443);
+			}
+
+			$login_data = array(
+				'key' => $api_key
+			);
+
+			curl_setopt($curl, CURLOPT_HEADER, false);
+			curl_setopt($curl, CURLINFO_HEADER_OUT, true);
+			curl_setopt($curl, CURLOPT_USERAGENT, $this->request->server['HTTP_USER_AGENT']);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($curl, CURLOPT_FORBID_REUSE, false);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl, CURLOPT_URL, $store_url . 'index.php?route=api/login');
+			curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+			curl_setopt($curl, CURLOPT_POST, true);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($login_data));
+			curl_setopt($curl, CURLOPT_COOKIESESSION, true);
+			curl_setopt($curl, CURLOPT_COOKIEJAR, 'orderQuickEdit');
+			curl_setopt($curl, CURLOPT_COOKIEFILE, 'orderQuickEdit');
+
+			$json = json_decode(curl_exec($curl), true);
+			curl_close($curl);
+
+			if ($column == "status" && !empty($json['success']) && !empty($json['token'])) {
+				$api_token = $json['token'];
+
+				foreach ((array)$id as $_id) {
+					$curl = curl_init();
+
+					// Set SSL if required
+					if (substr($store_url, 0, 5) == 'https') {
+						curl_setopt($curl, CURLOPT_PORT, 443);
+					}
+
+					curl_setopt($curl, CURLOPT_HEADER, false);
+					curl_setopt($curl, CURLINFO_HEADER_OUT, true);
+					curl_setopt($curl, CURLOPT_USERAGENT, $this->request->server['HTTP_USER_AGENT']);
+					curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+					curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+					curl_setopt($curl, CURLOPT_FORBID_REUSE, false);
+					curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+					curl_setopt($curl, CURLOPT_URL, $store_url . 'index.php?route=api/order/history&token=' . $api_token . '&order_id=' . $_id);
+					curl_setopt($curl, CURLOPT_TIMEOUT, 10);
+					curl_setopt($curl, CURLOPT_POST, true);
+					curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($post_data));
+					//curl_setopt($curl, CURLOPT_COOKIESESSION, true);
+					curl_setopt($curl, CURLOPT_COOKIEFILE, 'orderQuickEdit');
+
+					$json = curl_exec($curl);
+
+					curl_close($curl);
+
+					if ($json) {
+						$json = json_decode($json, true);
+					}
+
+					$this->request->get['order_id'] = $_id;
+					$this->request->get['status_id'] = $value;
+					$this->load->controller('extension/openbay/addorderinfo');
+
+					if (!empty($json['error'])) {
+						$results['failed'][] = $_id;
+					} else {
+						$results['done'][] = $_id;
+					}
+				}
+			} else {
+				if (!empty($json['error'])) {
+					$alert['error'] = array_merge($alert['error'], (array)$json['error']);
+				} else if (empty($json['success']) || empty($json['token'])) {
+					$alert['error']['api_login'] = $this->language->get('error_login');
+				}
+			}
+
+			$response['results'] = $results;
+
+			if ($results['done']) {
+				$alert['success']['update'] = sprintf($this->language->get('text_success_update'), count($results['done']));
+				if ($results['failed']) {
+					$alert['error']['update'] = sprintf($this->language->get('error_failed_update'), count($results['failed']));
+				}
+				$response['success'] = 1;
+				if (in_array($column, array('status'))) {
+					$this->load->model('localisation/order_status');
+					$status = $this->model_localisation_order_status->getOrderStatus($value);
+					$response['value'] = $status['name'];
+					$response['values']['*'] = $response['value'];
+				} else {
+					$response['value'] = $value;
+					$response['values']['*'] = $response['value'];
+				}
+			} else {
+				$alert['error']['result'] = $this->language->get('error_update');
+			}
+		} else {
+			$response['error'] = $this->error['warning'];
+		}
+
+		$response = array_merge($response, array("errors" => $this->error), array("alerts" => $alert));
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($response));
+	}
+
+	protected function validateUpdateData(&$data) {
+		$this->checkPermission();
+
+		if (!isset($data['id']) || strpos($data['id'], "-") === false) {
+			$this->error['warning'] = $this->language->get('error_update');
+			return false;
+		}
+
+		list($column, $id) = explode("-", $data['id']);
+
+		if (!isset($data['old'])) {
+			$this->error['warning'] = $this->language->get('error_update');
+		}
+
+		if (!isset($data['new'])) {
+			$this->error['warning'] = $this->language->get('error_update');
+		}
+
+		if (!$this->error) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	protected function checkPermission() {
+		if (!$this->user->hasPermission('modify', 'sale/order')) {
+			$this->error['warning'] = $this->language->get('error_permission');
+		}
+	}
+			]]></add>
+		</operation>
+	</file>
+
+	<file path="admin/view/template/sale/order_list.tpl">
+		<operation error="log">
+			<search><![CDATA[
+			<div class="panel panel-default">
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		<?php if ($aqe_enabled) { ?>
+  <div class="alerts">
+    <div class="container-fluid" id="alerts">
+    </div>
+  </div>
+		<?php } ?>
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			<button type="submit" id="button-shipping"
+			]]></search>
+			<add position="before"><![CDATA[
+		<?php if ($aqe_enabled) { ?><label for="batch_edit" class="hidden" id="batch-edit-container"><input type="checkbox" id="batch-edit"<?php echo ($batch_edit) ? ' checked' : ''; ?>> <?php echo $text_batch_edit; ?></label><?php } ?>
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search regex="true"><![CDATA[~<td class="text-left"><\?php echo \$order\['(.*)status'\]; \?></td>~]]></search>
+			<add position="replace"><![CDATA[
+		<?php if ($aqe_enabled) { ?>
+		<td class="<?php echo $column_info["status"]['align']; ?><?php echo ($column_info["status"]['qe_status']) ? ' ' . $column_info["status"]['type'] : ''; ?>" id="<?php echo "status-" . $order['order_id']; ?>"><?php echo $order["$1status"]; ?></td>
+		<?php } else { ?>
+		<td class="text-left"><?php echo $order['$1status']; ?></td>
+		<?php } ?>
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			<?php echo $footer; ?>
+			]]></search>
+			<add position="before"><![CDATA[
+		<?php if ($aqe_enabled) { ?>
+		<script type="text/javascript"><!--
+		!function(t,e){t.batch_edit=parseInt("<?php echo (int)$batch_edit; ?>"),t.texts=e.extend({},t.texts,{error_ajax_request:"<?php echo addslashes($error_ajax_request); ?>"}),e(function(){e(".status_qe").editable(function(i,o){var a=e("#notify",this).is(":checked")?1:0,n={notify:a,api_token:token};return t.quick_update(this,i,o,"<?php echo $update_url; ?>",n).done(e.proxy(t.update_finished,{column:e(this).attr("id").split("-")[0]})).fail(e.proxy(t.update_failed,this)),o.indicator},{type:"status_edit",data:"<?php echo trim($status_select); ?>",indicator:"<?php echo $text_saving; ?>",tooltip:"<?php echo $aqe_tooltip; ?>",event:"<?php echo $aqe_quick_edit_on; ?>",onblur:"cancel",notify_customer_text:"<?php echo $text_notify_customer; ?>",notify_customer:parseInt("<?php echo (int)$notify_customer; ?>")})})}(window.bull5i=window.bull5i||{},jQuery);
+		//--></script>
+		<?php } ?>
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- CUSTOMER -> CUSTOMERS -->
+	<file path="admin/controller/customer/customer.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_customer_customers_status')) {
+			return $this->load->controller('customer/aqe/customer');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_customer_customers_status')) {
+			return $this->load->controller('customer/aqe/customer/delete');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_customer_customers_status')) {
+			return $this->load->controller('customer/aqe/customer/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			ControllerCustomerCustomer extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function autocomplete2() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_customer_customers_status')) {
+			return $this->load->controller('customer/aqe/customer/autocomplete2');
+		} else {
+			$this->response->redirect($this->url->link('customer/customer', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_customer_customers_status')) {
+			return $this->load->controller('customer/aqe/customer/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('customer/customer', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_customer_customers_status')) {
+			return $this->load->controller('customer/aqe/customer/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('customer/customer', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_customer_customers_status')) {
+			foreach ($this->config->get('aqe_customer_customers') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- CATALOG -> INFORMATIONS -->
+	<file path="admin/controller/catalog/information.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_information_status')) {
+			return $this->load->controller('catalog/aqe/information');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_information_status')) {
+			return $this->load->controller('catalog/aqe/information/delete');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_information_status')) {
+			return $this->load->controller('catalog/aqe/information/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			ControllerCatalogInformation extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function autocomplete() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_information_status')) {
+			return $this->load->controller('catalog/aqe/information/autocomplete');
+		} else {
+			$this->response->redirect($this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_information_status')) {
+			return $this->load->controller('catalog/aqe/information/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_information_status')) {
+			return $this->load->controller('catalog/aqe/information/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_catalog_information_status')) {
+			foreach ($this->config->get('aqe_catalog_information') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- CATALOG -> REVIEWS -->
+	<file path="admin/controller/catalog/review.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_reviews_status')) {
+			return $this->load->controller('catalog/aqe/review');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_reviews_status')) {
+			return $this->load->controller('catalog/aqe/review/delete');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_reviews_status')) {
+			return $this->load->controller('catalog/aqe/review/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			ControllerCatalogReview extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function autocomplete() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_reviews_status')) {
+			return $this->load->controller('catalog/aqe/review/autocomplete');
+		} else {
+			$this->response->redirect($this->url->link('catalog/review', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function refresh_data() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_reviews_status')) {
+			return $this->load->controller('catalog/aqe/review/refresh_data');
+		} else {
+			$this->response->redirect($this->url->link('catalog/review', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_reviews_status')) {
+			return $this->load->controller('catalog/aqe/review/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('catalog/review', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_catalog_reviews_status')) {
+			foreach ($this->config->get('aqe_catalog_reviews') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- CATALOG -> DOWNLOADS -->
+	<file path="admin/controller/catalog/download.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_downloads_status')) {
+			return $this->load->controller('catalog/aqe/download');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_downloads_status')) {
+			return $this->load->controller('catalog/aqe/download/delete');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function autocomplete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_downloads_status')) {
+			return $this->load->controller('catalog/aqe/download/autocomplete');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			ControllerCatalogDownload extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_downloads_status')) {
+			return $this->load->controller('catalog/aqe/download/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('catalog/download', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_downloads_status')) {
+			return $this->load->controller('catalog/aqe/download/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('catalog/download', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_catalog_downloads_status')) {
+			foreach ($this->config->get('aqe_catalog_downloads') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- CATALOG -> MANUFACTURERS -->
+	<file path="admin/controller/catalog/manufacturer.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_manufacturers_status')) {
+			return $this->load->controller('catalog/aqe/manufacturer');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_manufacturers_status')) {
+			return $this->load->controller('catalog/aqe/manufacturer/delete');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_manufacturers_status')) {
+			return $this->load->controller('catalog/aqe/manufacturer/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			public function autocomplete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_manufacturers_status')) {
+			return $this->load->controller('catalog/aqe/manufacturer/autocomplete');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			ControllerCatalogManufacturer extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_manufacturers_status')) {
+			return $this->load->controller('catalog/aqe/manufacturer/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('catalog/manufacturer', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_manufacturers_status')) {
+			return $this->load->controller('catalog/aqe/manufacturer/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('catalog/manufacturer', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_catalog_manufacturers_status')) {
+			foreach ($this->config->get('aqe_catalog_manufacturers') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- CATALOG -> OPTIONS -->
+	<file path="admin/controller/catalog/option.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_options_status')) {
+			return $this->load->controller('catalog/aqe/option');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_options_status')) {
+			return $this->load->controller('catalog/aqe/option/delete');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_options_status')) {
+			return $this->load->controller('catalog/aqe/option/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			ControllerCatalogOption extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function autocomplete2() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_options_status')) {
+			return $this->load->controller('catalog/aqe/option/autocomplete2');
+		} else {
+			$this->response->redirect($this->url->link('catalog/option', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_options_status')) {
+			return $this->load->controller('catalog/aqe/option/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('catalog/option', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function refresh_data() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_options_status')) {
+			return $this->load->controller('catalog/aqe/option/refresh_data');
+		} else {
+			$this->response->redirect($this->url->link('catalog/option', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_options_status')) {
+			return $this->load->controller('catalog/aqe/option/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('catalog/option', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_catalog_options_status')) {
+			foreach ($this->config->get('aqe_catalog_options') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- CATALOG -> ATTRIBUTE GROUPS -->
+	<file path="admin/controller/catalog/attribute_group.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_attribute_groups_status')) {
+			return $this->load->controller('catalog/aqe/attribute_group');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_attribute_groups_status')) {
+			return $this->load->controller('catalog/aqe/attribute_group/delete');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			ControllerCatalogAttributeGroup extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function autocomplete() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_attribute_groups_status')) {
+			return $this->load->controller('catalog/aqe/attribute_group/autocomplete');
+		} else {
+			$this->response->redirect($this->url->link('catalog/attribute_group', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_attribute_groups_status')) {
+			return $this->load->controller('catalog/aqe/attribute_group/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('catalog/attribute_group', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_attribute_groups_status')) {
+			return $this->load->controller('catalog/aqe/attribute_group/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('catalog/attribute_group', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_catalog_attribute_groups_status')) {
+			foreach ($this->config->get('aqe_catalog_attribute_groups') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- CATALOG -> ATTRIBUTES -->
+	<file path="admin/controller/catalog/attribute.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_attributes_status')) {
+			return $this->load->controller('catalog/aqe/attribute');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_attributes_status')) {
+			return $this->load->controller('catalog/aqe/attribute/delete');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function autocomplete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_attributes_status')) {
+			return $this->load->controller('catalog/aqe/attribute/autocomplete');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			ControllerCatalogAttribute extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_attributes_status')) {
+			return $this->load->controller('catalog/aqe/attribute/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('catalog/attribute', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_attributes_status')) {
+			return $this->load->controller('catalog/aqe/attribute/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('catalog/attribute', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_catalog_attributes_status')) {
+			foreach ($this->config->get('aqe_catalog_attributes') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- CATALOG -> FILTERS -->
+	<file path="admin/controller/catalog/filter.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_filters_status')) {
+			return $this->load->controller('catalog/aqe/filter');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_filters_status')) {
+			return $this->load->controller('catalog/aqe/filter/delete');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_filters_status')) {
+			return $this->load->controller('catalog/aqe/filter/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			ControllerCatalogFilter extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function autocomplete2() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_filters_status')) {
+			return $this->load->controller('catalog/aqe/filter/autocomplete2');
+		} else {
+			$this->response->redirect($this->url->link('catalog/filter', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_filters_status')) {
+			return $this->load->controller('catalog/aqe/filter/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('catalog/filter', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function refresh_data() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_filters_status')) {
+			return $this->load->controller('catalog/aqe/filter/refresh_data');
+		} else {
+			$this->response->redirect($this->url->link('catalog/filter', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_filters_status')) {
+			return $this->load->controller('catalog/aqe/filter/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('catalog/filter', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_catalog_filters_status')) {
+			foreach ($this->config->get('aqe_catalog_filters') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- CATALOG -> RECURRINGS -->
+	<file path="admin/controller/catalog/recurring.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_recurrings_status')) {
+			return $this->load->controller('catalog/aqe/recurring');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_recurrings_status')) {
+			return $this->load->controller('catalog/aqe/recurring/delete');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_recurrings_status')) {
+			return $this->load->controller('catalog/aqe/recurring/copy');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			ControllerCatalogRecurring extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_recurrings_status')) {
+			return $this->load->controller('catalog/aqe/recurring/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('catalog/recurring', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_recurrings_status')) {
+			return $this->load->controller('catalog/aqe/recurring/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('catalog/recurring', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_catalog_recurrings_status')) {
+			foreach ($this->config->get('aqe_catalog_recurrings') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- CATALOG -> CATEGORIES -->
+	<file path="admin/controller/catalog/category.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_categories_status')) {
+			return $this->load->controller('catalog/aqe/category');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_categories_status')) {
+			return $this->load->controller('catalog/aqe/category/delete');
+		}
+			]]></add>
+		</operation>
+		<!--operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_categories_status')) {
+			return $this->load->controller('catalog/aqe/category/copy');
+		}
+			]]></add>
+		</operation-->
+		<operation error="log">
+			<search><![CDATA[
+			public function autocomplete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_categories_status')) {
+			return $this->load->controller('catalog/aqe/category/autocomplete');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			ControllerCatalogCategory extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function filter() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_categories_status')) {
+			return $this->load->controller('catalog/aqe/category/filter');
+		} else {
+			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function category() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_categories_status')) {
+			return $this->load->controller('catalog/aqe/category/category');
+		} else {
+			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_categories_status')) {
+			return $this->load->controller('catalog/aqe/category/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function refresh_data() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_categories_status')) {
+			return $this->load->controller('catalog/aqe/category/refresh_data');
+		} else {
+			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_categories_status')) {
+			return $this->load->controller('catalog/aqe/category/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&sort=' . $this->request->get['sort'];
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_catalog_categories_status')) {
+			foreach ($this->config->get('aqe_catalog_categories') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+
+
+<!-- CATALOG -> PRODUCTS -->
+	<file path="admin/controller/catalog/product.php">
+		<operation error="log">
+			<search><![CDATA[
+			public function index() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_products_status')) {
+			return $this->load->controller('catalog/aqe/product');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function delete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_products_status')) {
+			return $this->load->controller('catalog/aqe/product/delete');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function copy() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_products_status')) {
+			return $this->load->controller('catalog/aqe/product/copy');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			public function autocomplete() {
+			]]></search>
+			<add position="after"><![CDATA[
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_products_status')) {
+			return $this->load->controller('catalog/aqe/product/autocomplete');
+		}
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search><![CDATA[
+			ControllerCatalogProduct extends Controller
+			]]></search>
+			<add position="after"><![CDATA[
+	public function filter() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_products_status')) {
+			return $this->load->controller('catalog/aqe/product/filter');
+		} else {
+			$this->response->redirect($this->url->link('catalog/product', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function category() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_products_status')) {
+			return $this->load->controller('catalog/aqe/product/category');
+		} else {
+			$this->response->redirect($this->url->link('catalog/product', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function load_popup() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_products_status')) {
+			return $this->load->controller('catalog/aqe/product/load_popup');
+		} else {
+			$this->response->redirect($this->url->link('catalog/product', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function refresh_data() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_products_status')) {
+			return $this->load->controller('catalog/aqe/product/refresh_data');
+		} else {
+			$this->response->redirect($this->url->link('catalog/product', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+
+	public function quick_update() {
+		if ((int)$this->config->get('aqe_status') && (int)$this->config->get('aqe_catalog_products_status')) {
+			return $this->load->controller('catalog/aqe/product/quick_update');
+		} else {
+			$this->response->redirect($this->url->link('catalog/product', 'token=' . $this->session->data['token'] . $url, true));
+		}
+	}
+			]]></add>
+		</operation>
+		<operation info="Add custom column filters" error="log">
+			<search><![CDATA[
+			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+			]]></search>
+			<add position="before" offset="1"><![CDATA[
+		if ($this->config->get('aqe_status') && $this->config->get('aqe_catalog_products_status')) {
+			foreach ($this->config->get('aqe_catalog_products') as $column => $attr) {
+				if ($attr['filter']['show'] && isset($this->request->get['filter_' . $column])) {
+					$url .= '&filter_' . $column . '=' . urlencode(html_entity_decode($this->request->get['filter_' . $column], ENT_QUOTES, 'UTF-8'));
+				}
+			}
+			if (isset($this->request->get['filter_sub_category'])) {
+				$url .= '&filter_sub_category=' . urlencode(html_entity_decode($this->request->get['filter_sub_category'], ENT_QUOTES, 'UTF-8'));
+			}
+		}
+			]]></add>
+		</operation>
+		<operation info="Fix for filter urls" error="log">
+			<search regex="true"><![CDATA[~\$url \.= '&(.*?)=' \. \$this->request->get\['(.*?)'\];~]]></search>
+			<add position="replace"><![CDATA[$url .= '&$1=' . urlencode(html_entity_decode($this->request->get['$2'], ENT_QUOTES, 'UTF-8'));]]></add>
+		</operation>
+	</file>
+
+	<file path="admin/view/template/catalog/product_list.tpl">
+		<operation error="log">
+			<search regex="true"><![CDATA[~if \((.*?) != '\*'\) \{~]]></search>
+			<add position="replace"><![CDATA[
+	if ($1 && $1 != '*') {
+			]]></add>
+		</operation>
+		<operation info="Sort &amp; order fix for filtering" error="log">
+			<search regex="true"><![CDATA[~url = 'index\.php\?route=(.*?)&token=<\?php echo \$token; \?>';~]]></search>
+			<add position="replace"><![CDATA[url = 'index.php?route=$1&token=<?php echo $token; ?>&sort=<?php echo $sort; ?>&order=<?php echo $order; ?>';]]></add>
+		</operation>
+	</file>
+
+	<file path="admin/view/template/{catalog,sale,customer}/*_list.tpl">
+		<operation info="Add 'change' event trigger" error="skip">
+			<search><![CDATA[<input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" />]]></search>
+			<add position="replace"><![CDATA[<input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked).trigger('change');" />]]></add>
+		</operation>
+	</file>
+
+	<file path="admin/controller/common/filemanager.php">
+		<operation info="Add image resizing method" error="skip">
+			<ignoreif><![CDATA[public function image]]></ignoreif>
+			<search><![CDATA[public function index]]></search>
+			<add position="before"><![CDATA[
+	public function image() {
+		$this->load->model('tool/image');
+
+		if (isset($this->request->get['size'])) {
+			$width = $height = (int)$this->request->get['size'];
+		} else if (isset($this->request->get['width']) && isset($this->request->get['height'])) {
+			$width = (int)$this->request->get['width'];
+			$height = (int)$this->request->get['height'];
+		} else {
+			$width = $height = 100;
+		}
+
+		if (isset($this->request->get['image'])) {
+			$this->response->setOutput($this->model_tool_image->resize(html_entity_decode($this->request->get['image'], ENT_QUOTES, 'UTF-8'), $width, $height));
+		}
+	}
+			]]></add>
+		</operation>
+	</file>
+
+	<file path="system/library/url.php">
+		<operation>
+			<ignoreif><![CDATA[private $domain;]]></ignoreif>
+			<search><![CDATA[
+			if ($this->ssl && $secure) {
+			]]></search>
+			<add position="replace"><![CDATA[
+		if ($this->domain && $this->ssl && $secure) {
+			$url = $this->ssl . 'index.php?route=' . $route;
+		} else if ($this->domain && !$secure) {
+			$url = $this->domain . 'index.php?route=' . $route;
+		} else if ($this->ssl && $secure) {
+			]]></add>
+		</operation>
+		<operation>
+			<ignoreif><![CDATA[private $domain;]]></ignoreif>
+			<search><![CDATA[
+			public function link
+			]]></search>
+			<add position="before"><![CDATA[
+	public function setDomain($domain) {
+		$this->domain = $domain;
+	}			]]></add>
+		</operation>
+		<operation>
+			<ignoreif><![CDATA[private $domain;]]></ignoreif>
+			<search><![CDATA[
+			private $ssl;
+			]]></search>
+			<add position="before"><![CDATA[
+	private $domain;
+			]]></add>
+		</operation>
+	</file>
+
+	<file path="system/library/db/mysql.php">
+		<operation error="skip">
+			<ignoreif><![CDATA[SET SESSION group_concat_max_len]]></ignoreif>
+			<search><![CDATA[
+			SET SQL_MODE = ''
+			]]></search>
+			<add position="after"><![CDATA[
+		if (property_exists($this, 'link')) {
+			mysql_query("SET SESSION group_concat_max_len = 65535", $this->link);
+		} else { 
+			mysql_query("SET SESSION group_concat_max_len = 65535", $this->connection);
+		}
+			]]></add>
+		</operation>
+	</file>
+
+	<file path="system/library/db/mysqli.php">
+		<operation error="skip">
+			<ignoreif><![CDATA[SET SESSION group_concat_max_len]]></ignoreif>
+			<search><![CDATA[
+			SET SQL_MODE = ''
+			]]></search>
+			<add position="after"><![CDATA[
+		if (property_exists($this, 'link')) {
+			$this->link->query("SET SESSION group_concat_max_len = 65535");
+		} else { 
+			$this->connection->query("SET SESSION group_concat_max_len = 65535");
+		}
+			]]></add>
+		</operation>
+	</file>
+
+</modification>
