@@ -1,0 +1,1 @@
+<li><a href="/shop/{id_server}/category-{id_category}">{name}</a></li> 

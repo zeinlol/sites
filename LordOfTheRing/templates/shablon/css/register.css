@@ -1,0 +1,337 @@
+.clearfix:after,
+.row:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix,
+.row {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix,
+html[xmlns] .row {
+    display: block;
+}
+
+*:focus {
+    outline: none;
+}
+
+input,
+select,
+textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #595959;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: #5d84a5;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+#reg_main {
+    width: 100%;
+}
+
+#reg_left_side {
+    /*float:left;*/
+    width: 100%;
+}
+
+#reg_container {
+    overflow: hidden;
+    
+}
+
+article {
+    width: 100%;
+    /*padding: 15px 0 0;*/
+}
+
+hgroup {
+    background-color: #fff;
+    padding-left: 15px;
+    padding: 10px 10px 10px 10px;
+}
+hgroup h3 p {
+    margin: 0;
+}
+
+.reg_form {
+    margin: 0;
+    padding: 0;
+}
+
+.reg_form fieldset {
+    border: none;
+    padding: 10px 0 0;
+    margin: 10px 0 10px 0;
+    padding-left: 15px;
+    background-color: #fff;
+}
+
+.reg_form .last {
+    margin: 0 !important;
+}
+
+.reg_form h4 {
+    font-size: 25px;
+    line-height: 33px;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+/*.reg_form h4 span {
+    display: block;
+    float: left;
+    width: 13px;
+    padding: 0 10px;
+    height: 33px;
+    background: url(../images/h4_span.png) no-repeat center;
+    color: #fff;
+    font-size: 19px;
+    font-weight: bold;
+    margin-right: 15px;
+    text-shadow: 1px 1px 0 #d6ed94;
+}*/
+
+.reg_form .row {
+    margin-bottom: 20px;
+}
+
+.reg_form label {
+    color: #595959;
+    font-size: 16px;
+    display: block;
+    float: left;
+    padding-bottom: 9px;
+    width: 100%
+}
+
+.reg_form label em {
+    color: #e33636;
+    font-weight: bold;
+    margin-left: 3px;
+}
+
+.reg_form label a {
+    color: #0071b9;
+}
+
+.reg_form label .tooltip {
+    display: block;
+    float: right;
+    margin-right: 5px;
+    width: 17px;
+    height: 17px;
+    background: url(../images/tooltip.png) no-repeat;
+}
+
+.reg_form .inner_labels label {
+    padding: 7px 15px 7px 0;
+    width: auto;
+}
+
+.reg_form input[type="text"],
+.reg_form .row input[type="password"],
+.reg_form select,
+.reg_form textarea {
+    background: #f5f5f5;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1), 0 2px 2px rgba(0, 0, 0, .1) inset;
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .1), 0 2px 2px rgba(0, 0, 0, .1) inset;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .1), 0 2px 2px rgba(0, 0, 0, .1) inset;
+    border: 1px solid #c5c5c5;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.reg_form input[type="text"],
+.reg_form .row input[type="password"] {
+    width: 268px;
+    padding: 1px 10px;
+    height: 33px;
+    line-height: 33px;
+}
+
+.reg_form select {
+    padding: 6px 5px;
+    width: 290px;
+    height: 37px;
+    line-height: 33px;
+}
+
+.reg_form textarea {
+    padding: 5px 10px;
+    width: 100%;
+    height: 95px;
+    line-height: 19px;
+    width: 580px;
+    font-size: 15px;
+}
+
+.reg_form input[type="checkbox"],
+.reg_form .row input[type="radio"] {
+    display: block;
+    float: left;
+    margin: 10px 7px 10px 0;
+}
+
+.reg_form input.hasDatepicker {
+    float: left;
+    width: 113px;
+    margin-right: -27px;
+}
+
+.reg_form img.ui-datepicker-trigger {
+    float: left;
+    margin-top: 9px;
+}
+
+.reg_form input[type="text"]:focus,
+.reg_form .row input[type="password"]:focus,
+.reg_form .row select:focus,
+.reg_form .row textarea:focus,
+.reg_form .row input[type="text"]:hover,
+.reg_form .row input[type="password"]:hover,
+.reg_form .row select:hover,
+.reg_form .row textarea:hover {
+    border: 1px solid #b8d564;
+    box-shadow: 0 0 5px #b8d564, 0 2px 2px rgba(0, 0, 0, .1) inset;
+    -moz-box-shadow: 0 0 5px #b8d564, 0 2px 2px rgba(0, 0, 0, .1) inset;
+    -webkitkit-box-shadow: 0 0 5px #b8d564, 0 2px 2px rgba(0, 0, 0, .1) inset;
+}
+
+.reg_form input.error,
+.reg_form select.error,
+.reg_form textarea.error {
+    border: 1px solid #eb9393;
+    box-shadow: 0 0 5px #f7c4c4;
+    -moz-box-shadow: 0 0 5px #f7c4c4;
+    -webkit-box-shadow: 0 0 5px #f7c4c4;
+    background-color: #fce4e4;
+}
+
+.reg_form input[type="submit"] {
+    cursor: pointer;
+    color: #fff;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border: 0;
+    background: #b85151;
+    font-size: 16px;
+    padding: 5px 20px;
+    font-weight: bold;
+    float: right;
+}
+
+/*.reg_form input[type="submit"]:hover {
+    background: #51b1c7;
+    background: -webkit-gradient(linear, center bottom, center top, from(#4297ab), to(#60cce3));
+    background: -moz-linear-gradient(bottom, #4297ab, #60cce3);
+}*/
+
+.reg_form span.label {
+    color: #595959;
+    float: left;
+    line-height: 33px;
+    margin: 0 10px 0 0;
+}
+
+.reg_form p.hint {
+    margin: 5px 0 0;
+    color: #444;
+    font-size: 11px;
+}
+
+.reg_form .item {
+    width: 294px;
+    float: left;
+    margin-right: 16px;
+}
+
+.reg_form .item span.label {
+    width: 100%;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.copy {
+    float: right;
+    color: #9eabae;
+    font-size: 12px;
+    margin: 10px 16px 20px 0;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+aside {
+    width: 240px;
+    float: left;
+    padding: 75px 0 0 20px;
+}
+
+aside h5 {
+    font-family: Georgia;
+    color: #0a3263;
+    font-size: 28px;
+    line-height: 30px;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+aside a.login {
+    display: block;
+    margin-bottom: 40px;
+    color: #1050a0;
+    font-size: 17px;
+    text-shadow: 1px 1px 1px #fff;
+    line-height: 19px;
+    background: url(../images/ico_login.png) no-repeat left center;
+    padding-left: 25px;
+}
+
+aside .item {
+    margin: 0 0 20px -20px;
+    padding: 4px 0 10px 50px;
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, .1);
+    background: url(../images/aside_h6.png) no-repeat 20px top;
+}
+
+aside .item.last {
+    border: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+aside h6 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #1050a0;
+    text-shadow: 1px 1px 1px #fff;
+    line-height: 20px;
+}
+
+aside p {
+    font-size: 12px;
+    line-height: 15px;
+    text-shadow: 1px 1px 1px #fff;
+    color: #607da1;
+}

@@ -1,0 +1,1 @@
+<a class="sh_cat_but-active" href="/index.php?do=shopadmin&ed={ed}&server={id_server}&category={id_category}">{name}</a> 

@@ -1,0 +1,34 @@
+/* Стили сообщений для почт */
+
+.mcs_em_body {}
+.mcs_em_body-head {
+	background: #f6f6f6; 
+	padding: 24px 24px 24px 24px; 
+	color: #444444; 
+	text-transform: uppercase; 
+	border-bottom: 1px solid #ECECEC;
+}
+.mcs_em_body-cont {
+	background: #ffffff;
+	padding: 24px 24px 24px 24px;
+	color: #444444;
+}
+.mcs_em_info {
+	color: #444444; 
+	padding: 12px; 
+	font-size: 13px; 
+	border-left: 6px solid #21aeec; 
+	margin: 0px 0px 12px 0px; 
+	background: #e0f5fe;
+}
+.mcs_em_link {
+	border: 1px solid #e6e6e6; 
+	background: #f6f6f6; 
+	color: #666666; 
+	font-style: italic;
+	padding: 12px;
+	margin: 10px 0px;
+	width: 100%;
+	font-size: 14px;
+	text-align: center;
+}

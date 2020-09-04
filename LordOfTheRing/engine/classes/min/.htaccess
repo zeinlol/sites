@@ -1,0 +1,12 @@
+<Files "index.php">
+	Order Deny,Allow
+	Allow from all
+</files>
+<Files "JSMinify.php">
+	Order Deny,Allow
+	Allow from all
+</files>
+<Files "JSMin.php">
+	Order Deny,Allow
+	Allow from all
+</files>

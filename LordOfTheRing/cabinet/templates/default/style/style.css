@@ -1,0 +1,340 @@
+
+.lk {
+	margin: 0 auto;
+	width: 600px;
+	background: #F7F7F7;
+	border: 1px solid #D7D7D7;
+	font-family: calibri;
+	font-size: 14px;
+	color: #000;
+}
+
+.lk a {
+	cursor: pointer;
+}
+
+#lk-body-alert {
+	background: #FFFAD8;
+	border: 1px solid #C4BD85;
+	border-radius: 5px;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+#lk-body-alert_window {
+	position: fixed;
+	z-index: 9999;
+}
+
+#alert_bg_dark {
+	position: fixed;
+	left: -50px;
+	top: -50px;
+	width: 150%;
+	height: 150%;
+	opacity: 0.4;
+	background: #000;
+}
+
+.lk-body-alert_window-head {
+	padding: 15px;
+	font-size: 17px;
+	font-weight: bold;
+	color: #4A1717;
+	border: 2px solid #ED7D7D;
+	border-bottom: none;
+	background: #FFBDBD;
+	border-radius: 5px 5px 0px 0px;
+	cursor: default;
+}
+
+.lk-body-alert_window-head-icon {
+	cursor: pointer;
+	color: #8B2020;
+	text-shadow: 1px 1px 0 #456;
+}
+
+.lk-body-alert_window-head-close:hover {
+	color: #B54141;
+}
+
+.lk-body-alert_window-content {
+	padding: 15px;
+	background: #F9F9F9;
+	border: 2px solid #E6E6E6;
+	border-top: none;
+	border-radius: 0px 0px 5px 5px;
+}
+
+.lk-menu-image {
+	background: #E6E6E6 url('../images/lk-menu-image.png');
+	height: 50px;
+	opacity: 0.7;
+}
+
+.lk-menu-image-text {
+	font-size: 35px;
+	padding: 15px;
+	font-weight: bold;
+}
+
+.lk-menu-nav {
+	height: 40px;
+	color: #FFB5B5;
+}
+
+.lk-menu-nav a {
+	display: inline-block;
+	padding: 15px;
+    text-align: center;
+	font-weight: bold;
+	font-family: tahoma;
+	font-size: 12px;
+	text-decoration: none;
+    z-index: 9999;
+    cursor: pointer;
+	color: #FFC7C7;
+    box-shadow: 0 0 2px rgba(0,0,0,.3);
+    text-shadow: 0 1px 1px rgba(0,0,0,.7);
+    background: #d3291d;
+    background: -moz-linear-gradient(top, #ef6856 0%, #d3291d 44%, #d3291d 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ef6856), color-stop(44%,#d3291d), color-stop(100%,#d3291d));
+    background: -webkit-linear-gradient(top, #ef6856 0%,#d3291d 44%,#d3291d 100%);
+    background: -o-linear-gradient(top, #ef6856 0%,#d3291d 44%,#d3291d 100%);
+    background: -ms-linear-gradient(top, #ef6856 0%,#d3291d 44%,#d3291d 100%);
+    background: linear-gradient(to bottom, #ef6856 0%,#d3291d 44%,#d3291d 100%);
+}
+
+.lk-menu-nav a:hover {
+	background: #e6353c;
+	background: -moz-linear-gradient(top,  #ef796e 0%, #e6353c 44%, #e6353c 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ef796e), color-stop(44%,#e6353c), color-stop(100%,#e6353c));
+	background: -webkit-linear-gradient(top,  #ef796e 0%,#e6353c 44%,#e6353c 100%);
+	background: -o-linear-gradient(top,  #ef796e 0%,#e6353c 44%,#e6353c 100%);
+	background: -ms-linear-gradient(top,  #ef796e 0%,#e6353c 44%,#e6353c 100%);
+	background: linear-gradient(to bottom,  #ef796e 0%,#e6353c 44%,#e6353c 100%);
+}
+
+.lk-menu-nav-active {
+    color: #fff !important;
+	background: #e6352c !important;
+}
+
+.lk-body {
+	padding: 15px;
+	background: #F8F8F8;
+}
+
+.lk-body-block-1-info {
+	width: 350px;
+	float: right;
+}
+
+.lk-body-block-1-info td {
+	border: 1px solid #DFDFDF;
+	border-radius: 3px;
+	padding: 7px;
+}
+
+.lk-body-block-1-skin {
+	width: 220px;
+}
+
+.lk-body-block-1-skin-form {
+	margin-top: 10px;
+}
+
+.lk-button-1 {
+	font-weight: 700;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	padding: 8px 10px;
+	margin: 3px 0px;
+	border-radius: 3px;
+	border: none;
+	background: #E26969;
+	box-shadow: 0 -3px #C65959 inset;
+	transition: 0.2s;
+	outline: 0;
+	cursor: pointer;
+}
+.lk-button-1:hover { background: #DE5959; }
+.lk-button-1:active {
+  background: #C05050;
+  box-shadow: 0 3px #BD4C4C inset;
+}
+
+.lk-input_text-1 {
+	font-size: 14px;
+	padding: 7px;
+	border: 1px solid #D1D1D1;
+	border-radius: 5px;
+	outline: 0;
+}
+
+.lk-input_text-1:focus {
+	border: 1px solid #FF9C9C;
+}
+
+.lk-body-block-1-servers {
+	padding: 3px;
+}
+
+.lk-server {
+	padding: 5px;
+	margin-top: 3px;
+	background: #fff;
+	border: 1px solid #E5E5E5;
+	border-radius: 5px;
+}
+
+.lk-server-select {
+	padding: 10px;
+	margin-top: 5px;
+	background: #fff;
+	border: 1px solid #E5E5E5;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.lk-server-select:hover {
+	background: #f2f2f2;
+}
+
+.lk-body-block-2-server-opt {
+	margin-top: 20px;
+}
+
+.lk-body-block-2-server-opt-status {
+	width: 50%;
+}
+
+.lk-status {
+	padding: 10px;
+	margin-top: 5px;
+	background: #fff;
+	border: 1px solid #E5E5E5;
+	border-radius: 5px;
+}
+
+.lk-body-block-2-server-opt-prefix {
+	float: right;
+	width: 50%;
+}
+
+.lk-body-block-2-server-opt-prefix-block {
+	padding: 6px;
+}
+
+.lk-chat-viem {
+	font-family: minecraft;
+	font-size: 12px;
+}
+
+@font-face {
+	font-family:minecraft;
+	src:url(ttf/minecraft.ttf)
+}
+
+.lk-body-block-3-block {
+	padding: 10px;
+	margin-top: 10px;
+	background: #F5F5F5;
+	border: 1px solid #D97676;
+	border-radius: 5px;
+	-webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.58);
+	-moz-box-shadow:    2px 2px 2px 0px rgba(50, 50, 50, 0.58);
+	box-shadow:         2px 2px 2px 0px rgba(50, 50, 50, 0.58);
+}
+
+.lk-body-block-3-block p {
+	font-size: 16px;
+	
+}
+
+.lk-warp tr{
+	display: block;
+	padding: 5px;
+	margin-top: 5px;
+	background: #fff;
+	border: 1px solid #EAEAEA;
+	border-radius: 5px;
+}
+
+.lk-input-warp {
+	display: block;
+	width: 300px;
+	margin-top: 10px;
+}
+
+.lk-right {
+	padding: 5px;
+	margin: 4px 0px;
+	font-family: monospace;
+	font-size: 12px;
+	border-radius: 5px;
+}
+
+.lk-right_on {
+	background: #D8FFD3;
+	border: 1px solid #63A25C;
+}
+
+.lk-right_off {
+	background: #FFC6C6;
+	border: 1px solid #C17C7C;
+}
+
+.lk-select-option-1 option {
+	padding: 5px;
+}
+
+.lk-bar-1 {
+	border: 1px solid #848484;
+	border-radius: 5px;
+}
+
+.lk-bar-1 div {
+	background: #8CE682;
+	height: 20px;
+	border-radius: 5px;
+}
+
+.lk-cur-image {
+	display: inline-block;
+	background: url(../images/lk-cur.png) no-repeat;
+	width: 15px;
+	height: 15px;
+	margin: 0px 2px;
+}
+
+.lk-cur-iconomy-image {
+	display: inline-block;
+	background: url(../images/lk-cur-iconomy.png) no-repeat;
+	width: 15px;
+	height: 15px;
+	margin: 0px 2px;
+}
+
+.lk-exchange-image {
+	display: inline-block;
+	background: url(../images/lk-exchange.png) no-repeat;
+	width: 15px;
+	height: 15px;
+	margin: 0px 10px;
+}
+
+.lk-catalog {
+	overflow-y: auto;
+	height: 400px;
+}
+
+.lk-catalog-skin {
+	display: inline-block;
+	margin: 15px;
+}
+
+.lk-catalog-skin-head {
+	text-overflow: ellipsis;
+}
